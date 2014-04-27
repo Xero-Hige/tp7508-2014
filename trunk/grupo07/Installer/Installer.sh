@@ -1,45 +1,46 @@
-#Funcion usada para loggear mensajes
-log() {
+source RWConfFile.sh
+source ../Logger/logger.sh
 
-	if [ $# -lt "3" ]
+
+
+#PASOS
+
+#Inicio archivo de Log
+initializeLog
+
+#Checkeo el archivo de configuracion
+checkInstallerConfFile
+
+#si el archivo de configuracion esta instalado y completo, checkeo que este correctamente. Si no pido los datos
+if [ "$?" -eq "0" ]
+then
+	echo -e "El programa no fue instalado, se procede con las instalacion\n"
+else
+	echo -e "El programa ya fue instalado\nCheckeando directorios...\n"
+	MESSAGE=$(checkCompleteInstallation)
+	if [ "$?" -eq "0" ] #la instalacion estaba completa
 	then
-		echo $#
-		return -1
+		MESSAGE+="\nProceso de instalacion cancelado\n"			
+		log $0 "INFO" "$MESSAGE"
+		echo -e "$MESSAGE"
+		break
+	else # la instalacion no estaba completa
+		log $0 "WAR" "$MESSAGE"
+		echo -e "$MESSAGE"
+		RESPONSE=0		
+		while [ "$RESPONSE" -eq "0" ]
+		do
+			echo -e "Estado de instalacion: INCOMPLETA\nDesea completar la instalacion?(Y-N)"
+			read R
+			if [ "$R" == "y" ] || [ "$R" == "Y" ]
+			then 
+				RESPONSE=1
+			elif [ "$R" == "n" ] || [ "$R" == "N" ]
+			then 
+				RESPONSE=1
+			else
+				echo -e "\nIngrese una opcion correcta(Y-N)\n"
+			fi
+		done
 	fi
-	FILE="../Conf/Installer.log"
-	CALLER="$1"
-	ERRTYPE="$2"
-	ERRMSG="$3"
-	DATE=$(date +"%d/%m/%Y - %H:%M:%S")
-	echo -e "\n--------------------------------------------------------$DATE--------------------------------------------------------\n\nUser: $USER\nCaller: $CALLER\nType: $ERRTYPE\nMessage: $ERRMSG\n\n-------------------------------------------------------------------------------------------------------------------------------------" >> $FILE
-	
-
-}
-
-#Inicializo archivo de log
-initializeLog() {
-
-	echo "Inicia ejecucion de Installer"
-	log $0 "INFO" "Inicia ejecucion de Installer"
-	echo "Log de instalacion: grupo07/Conf/Installer.log"
-	log $0 "INFO" "Log de instalacion: grupo07/Conf/Installer.log"
-	echo "Directorio de configuracion: grupo07/Conf"
-	log $0 "INFO" "Directorio de configuracion: grupo07/Conf"
-
-}
-
-
-#Checkeo existencia de Intaller.conf
-checkInstallerConfFile() {
-	
-	if [ ! -f "../Conf/Installer.conf" ]
-	then
-		log "$0" "WAR" "El archivo de configuracion (Installer.conf) no existe, el paquete no fue instalado, se procede con la instalacion desde cero"
-		return 0
-	else
-		log "$0" "WAR" "El archivo de configuracion (Installer.conf) ya existe, se checkean directorios"
-		return 1
-	fi
-}
-
-
+fi

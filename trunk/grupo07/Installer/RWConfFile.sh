@@ -14,6 +14,21 @@ LOGEXT="log" #extension de archivos de log
 LOGSIZE=400 #tamanio maximo para archivos de log
 INSTALLERVARIABLES=( BINDIR MAEDIR NOVEDIR DATASIZE ACPTDIR INFODIR RECHDIR LOGDIR LOGEXT LOGSIZE )
 
+
+#Checkeo existencia de Intaller.conf
+checkInstallerConfFile() {
+	
+	if [ ! -f "$ROOT/$CONFGFILE" ]
+	then
+		log "$0" "WAR" "El archivo de configuracion (Installer.conf) no existe, el paquete no fue instalado, se procede con la instalacion desde cero"
+		return 0
+	else
+		log "$0" "WAR" "El archivo de configuracion (Installer.conf) ya existe, se checkean directorios"
+		return 1
+	fi
+}
+
+
 #Checkea que ya haya sido creado el directorio($1 son los caracteres que lo identifican)
 checkCreated() {
 	
@@ -77,8 +92,8 @@ getVarInfo() {
 #Si el archivo installer.conf existe se debera checkear que la instalacion este completa. Si lo esta, se termina. Si no, se muestran los que ya estan definidos y los faltantes.Hay que logear todo 
 checkCompleteInstallation() {
 
-	MESSAGE="    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07\n\n"
-	NOTINSTALLED="\nComponentes faltantes: "
+	MESSAGE="\n\n    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07\n\n"
+	NOTINSTALLED="\nCOMPONENTES FALTANTES: "
 	NEWPATH=""
 	for dir in "${INSTALLERVARIABLES[@]}"
 	do
@@ -88,27 +103,40 @@ checkCompleteInstallation() {
 			NOTINSTALLED+=$(getVarInfo "$dir")
 			NOTINSTALLED+="; "
 		else
-			NEWPATH=$(changeValue "$dir")
-			if [ -d "$ROOT/$NEWPATH" ] #checkeo que el directorio que estaba guardado en el archivo de configuracion exista
-			then #existe
-				MESSAGE+=$(getVarInfo "$dir")
-				MESSAGE+=": $NEWPATH\n"
-				MESSAGE+=$(ls "$ROOT/$NEWPATH")
-				MESSAGE+="\n"
-			else #no existe
-				NOTINSTALLED+=$(getVarInfo "$dir")
-				NOTINSTALLED+="; "
+			if [ "$dir" == "DATASIZE" ] || [ "$dir" == "LOGEXT" ] || [ "$dir" == "LOGSIZE" ]
+			then
+				continue
+			else
+				NEWPATH=$(changeValue "$dir")
+				if [ -d "$ROOT/$NEWPATH" ] #checkeo que el directorio que estaba guardado en el archivo de configuracion exista
+				then #existe
+					MESSAGE+=$(getVarInfo "$dir")
+					MESSAGE+=": $NEWPATH\n"
+					MESSAGE+=$(ls "$ROOT/$NEWPATH")
+					MESSAGE+="\n"
+				else #no existe
+					NOTINSTALLED+=$(getVarInfo "$dir")
+					NOTINSTALLED+="; "
+				fi
 			fi
 		fi
 	done
-	echo -e "$MESSAGE"
-	echo -e "$NOTINSTALLED"
-	if [ "$NOTINSTALLED" == "\nComponentes faltantes: " ]
-	then 
+	
+	if [ "$NOTINSTALLED" == "\nCOMPONENTES FALTANTES: " ]
+	then
+		MESSAGE+="Estado de la instalacion: COMPLETA\n"
+		echo -e "$MESSAGE" 
 		return 0 #la instalacion estaba completa
 	else
+		MESSAGE+="$NOTINSTALLED"
+		echo -e "$MESSAGE"
 		return 1 #la instalacion estaba incompleta
 	fi
 
 }
-checkCompleteInstallation
+
+
+#Completa la instalacion pidiendole los valores faltantes al usuario
+completeInstallation() {
+
+}
