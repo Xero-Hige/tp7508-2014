@@ -137,7 +137,3 @@ checkCompleteInstallation() {
 }
 
 
-#Completa la instalacion pidiendole los valores faltantes al usuario
-completeInstallation() {
-
-}
