@@ -1,0 +1,2163 @@
+
+--------------------------------------------------------28/04/2014 - 15:31:42--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:31:42--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:31:42--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:31:42--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:31:42--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:39:01--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:39:01--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:39:01--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:39:01--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:39:02--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:39:15--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:39:15--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:39:15--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:39:15--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:39:15--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:40:26--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:40:26--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:40:26--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:40:26--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) no existe, el paquete no fue instalado, se procede con la instalacion desde cero
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:41:39--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:41:39--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:41:39--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:41:39--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) no existe, el paquete no fue instalado, se procede con la instalacion desde cero
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:41:51--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:41:51--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:41:51--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:41:51--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:41:51--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:44:25--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:44:25--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:44:25--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:44:25--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:44:25--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:15--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:15--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:15--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:15--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:15--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:34--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:34--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:34--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:34--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:34--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:45--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:45--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:45--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:45--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:45:45--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:47:29--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:47:29--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:47:29--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:47:29--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:47:29--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:47:32--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:47:32--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:47:32--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:47:32--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:47:32--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:48:03--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:48:03--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:48:03--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:48:03--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:48:04--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:49:08--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:49:08--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:49:08--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:49:08--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:49:08--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:50:07--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:50:07--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:50:07--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:50:07--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:50:07--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:50:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:50:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:50:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:50:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:50:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:51:42--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:51:42--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:51:42--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:51:42--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:51:42--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:53:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Se muestran terminos y condiciones
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:54:43--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Se muestran terminos y condiciones
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:54:59--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Se muestran terminos y condiciones
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:55:21--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Se muestran terminos y condiciones
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:55:40--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:55:40--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:55:40--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:55:40--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:55:40--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:55:41--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:56:03--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:56:03--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:56:03--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:56:03--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) no existe, el paquete no fue instalado, se procede con la instalacion desde cero
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:56:03--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El programa no fue instalado, se procede con las instalacion
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:56:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:56:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:56:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:56:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:56:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:56:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Novedades Aceptadas: acptA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Archivos Rechazados: rechA
+
+Directorio de Log de Comandos: logdA
+
+Estado de la instalacion: COMPLETA
+Proceso de instalacion cancelado
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:57:14--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:57:14--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:57:14--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:57:14--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:57:14--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:57:14--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Novedades Aceptadas: acptA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Archivos Rechazados; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:57:23--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:57:23--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:57:23--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:57:23--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:57:23--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:57:24--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Novedades Aceptadas: acptA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Archivos Rechazados; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:58:12--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:58:12--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:58:12--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:58:12--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:58:12--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:58:12--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Novedades Aceptadas: acptA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Archivos Rechazados; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 15:58:13--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El usuario elige cancelar la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:00:12--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:00:12--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:00:12--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:00:12--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:27--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:27--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:27--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:27--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:27--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:27--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Novedades Aceptadas: acptA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Archivos Rechazados; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:29--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El usuario elige cancelar la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:47--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:47--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:47--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:47--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:47--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:47--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Novedades Aceptadas: acptA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Archivos Rechazados; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:06:48--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El usuario elige cancelar la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:43--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:43--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:43--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:43--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:43--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Novedades Aceptadas: acptA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Archivos Rechazados; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El usuario elige cancelar la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:54--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:54--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:54--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:54--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:54--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:54--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Novedades Aceptadas: acptA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Archivos Rechazados; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 16:07:54--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El usuario elige continuar con la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Novedades Aceptadas: acptA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Archivos Rechazados; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:55--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El usuario elige cancelar la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:57--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:57--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:57--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:57--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:57--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:57--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Novedades Aceptadas: acptA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Archivos Rechazados; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:58--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El usuario elige continuar con la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:58--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: 
+Checkeando que perl 5 o superior este instalado
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:03:58--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: ERRonf
+Message: Perl se encuentra instalado pero la version es menor a la requerida
+
+This is perl 5, version 18, subversion 2 (v5.18.2) built for x86_64-linux-gnu-thread-multi
+(with 41 registered patches, see perl -V for more detail)
+
+Copyright 1987-2013, Larry Wall
+
+Perl may be copied only under the terms of either the Artistic License or the
+GNU General Public License, which may be found in the Perl 5 source kit.
+
+Complete documentation for Perl, including FAQ lists, should be found on
+this system using "man perl" or "perldoc perl".  If you have access to the
+Internet, point your browser at http://www.perl.org/, the Perl Home Page.
+Cancelando instalacion...
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:04:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:04:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:04:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:04:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:04:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:04:44--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WARonf
+Message: 
+
+    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: binA
+Untitled Document
+Untitled Document 2
+Directorio de Archivos Maestros y Tablas: maeA
+Untitled Document
+Directorio de Novedades: noveA
+
+Directorio de Novedades Aceptadas: acptA
+
+Directorio de Informes de Salida: infoA
+
+Directorio de Log de Comandos: logdA
+
+
+COMPONENTES FALTANTES: Directorio de Archivos Rechazados; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:04:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: El usuario elige continuar con la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:04:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: 
+Checkeando que perl 5 o superior este instalado
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------28/04/2014 - 17:04:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFOonf
+Message: Perl se encuentra instalado
+ 
+This is perl 5, version 18, subversion 2 (v5.18.2) built for x86_64-linux-gnu-thread-multi
+(with 41 registered patches, see perl -V for more detail)
+
+Copyright 1987-2013, Larry Wall
+
+Perl may be copied only under the terms of either the Artistic License or the
+GNU General Public License, which may be found in the Perl 5 source kit.
+
+Complete documentation for Perl, including FAQ lists, should be found on
+this system using "man perl" or "perldoc perl".  If you have access to the
+Internet, point your browser at http://www.perl.org/, the Perl Home Page.
+
+-------------------------------------------------------------------------------------------------------------------------------------
