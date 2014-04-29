@@ -1,27 +1,42 @@
 source RWConfFile.sh
-
+MESSAGE=""
+ROOT=".."
+GRUPO07="grupo07"
+CONFDIR="conf"
+CONFGFILE="conf/installer.conf"
+BINDIR="bin" #de instalacion de ejecutables
+MAEDIR="mae" #de archivos maestros
+NOVEDIR="nov" #arribos de de novedades
+DATASIZE=100 #espacio minimos en mb para NOVEDIR
+ACPTDIR="acpt" #novedades aceptadas
+INFODIR="info" #reportes
+RECHDIR="rech" #archivos rechazados
+LOGDIR="log" #directorio de log
+LOGEXT="log" #extension de archivos de log
+LOGSIZE=400 #tamanio maximo para archivos de log
+INSTALLERVARIABLES=( BINDIR MAEDIR NOVEDIR DATASIZE ACPTDIR INFODIR RECHDIR LOGDIR LOGEXT LOGSIZE )
 
 #checkea que perl este instalado y su version sea igual o mayos a la v5
 checkPerl() {
 
 	echo -e "\nCheckeando que perl 5 o superior este instalado...\n"
 	log $0 "INFO" "\nCheckeando que perl 5 o superior este instalado...\n"
-	MESSAGE=$(perl -v)
+	MSG=$(perl -v)
 	if [ "$?" -ne "0" ]
 	then
 		echo -e "\n     TP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\nPara instalar el TP es necesario contar con Perl 5 o superior. Efectúe su instalación e inténtelo nuevamente.\nProceso de Instalación Cancelado"
 		log $0 "ERR" "\n     TP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\nPara instalar el TP es necesario contar con Perl 5 o superior. Efectúe su instalación e inténtelo nuevamente.\nProceso de Instalación Cancelado"
 		return 1
 	else #perl existe se checkea la version
-		VERSION=$(echo "$MESSAGE" | grep "v[0-9]*\.[0-9]*\.[0-9]*"  | sed "s/^.*v\([0-9]\)*\.[0-9]*\.[0-9]*.*$/\1/")
+		VERSION=$(echo "$MSG" | grep "v[0-9]*\.[0-9]*\.[0-9]*"  | sed "s/^.*v\([0-9]\)*\.[0-9]*\.[0-9]*.*$/\1/")
 		if [ "$VERSION" -ge "5" ]
 		then
-			echo -e "Perl se encuentra instalado:\n $MESSAGE\n"
-			log $0 "INFO" "Perl se encuentra instalado\n $MESSAGE"
+			echo -e "Perl se encuentra instalado:\n $MSG\n"
+			log $0 "INFO" "Perl se encuentra instalado\n $MSG"
 			return 0
 		else
-			echo -e "Perl se encuentra instalado pero la version es menor a la requerida\n$MESSAGE\nCancelando instalacion..."
-			log $0 "ERR" "Perl se encuentra instalado pero la version es menor a la requerida\n$MESSAGE\nCancelando instalacion..."
+			echo -e "Perl se encuentra instalado pero la version es menor a la requerida\n$MSG\nCancelando instalacion..."
+			log $0 "ERR" "Perl se encuentra instalado pero la version es menor a la requerida\n$MSG\nCancelando instalacion..."
 			return 1
 		fi
 	fi	
@@ -72,7 +87,7 @@ checkPreviouslyInstalled() {
 	else
 		echo -e "El programa ya fue instalado\nCheckeando directorios...\n"
 		log $0 "INFO" "El programa ya fue instalado\nCheckeando directorios...\n"
-		MESSAGE=$(checkCompleteInstallation)
+		checkCompleteInstallation
 		if [ "$?" -eq "0" ] #la instalacion estaba completa
 		then
 			MESSAGE+="\nProceso de instalacion cancelado\n"			
@@ -132,5 +147,9 @@ R="$?" #lo que devuelve checkPerl
 
 checkEnd "$R"
 
+echo $BINDIR
+
 #completa la instalacion pidiendole los datos al usuario
 completeInstallation
+
+
