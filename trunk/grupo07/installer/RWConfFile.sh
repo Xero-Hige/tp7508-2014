@@ -1,19 +1,5 @@
 source ../logger/logger.sh
-ROOT=".."
-GRUPO07="grupo07"
-CONFDIR="conf"
-CONFGFILE="conf/installer.conf"
-BINDIR="bin" #de instalacion de ejecutables
-MAEDIR="mae" #de archivos maestros
-NOVEDIR="nov" #arribos de de novedades
-DATASIZE=100 #espacio minimos en mb para NOVEDIR
-ACPTDIR="acpt" #novedades aceptadas
-INFODIR="info" #reportes
-RECHDIR="rech" #archivos rechazados
-LOGDIR="log" #directorio de log
-LOGEXT="log" #extension de archivos de log
-LOGSIZE=400 #tamanio maximo para archivos de log
-INSTALLERVARIABLES=( BINDIR MAEDIR NOVEDIR DATASIZE ACPTDIR INFODIR RECHDIR LOGDIR LOGEXT LOGSIZE )
+
 
 
 #Checkeo existencia de Intaller.conf
@@ -79,7 +65,6 @@ changeValue() {
 	then
 		LOGSIZE="$NEWVALUE"	
 	fi
-	echo $NEWVALUE
 }
 
 
@@ -93,7 +78,7 @@ getVarInfo() {
 #Si el archivo installer.conf existe se debera checkear que la instalacion este completa. Si lo esta, se termina. Si no, se muestran los que ya estan definidos y los faltantes.Hay que logear todo 
 checkCompleteInstallation() {
 
-	MESSAGE="\n\n    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07\n\n"
+	MESSAGE+="\n\n    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07\n\n"
 	NOTINSTALLED="\nCOMPONENTES FALTANTES: "
 	NEWPATH=""
 	for dir in "${INSTALLERVARIABLES[@]}"
@@ -108,7 +93,8 @@ checkCompleteInstallation() {
 			then
 				continue
 			else
-				NEWPATH=$(changeValue "$dir")
+				changeValue "$dir"
+				NEWPATH="${!dir}"
 				if [ -d "$ROOT/$NEWPATH" ] #checkeo que el directorio que estaba guardado en el archivo de configuracion exista
 				then #existe
 					MESSAGE+=$(getVarInfo "$dir")
@@ -126,14 +112,13 @@ checkCompleteInstallation() {
 	if [ "$NOTINSTALLED" == "\nCOMPONENTES FALTANTES: " ]
 	then
 		MESSAGE+="Estado de la instalacion: COMPLETA\n"
-		echo -e "$MESSAGE" 
 		return 0 #la instalacion estaba completa
 	else
 		MESSAGE+="$NOTINSTALLED"
-		echo -e "$MESSAGE"
 		return 1 #la instalacion estaba incompleta
 	fi
 
 }
+
 
 
