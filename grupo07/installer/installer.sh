@@ -44,7 +44,7 @@ checkPerl() {
 
 #checkea que termine el proceso de instalacion
 checkEnd() {
-	if [ "$1" -ne "0" ]
+	if [ "$1" -eq "1" ]
 	then
 		exit
 	fi
@@ -106,7 +106,7 @@ checkPreviouslyInstalled() {
 				then 
 					log $0 "INFO" "El usuario elige continuar con la instalacion"
 					RESPONSE=1 
-					return 0	
+					return 2	
 				elif [ "$R" == "n" ] || [ "$R" == "N" ]
 				then 
 					log $0 "INFO" "El usuario elige cancelar la instalacion"
@@ -122,6 +122,94 @@ checkPreviouslyInstalled() {
 }
 	
 
+#muestra los paths de las variables y pregunta si se queiere terminar la instalacion. Si es asi, completa la instalacion, sino, vuelve a pedir al usuario los directorios y pregunta si se quierer completar la instalacion de nuevo
+endInstallation() {
+
+	
+	LIST=0 #si se listan los archivos
+	while true
+	do
+		MESSAGE="\n\nTP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07\n\n"
+		for dir in "${INSTALLERVARIABLES[@]}"
+		do
+			if [ "$dir" == "DATASIZE" ] || [ "$dir" == "LOGEXT" ] || [ "$dir" == "LOGSIZE" ]
+			then
+				LIST=1 #no se listan los archivos
+			else
+				if [ -d "$ROOT/${!dir}" ]
+				then
+					LIST=0
+				else
+					LIST=1
+				fi
+			fi
+			MESSAGE+=$(getVarInfo "$dir")
+			MESSAGE+=": ${!dir}\n"
+			if [ LIST=0 ]
+			then			
+				MESSAGE+=$(ls "$ROOT/$NEWPATH")
+			fi			
+			MESSAGE+="\n"
+		done
+		MESSAGE+="Estado de instalacion: LISTA\n"
+		MESSAGE+="Esta de acuerdo con los parametros mostrados?(Y-N): "
+		echo -e "$MESSAGE"
+		log "$0" "INFO" "$MESSAGE"
+		RESPONSE=0		
+		while [ "$RESPONSE" -eq "0" ]
+		do
+			read NP
+			if [ "$NP" == "y" ] || [ "$NP" == "Y" ]
+			then 
+				log $0 "INFO" "El usuario acepta, se completa la instalacion"
+				RESPONSE=1
+			elif [ "$NP" == "n" ] || [ "$NP" == "N" ]
+			then 
+				log $0 "INFO" "El usuario no acepta, se piden de nuevo los valores"
+				RESPONSE=2
+			else
+				echo -e "\nIngrese una opcion correcta(Y-N)\n"
+			fi
+		done
+		if [ "$RESPONSE" -eq "2" ] #se contesta que si
+		then
+			askDirPaths
+		else
+			break
+		fi
+	done
+
+}
+
+#termina con las instalacion
+finish() {
+
+	echo -e "Iniciando Instalacion. Esta Ud. Seguro? (Y-N)\n"
+	log "$0" "INFO" "Iniciando Instalacion. Esta Ud. Seguro? (Y-N)\n"
+	RESPONSE=0
+	while true
+	do
+		read NP
+		if [ "$NP" == "y" ] || [ "$NP" == "Y" ]
+		then 
+			log $0 "INFO" "El usuario acepta, se completa la instalacion"
+			#
+			#/aca se deben llamar las funciones que acomodan los archivos
+			#
+			#
+		elif [ "$NP" == "n" ] || [ "$NP" == "N" ]
+		then 
+			log $0 "INFO" "El usuario no acepta, se cancela la instalacion"
+			exit
+		else
+			echo -e "\nIngrese una opcion correcta(Y-N)\n"
+		fi
+	done
+	
+
+}
+
+
 #----------------------------------------------MAIN------------------------------------------------------------------------------------
 #PASOS
 
@@ -136,9 +224,18 @@ R="$?" #lo que devolvio checkInstallerConfFile
 #Checkeo que haya sido instalado previamente
 checkPreviouslyInstalled "$R"
 
-R="$?" #lo que devolvio checkPreviouslyInstalled
+R="$?" #lo que devolvio checkPreviouslyInstalled (0:no estaba instalado,hay que pedir directorios. 1:Estaba completa o estaba incompleta y no se quiere seguir, se va a FIN. 2: Estaba incompleta: Se quiere seguir.)
+
 
 checkEnd "$R"
+
+
+if [ "$R" -eq "2" ] # la instalacion estaba incompleta, hay que ir al final
+then
+	clear
+	endInstallation #presenta los valores propuestos y pregunta si se quiere terminar
+	finish
+fi
 
 #checkea que perl este instalado
 checkPerl
@@ -147,9 +244,13 @@ R="$?" #lo que devuelve checkPerl
 
 checkEnd "$R"
 
-echo $BINDIR
+#le pide los datos al usuario
+askDirPaths
 
-#completa la instalacion pidiendole los datos al usuario
-completeInstallation
+#limpio la pantalla
+clear
+
+#presenta los valores propuestos y pregunta si se quiere terminar
+endInstallation
 
 

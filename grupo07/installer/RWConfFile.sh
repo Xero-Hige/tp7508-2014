@@ -29,11 +29,15 @@ checkCreated() {
 
 }
 
-#lee el archivo de configuracion y le asigna el nuevo valor a la variable($1 sera el nombre de la variable)
+#lee el archivo de configuracion y le asigna el nuevo valor a la variable($1 sera el nombre de la variable, si $2 existe, se toma el nuevo valor de ahi)
 changeValue() {
 	
-	NEWVALUE=$(grep "$1" "$ROOT/$CONFGFILE" | sed "s/^.*=\([^=]*\)=.*=.*$/\1/" )
-
+	if [ "$#" -eq "2" ]
+	then
+		NEWVALUE="$2"
+	else
+		NEWVALUE=$(grep "$1" "$ROOT/$CONFGFILE" | sed "s/^.*=\([^=]*\)=.*=.*$/\1/" )
+	fi
 	if [ "$1" == "BINDIR" ]
 	then
 		BINDIR="$NEWVALUE"
@@ -119,6 +123,71 @@ checkCompleteInstallation() {
 	fi
 
 }
+
+
+#checkea que el espacio en el directorio($1) sea mayor al pedido($2)
+checkDiskSpace() {
+
+	#primero checkea que exista el directorio
+	if [ -d "$1" ]
+	then
+		DIRSZ=$(df -h -B MB "$1" |grep -v "Avail" | sed "s/^[^ ]* *[^ ]* *[^ *]* *\([^ ]*\)MB.*$/\1/")
+		if [ "$DIRSZ" -gt "$2" ]
+		then 
+			log $0 "INFO" "El espacio en disco disponible es sufieciente\n\n"
+			echo -e "\nEl espacio en disco disponible es sufieciente\n"
+			return 0 #el tamanio es suficiente
+		else
+			log $0 "WAR" "\nInsuficiente espacio en disco\nEspacio disponible: $DIRSZ Mb.\nEspacio requerido: $2 Mb.\nCancele la instalacion o intentelo nuevamente\n"
+			echo -e "\nInsuficiente espacio en disco\nEspacio disponible: $DIRSZ Mb.\nEspacio requerido: $2 Mb.\nCancele la instalacion o intentelo nuevamente\n"
+			return 1 # el tamanio no es suficiente
+		fi
+	fi
+	return 2 #el directorio no existe
+		
+}
+
+
+
+#Completa la instalacion pidiendole los valores al usuario
+askDirPaths() {
+	for dir in "${INSTALLERVARIABLES[@]}"
+	do
+		VARINFO=$(getVarInfo "$dir")
+		if [ "$dir" == "DATASIZE" ]
+		then
+			log $0 "INFO" "Se pide al usuario definir el $VARINFO (${!dir}Mb)\n\n"
+			while true
+			do
+				echo -e "Defina el $VARINFO (${!dir}Mb)\n"
+				read NP
+				checkDiskSpace "$ROOT" "$NP"
+				if [ "$?" -eq "0" ]
+				then
+					break
+				fi
+			done
+
+		else	
+			if [ "$dir" == "LOGEXT" ]
+			then
+				echo -e "Defina la $VARINFO ($GRUPO07/$LOGDIR/log.${!dir})\n"
+				log $0 "INFO" "Se pide al usuario definir la $VARINFO ($GRUPO07/$LOGDIR/log<.${!dir})>\n"
+			elif [ "$dir" == "LOGSIZE" ]
+			then
+				echo -e "Defina el $VARINFO (${!dir}Kb)\n"
+				log $0 "INFO" "Se pide al usuario definir el $VARINFO (${!dir}Kb)\n"
+			else		
+				echo -e "Defina el $VARINFO ($GRUPO07/${!dir})\n"
+				log $0 "INFO" "Se pide al usuario definir el $VARINFO ($GRUPO07/${!dir})\n"
+			fi		
+			read NP
+		fi
+		changeValue "$dir" "$NP"
+	done
+						
+}
+
 
 
 
