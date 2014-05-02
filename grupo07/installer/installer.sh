@@ -138,9 +138,19 @@ endInstallation() {
 		MESSAGE="\n\nTP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07\n\n"
 		for dir in "${INSTALLERVARIABLES[@]}"
 		do
-			if [ "$dir" == "DATASIZE" ] || [ "$dir" == "LOGEXT" ] || [ "$dir" == "LOGSIZE" ]
+			MESSAGE+=$(getVarInfo "$dir")
+			MESSAGE+=": ${!dir}"
+			if [ "$dir" == "DATASIZE" ] 
 			then
+				MESSAGE+="Mb"
 				LIST=1 #no se listan los archivos
+			elif [ "$dir" == "LOGEXT" ]
+			then
+				LIST=1
+			elif [ "$dir" == "LOGSIZE" ]
+			then
+				MESSAGE+="Kb"
+				LIST=1
 			else
 				if [ -d "$ROOT/${!dir}" ]
 				then
@@ -149,8 +159,6 @@ endInstallation() {
 					LIST=1
 				fi
 			fi
-			MESSAGE+=$(getVarInfo "$dir")
-			MESSAGE+=": ${!dir}\n"
 			if [ "$LIST" -eq "0" ]
 			then		
 				MESSAGE+=$(ls "$ROOT/$NEWPATH")
