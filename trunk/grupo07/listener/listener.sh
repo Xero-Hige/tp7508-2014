@@ -6,6 +6,8 @@ MAEDIR="."
 ACEPDIR="./acept"
 #############----------------------------------------------------------------------------------
 
+sed_escape_filter="s|\([\/\*\?]\)|\\1|g"
+
 is_text_file()
 {
 	file_output=$(file "${1}")
@@ -20,16 +22,31 @@ is_text_file()
 
 user_exist()
 {
-	if [[ "${1}" =~ ^[^-]*$ ]]
+	user=${1}
+	user_escaped=$(echo "$user"| sed "$sed_escape_filter") 
+	
+	users=$(grep "^[^;]*;[^;]*;$user_escaped;[0-1];.*\$" "$MAEDIR/asociados.mae")
+
+	if [ "$users" == "" ]
 	then
-		return 0
-	else
 		return 1
 	fi
+
+	return 0
 }
 
 user_is_colaborator()
 {
+	user=${1}
+	user_escaped=$(echo "$user"| sed "$sed_escape_filter") 
+	
+	users=$(grep "^[^;]*;[^;]*;$user_escaped;1;.*\$" "$MAEDIR/asociados.mae")
+
+	if [ "$users" == "" ]
+	then
+		return 1
+	fi
+
 	return 0
 }
 
@@ -134,11 +151,10 @@ process_price_list()
 
 check_new_files ()
 {
-	files=$(ls $NOVEDIR)
-	for file in $files
+	dir_filter=$(echo "$NOVEDIR\/" | sed "$sed_escape_filter")
+	for file_path in $NOVEDIR/*
 	do
-		file_path="$NOVEDIR/$file"
-			
+		file=${file_path/$dir_filter/}
 		if [ ! -f "$file_path" ]
 		then
 			continue
@@ -165,12 +181,15 @@ check_new_files ()
 check_new_prices_list()
 {
 	files=$(ls $MAEDIR/precios)
-	if [ $files == "" ] #No Files
+	if [ "$files" == "" ] #No Files
 	then
 		return
 	fi 
 
-	if [ $(pidof Masterlist) ] ||  [ $(pidof Rating) ] 
+	pidof_Masterlist=$(pidof Masterlist)
+	pidof_Rating=$(pidof Rating)
+
+	if [ "$pidof_Masterlist" != "" ] || [ "$pidof_Rating" != "" ]
 	then
 		echo "Masterlist o Rating corriendo"
 		return
@@ -191,12 +210,15 @@ check_new_prices_list()
 check_new_buy_list()
 {
 	files=$(ls $ACEPDIR)
-	if [ $files == "" ] #No Files
+	if [ "$files" == "" ] #No Files
 	then
 		return
 	fi 
 
-	if [ $(pidof Masterlist) ] ||  [ $(pidof Rating) ] 
+	pidof_Masterlist=$(pidof Masterlist)
+	pidof_Rating=$(pidof Rating)
+
+	if [ "$pidof_Masterlist" != "" ] || [ "$pidof_Rating" != "" ]
 	then
 		echo "Masterlist o Rating corriendo"
 		return
