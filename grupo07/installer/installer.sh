@@ -1,4 +1,10 @@
 source RWConfFile.sh
+source dirManager.sh
+
+
+
+
+
 MESSAGE=""
 ROOT=".."
 GRUPO07="grupo07"
@@ -24,7 +30,7 @@ checkPerl() {
 	MSG=$(perl -v)
 	if [ "$?" -ne "0" ]
 	then
-		echo -e "\n     TP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\nPara instalar el TP es necesario contar con Perl 5 o superior. Efectúe su instalación e inténtelo nuevamente.\nProceso de Instalación Cancelado"
+		echo -e "\nTP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\nPara instalar el TP es necesario contar con Perl 5 o superior. Efectúe su instalación e inténtelo nuevamente.\nProceso de Instalación Cancelado"
 		log $0 "ERR" "\n     TP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\nPara instalar el TP es necesario contar con Perl 5 o superior. Efectúe su instalación e inténtelo nuevamente.\nProceso de Instalación Cancelado"
 		return 1
 	else #perl existe se checkea la version
@@ -43,17 +49,17 @@ checkPerl() {
 } 
 
 #checkea que termine el proceso de instalacion
-checkEnd() {
+checkEnd() { 
 	if [ "$1" -eq "1" ]
 	then
-		exit
+		exit 1
 	fi
 }
 
 #Le pregunta la usuario si acepta los terminos y condiciones para seguir con la instalacion
 checkTerminosYCondiciones() {
 
-	echo -e "                 \nTP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\n\n Al instalar TP SO7508 Primer Cuatrimestre 2014 UD. expresa aceptar los términos y condiciones del ACUERDO DE LICENCIA DE SOFTWARE incluido en este paquete.\nAcepta?(Y-N)"
+	echo -e "\nTP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\n\n Al instalar TP SO7508 Primer Cuatrimestre 2014 UD. expresa aceptar los términos y condiciones del ACUERDO DE LICENCIA DE SOFTWARE incluido en este paquete.\nAcepta?(Y-N)"
 	log $0 "INFO" "Se muestran terminos y condiciones"
 	RESPONSE=0		
 	while [ "$RESPONSE" -eq "0" ]
@@ -145,8 +151,8 @@ endInstallation() {
 			fi
 			MESSAGE+=$(getVarInfo "$dir")
 			MESSAGE+=": ${!dir}\n"
-			if [ LIST=0 ]
-			then			
+			if [ "$LIST" -eq "0" ]
+			then		
 				MESSAGE+=$(ls "$ROOT/$NEWPATH")
 			fi			
 			MESSAGE+="\n"
@@ -193,14 +199,12 @@ finish() {
 		if [ "$NP" == "y" ] || [ "$NP" == "Y" ]
 		then 
 			log $0 "INFO" "El usuario acepta, se completa la instalacion"
-			#
-			#/aca se deben llamar las funciones que acomodan los archivos
-			#
-			#
+			createDirs
+			exit 0
 		elif [ "$NP" == "n" ] || [ "$NP" == "N" ]
 		then 
 			log $0 "INFO" "El usuario no acepta, se cancela la instalacion"
-			exit
+			exit 1
 		else
 			echo -e "\nIngrese una opcion correcta(Y-N)\n"
 		fi
@@ -224,8 +228,8 @@ R="$?" #lo que devolvio checkInstallerConfFile
 #Checkeo que haya sido instalado previamente
 checkPreviouslyInstalled "$R"
 
-R="$?" #lo que devolvio checkPreviouslyInstalled (0:no estaba instalado,hay que pedir directorios. 1:Estaba completa o estaba incompleta y no se quiere seguir, se va a FIN. 2: Estaba incompleta: Se quiere seguir.)
 
+R="$?" #lo que devolvio checkPreviouslyInstalled (0:no estaba instalado,hay que pedir directorios. 1:Estaba completa o estaba incompleta y no se quiere seguir, se va a FIN. 2: Estaba incompleta: Se quiere seguir.)
 
 checkEnd "$R"
 
@@ -235,6 +239,7 @@ then
 	clear
 	endInstallation #presenta los valores propuestos y pregunta si se quiere terminar
 	finish
+	exit
 fi
 
 #checkea que perl este instalado

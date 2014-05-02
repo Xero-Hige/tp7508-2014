@@ -82,7 +82,7 @@ getVarInfo() {
 #Si el archivo installer.conf existe se debera checkear que la instalacion este completa. Si lo esta, se termina. Si no, se muestran los que ya estan definidos y los faltantes.Hay que logear todo 
 checkCompleteInstallation() {
 
-	MESSAGE+="\n\n    TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07\n\n"
+	MESSAGE+="\n\nTP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07\n\n"
 	NOTINSTALLED="\nCOMPONENTES FALTANTES: "
 	NEWPATH=""
 	for dir in "${INSTALLERVARIABLES[@]}"
