@@ -188,6 +188,33 @@ askDirPaths() {
 						
 }
 
+updateConfFile() {
+	
+	echo -e "Actualizando la configuracion del sistema\n"
+	if [ -f "$ROOT/$CONFGFILE" ]
+	then
+		for dir in "${INSTALLERVARIABLES[@]}"
+		do
+			CURRENT=$(grep "$dir" "$ROOT/$CONFGFILE" | sed "s/^$dir=\([^=]*\).*$/\1/")
+			if [ "$CURRENT" != "${!dir}" ] #si cambio
+			then
+				DATE=$(date +"%d-%m-%Y  %H:%M:%S")
+				if [ "$CURRENT" == "" ] #no estaba en el archivo de configuracion  
+				then
+					echo "$dir=${!dir}=$USER=$DATE" >> "$ROOT/$CONFGFILE"
+				else	
+					sed -i "s/^$dir.*$/$dir=${!dir}=$USER=$DATE/" "$ROOT/$CONFGFILE"
+				fi		
+			fi
+		done
+	else
+		for dir in "${INSTALLERVARIABLES[@]}"
+		do
+			DATE=$(date +"%d-%m-%Y  %H:%M:%S")
+			echo "$dir=${!dir}=$USER=$DATE" >> "$ROOT/$CONFGFILE"
+		done
+	fi	
 
+}
 
 
