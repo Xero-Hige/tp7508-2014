@@ -4,9 +4,45 @@
 NOVEDIR="./novedir"
 MAEDIR="."
 ACEPDIR="./acept"
+RECHDIR="./rech"
 #############----------------------------------------------------------------------------------
 
 sed_escape_filter="s|\([\/\*\?]\)|\\1|g"
+
+Log()
+{
+	echo "LOG: ${1}"
+}
+
+Move()
+{
+	echo "Movido ${1} a ${2}"
+}
+
+acept_pricelist_file()
+{
+	file=${1}
+	Move "$NOVEDIR"/"$file" "$MAEDIR"/precios/"$file" 
+	Log "$file - Pricelist aceptado"
+	
+}
+
+acept_buylist_file()
+{
+	file=${1}
+	Move "$NOVEDIR"/"$file" "$ACEPDIR"/"$file" 
+	Log "$file - Buylist aceptado"
+	
+}
+
+reject_file()
+{
+	file=${1}
+	reject_reason=${2}
+	Move "$NOVEDIR"/"$file" "$RECHDIR"/"$file" 
+	Log "$file - Rechazado por >>$reject_reason<<"
+}
+
 
 is_text_file()
 {
@@ -95,23 +131,23 @@ process_buy_list()
 
 	if [ "$user" == "$file" ] #No hay un "."
 	then
-		echo "$file: Formato invalido"
+		reject_file "$file" "Formato invalido"
 		return
 	fi
 
 	if ! user_exist "$user"
 	then
-		echo "$file: User invalido "
+		reject_file "$file" "User invalido"
 		return
 	fi
 
 	if ! is_valid_exten "$exten"
 	then
-		echo "$file: Exten invalido"
+		reject_file "$file" "Exten invalido"
 		return
 	fi
 		
-	echo "$file: Price list valida "
+	acept_buylist_file "$file"
 }
 
 process_price_list()
@@ -124,29 +160,29 @@ process_price_list()
 
 	if [ "$super" == "$aux" ] || [ "$date" == "$user" ] #Falta uno de los separadores
 	then
-		echo "$file: Formato invalido"
+		reject_file "$file" "Formato invalido"
 		return
 	fi
 
 	if ! user_exist "$user"
 	then
-		echo "$file: User invalido"
+		reject_file "$file" "User invalido"
 		return	
 	fi
 	
 	if ! user_is_colaborator "$user"
 	then
-		echo "$file: User no es colaborador"
+		reject_file "$file" "User no es colaborador"
 		return
 	fi
 
 	if ! is_valid_date "$date"
 	then
-		echo "$file: Invalid date"
+		reject_file "$file" "Invalid date"
 		return
 	fi
 
-	echo "$file: Buy list valida "
+	acept_pricelist_file "$file"
 } 
 
 check_new_files ()
@@ -169,10 +205,10 @@ check_new_files ()
 			then
 				process_buy_list "$file"
 			else
-				echo "$file: Formato invalido"			
+				reject_file "$file" "Formato invalido"			
 			fi
 		else
-			echo "$file: Es de tipo invalido"
+			reject_file "$file" "Es de tipo invalido"
 		fi
 
 	done
