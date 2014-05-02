@@ -200,6 +200,7 @@ finish() {
 		then 
 			log $0 "INFO" "El usuario acepta, se completa la instalacion"
 			createDirs
+			updateConfFile
 			exit 0
 		elif [ "$NP" == "n" ] || [ "$NP" == "N" ]
 		then 
