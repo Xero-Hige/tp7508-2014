@@ -9,21 +9,24 @@ RECHDIR="./rech"
 
 sed_escape_filter="s|\([\/\*\?]\)|\\1|g"
 
-Log()
-{
-	echo "LOG: ${1}"
-}
+source ../logger/logger-2.sh
 
 Move()
 {
-	echo "Movido ${1} a ${2}"
-}
+	res=$(../move/move.pl ${1} ${2})
+	if ["$res"]
+	then	
+		echo "Movido ${1} a ${2}"
+	else
+		echo "No movido ${1} a ${2} por $?"
+	fi
+}	
 
 acept_pricelist_file()
 {
 	file=${1}
 	Move "$NOVEDIR"/"$file" "$MAEDIR"/precios/"$file" 
-	Log "$file - Pricelist aceptado"
+	log "$0" "INFO" "$file - Pricelist aceptado" "Listener"  
 	
 }
 
@@ -31,7 +34,7 @@ acept_buylist_file()
 {
 	file=${1}
 	Move "$NOVEDIR"/"$file" "$ACEPDIR"/"$file" 
-	Log "$file - Buylist aceptado"
+	log "$0" "INFO" "$file - Buylist aceptado" "Listener"
 	
 }
 
@@ -40,7 +43,7 @@ reject_file()
 	file=${1}
 	reject_reason=${2}
 	Move "$NOVEDIR"/"$file" "$RECHDIR"/"$file" 
-	Log "$file - Rechazado por >>$reject_reason<<"
+	log "$0" "INFO" "$file - Rechazado por >>$reject_reason<<" "Listener"
 }
 
 
