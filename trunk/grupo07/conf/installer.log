@@ -3904,3 +3904,440 @@ Type: INFO
 Message: El usuario acepta, se completa la instalacion
 
 -------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:05--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:05--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:05--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:05--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:05--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:05--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: a
+
+Directorio de Archivos Maestros y Tablas: b
+precios
+Directorio de Novedades: c
+
+Directorio de Novedades Aceptadas: d
+proc
+Directorio de Informes de Salida: e
+pres
+Directorio de Archivos Rechazados: f
+
+Directorio de Log de Comandos: g
+
+Estado de la instalacion: COMPLETA
+
+Proceso de instalacion cancelado
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:20--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:20--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:20--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:20--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:20--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:20--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WAR
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: a
+
+Directorio de Archivos Maestros y Tablas: b
+precios
+Directorio de Novedades: c
+
+Directorio de Novedades Aceptadas: d
+proc
+Directorio de Informes de Salida: e
+pres
+Directorio de Archivos Rechazados: f
+
+
+COMPONENTES FALTANTES: Directorio de Log de Comandos; Extension de Archivos de Log de Comandos; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:23--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: El usuario elige continuar con la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:23--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: aDirectorio de Ejecutables: a
+
+Directorio de Archivos Maestros y Tablas: bDirectorio de Archivos Maestros y Tablas: b
+
+Directorio de Novedades: cDirectorio de Novedades: c
+
+Tamanio maximo de Directorio de Novedades: 100Mb
+Tamanio maximo de Directorio de Novedades: 100
+
+Directorio de Novedades Aceptadas: dDirectorio de Novedades Aceptadas: d
+
+Directorio de Informes de Salida: eDirectorio de Informes de Salida: e
+
+Directorio de Archivos Rechazados: fDirectorio de Archivos Rechazados: f
+
+Directorio de Log de Comandos: logDirectorio de Log de Comandos: log
+
+Extension de Archivos de Log de Comandos: logExtension de Archivos de Log de Comandos: log
+
+Tamanio maximo de Archivos de Log de Comandos: 400Kb
+Tamanio maximo de Archivos de Log de Comandos: 400
+
+Estado de instalacion: LISTA
+Esta de acuerdo con los parametros mostrados?(Y-N): 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:50--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:50--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:50--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:50--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:50--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:51--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WAR
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: a
+
+Directorio de Archivos Maestros y Tablas: b
+precios
+Directorio de Novedades: c
+
+Directorio de Novedades Aceptadas: d
+proc
+Directorio de Informes de Salida: e
+pres
+Directorio de Archivos Rechazados: f
+
+
+COMPONENTES FALTANTES: Directorio de Log de Comandos; Extension de Archivos de Log de Comandos; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:52--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: El usuario elige continuar con la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:50:52--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: a
+Directorio de Archivos Maestros y Tablas: b
+Directorio de Novedades: c
+Tamanio maximo de Directorio de Novedades: 100Mb
+
+Directorio de Novedades Aceptadas: d
+Directorio de Informes de Salida: e
+Directorio de Archivos Rechazados: f
+Directorio de Log de Comandos: log
+Extension de Archivos de Log de Comandos: log
+Tamanio maximo de Archivos de Log de Comandos: 400Kb
+
+Estado de instalacion: LISTA
+Esta de acuerdo con los parametros mostrados?(Y-N): 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:51:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:51:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:51:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:51:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:51:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:51:46--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: WAR
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: a
+
+Directorio de Archivos Maestros y Tablas: b
+precios
+Directorio de Novedades: c
+
+Directorio de Novedades Aceptadas: d
+proc
+Directorio de Informes de Salida: e
+pres
+Directorio de Archivos Rechazados: f
+
+
+COMPONENTES FALTANTES: Directorio de Log de Comandos; Extension de Archivos de Log de Comandos; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:51:47--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: El usuario elige continuar con la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:51:47--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: a
+Directorio de Archivos Maestros y Tablas: b
+Directorio de Novedades: c
+Tamanio maximo de Directorio de Novedades: 100Mb
+Directorio de Novedades Aceptadas: d
+Directorio de Informes de Salida: e
+Directorio de Archivos Rechazados: f
+Directorio de Log de Comandos: log
+Extension de Archivos de Log de Comandos: log
+Tamanio maximo de Archivos de Log de Comandos: 400Kb
+Estado de instalacion: LISTA
+Esta de acuerdo con los parametros mostrados?(Y-N): 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:51:51--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: El usuario acepta, se completa la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:51:51--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: Iniciando Instalacion. Esta Ud. Seguro? (Y-N)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------02/05/2014 - 03:51:52--------------------------------------------------------
+
+User: luciano
+Caller: installer.sh
+Type: INFO
+Message: El usuario acepta, se completa la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
