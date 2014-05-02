@@ -7,14 +7,14 @@ ACEPDIR="./acept"
 RECHDIR="./rech"
 #############----------------------------------------------------------------------------------
 
-sed_escape_filter="s|\([\/\*\?]\)|\\1|g"
+sed_escape_filter="s|\([\/\*\?\ ]\)|\\1|g"
 
 source ../logger/logger-2.sh
 
 Move()
 {
-	res=$(../move/move.pl ${1} ${2})
-	if ["$res"]
+	res=$(../move/move.pl "${1}" "${2}")
+	if [ "$res" ]
 	then	
 		echo "Movido ${1} a ${2}"
 	else
@@ -24,25 +24,25 @@ Move()
 
 acept_pricelist_file()
 {
-	file=${1}
-	Move "$NOVEDIR"/"$file" "$MAEDIR"/precios/"$file" 
+	file="${1}"
+	Move "$NOVEDIR"/"$file" "$MAEDIR"/precios/ #"$file" 
 	log "$0" "INFO" "$file - Pricelist aceptado" "Listener"  
 	
 }
 
 acept_buylist_file()
 {
-	file=${1}
-	Move "$NOVEDIR"/"$file" "$ACEPDIR"/"$file" 
+	file="${1}"
+	Move "$NOVEDIR"/"$file" "$ACEPDIR"/  #"$file" 
 	log "$0" "INFO" "$file - Buylist aceptado" "Listener"
 	
 }
 
 reject_file()
 {
-	file=${1}
-	reject_reason=${2}
-	Move "$NOVEDIR"/"$file" "$RECHDIR"/"$file" 
+	file="${1}"
+	reject_reason="${2}"
+	Move "$NOVEDIR"/"$file" "$RECHDIR"/ #"$file" 
 	log "$0" "INFO" "$file - Rechazado por >>$reject_reason<<" "Listener"
 }
 
@@ -217,6 +217,32 @@ check_new_files ()
 	done
 }
 
+invoke_program()
+{
+	program=${1}	
+
+	pidof_Masterlist=$(pidof Masterlist)
+	pidof_Rating=$(pidof Rating)
+
+	if [ "$pidof_Masterlist" != "" ] || [ "$pidof_Rating" != "" ]
+	then
+		log "$0" "WARN" "Invocacion de $program pospuesta para el siguiente ciclo" "Listener"
+		return
+	fi
+
+	program_pid=$($program &)
+	if [[ ! $program_pid =~ ^[0-9]*\ [0-9]*\$ ]]
+	then
+		log "$0" "ERRO" "Invocacion de $program fallida" "Listener"
+		return
+	fi
+
+	program_pid=${masterlist_pid#*\ }
+
+	log "$0" "INFO" "$program corriendo bajo el no.: $program_pid" "Listener"
+	echo "$program corriendo bajo el no.: $program_pid"
+}
+
 check_new_prices_list()
 {
 	files=$(ls $MAEDIR/precios)
@@ -225,25 +251,7 @@ check_new_prices_list()
 		return
 	fi 
 
-	pidof_Masterlist=$(pidof Masterlist)
-	pidof_Rating=$(pidof Rating)
-
-	if [ "$pidof_Masterlist" != "" ] || [ "$pidof_Rating" != "" ]
-	then
-		echo "Masterlist o Rating corriendo"
-		return
-	fi
-
-	masterlist_pid=$(Masterlist &)
-	if [[ ! $masterlist_pid =~ ^[0-9]*\ [0-9]*\$ ]]
-	then
-		echo "Error iniciando Masterlist"
-		return
-	fi
-
-	masterlist_pid=${masterlist_pid#*\ }
-
-	echo "Masterlist corriendo bajo el no.: $masterlist_pid"
+	invoke_program "Masterlist"
 }
 
 check_new_buy_list()
@@ -252,27 +260,9 @@ check_new_buy_list()
 	if [ "$files" == "" ] #No Files
 	then
 		return
-	fi 
-
-	pidof_Masterlist=$(pidof Masterlist)
-	pidof_Rating=$(pidof Rating)
-
-	if [ "$pidof_Masterlist" != "" ] || [ "$pidof_Rating" != "" ]
-	then
-		echo "Masterlist o Rating corriendo"
-		return
 	fi
 
-	rating_pid=$(Rating &)
-	if [[ ! $rating_pid =~ ^[0-9]*\ [0-9]*\$ ]]
-	then
-		echo "Error iniciando Rating"
-		return
-	fi
-
-	ratinglist_pid=${rating_pid#*\ }
-
-	echo "Rating corriendo bajo el no.: $ratinglist_pid"
+	invoke_program "Rating"
 }
 
 #########Program#########
