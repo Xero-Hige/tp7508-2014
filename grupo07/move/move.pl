@@ -53,8 +53,8 @@ sub moveFile {
 
 # Falta documentar, falta logguear errores
 sub move {
-    my ($origin, $original_file) = (@_[0] =~ /(^.*\/)(\w*(?:\.*\w*)*$)/);
-    my ($destination, $copy_file) = (@_[1] =~ /(^.*\/)(\w*(?:\.*\w*)*$)/);
+    my ($origin, $original_file) = (@_[0] =~ /(^.*\/)(\S*(?:\.*\S*)*$)/);
+    my ($destination, $copy_file) = (@_[1] =~ /(^.*\/)(\S*(?:\.*\S*)*$)/);
     $copy_file = $original_file if (! $copy_file);
     my ($origin_full) = @_[0];
     my ($destination_full) = catfile($destination, $copy_file);
