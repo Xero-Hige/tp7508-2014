@@ -1,10 +1,10 @@
 #!/usr/bin/env perl
 
-package Move;
-use Exporter;
-@ISA = ('Exporter');
-@EXPORT = ('move');
-@EXPORT_OK = ('move');
+#package Move;
+#use Exporter;
+#@ISA = ('Exporter');
+#@EXPORT = ('move');
+#@EXPORT_OK = ('move');
 
 use File::Spec::Functions qw(catfile);
 use File::Copy qw(copy);
@@ -58,17 +58,20 @@ sub move {
     $copy_file = $original_file if (! $copy_file);
     my ($origin_full) = @_[0];
     my ($destination_full) = catfile($destination, $copy_file);
+    return 1 if (! -e $origin_full); #Logguear error
+    return 2 if (! -e $destination); #Logguear error
     return 0 if ($origin eq $destination);
-    return -1 if (! -e $origin_full); #Logguear error
-    return -2 if (! -e $destination); #Logguear error
     # Checks if file exists in destination folder
     if (-f -e $destination_full) {
         # Checks if the dup folder exists, and creates it if it doesn't
         mkdir(catfile($destination, "dup")) if (! checkDup(destination));
         # Adds the secuence number to the destination file path
         $destination_full = assembleExistingDestFilePath($destination, $copy_file);
-        return -3 if (! $destination_full); #Logguear error
+        return 3 if (! $destination_full); #Logguear error
     }
     return 0 if (moveFile($origin_full, $destination_full));
-    return -4; #Logguear error
+    return 4; #Logguear error
 }
+
+$ret = move($ARGV[0], $ARGV[1]);
+exit $ret;
