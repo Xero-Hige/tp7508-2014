@@ -6,7 +6,7 @@ TRIM_LOG_SIZE=50
 # Receives the name of the env variable to get the value, returns it
 getEnvVarValue() {
     VAR_NAME=$1
-    echo $(grep "$VAR_NAME" "$CONF_FILE" | sed "s/^[^=]*=\([^=]*\)=.*$/\1/")
+    grep "$VAR_NAME" "$CONF_FILE" | sed "s/^[^=]*=\([^=]*\)=.*\$/\1/"
 }
 
 # Gets the process calling the logger, returns the correspondant log file
@@ -23,7 +23,7 @@ trimLogFile() {
     AUX_FILE="$1.aux"
     DATE=$(date +"%d/%m/%Y %H:%M:%S")
     echo "$DATE - Log excedido" > "$AUX_FILE"
-    tail --lines=50 "$FILE" >> "$AUX_FILE"
+    tail --lines="$TRIM_LOG_SIZE" "$FILE" >> "$AUX_FILE"
     rm "$FILE"
     mv "$AUX_FILE" "$FILE"
 }
@@ -33,18 +33,19 @@ log () {
     CALLER="$1"
     MSG="$2"
     TYPE="$3"
-    FILE="$(getFilePath $CALLER)"
+    FILE=$(getFilePath "$CALLER")
     DATE=$(date +"%d/%m/%Y %H:%M:%S")
     echo -e "$DATE - $USER $CALLER $TYPE:$MSG" >> "$FILE"
     return 0
 }
 
 # Obtains the file name and LOGSIZE
-FILE="$(getFilePath $1)"
+FILE=$(getFilePath "$1")
 touch "$FILE"
-LOGSIZE="$(getEnvVarValue LOGSIZE)"
+LOGSIZE=$(getEnvVarValue LOGSIZE)
 # Checks for trimming
-if [ "$(wc -l < $FILE)" -gt $LOGSIZE ]
+FILE_LINES=$(wc -l < "$FILE")
+if [ "$FILE_LINES" -gt "$LOGSIZE" ]
 then
     trimLogFile "$FILE"
 fi
