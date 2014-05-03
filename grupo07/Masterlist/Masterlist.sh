@@ -26,7 +26,7 @@ function cargarVariables(){
 	acepdir="$path_acepdir/"
 	rechdir="$path_rechdir/"
 	maedir="$path_maedir/"
-	path_log="$path_logdir/Masterlist.$logext"
+	path_log="Masterlist"	#para no poner ruta de log 2 veces
 	path_procdir="$path_maedir/precios/proc/"
 	path_preciosdir="$path_maedir/precios/"
 	
@@ -47,9 +47,9 @@ function cargarVariables(){
 # Pre: -
 # Post: Se inicializa el log del interprete
 function iniciarLog(){                  
-        declare local cantidadArchivos=`ls $path_acepdir | wc -l`
-       # loguear "Inicio de Masterlist "
-       # loguear "Cantidad de Listas de precios a procesar: $cantidadArchivos"
+	declare local cantidadArchivos=`ls $path_preciosdir | wc -l`
+	loguear "Inicio de Masterlist "
+	loguear "Cantidad de Listas de precios a procesar: $cantidadArchivos"
 }
 
 ###################################################################################################
@@ -86,8 +86,8 @@ function estaArchivoMaedirDuplicado(){
 # Post: Se procesa el registro duplicado de manera que se loguea esta circunstancia y se mueve
 # el mismo a la carpeta de rechazados.
 function procesarDuplicado(){
-       # loguearAdvertencia "Se rechaza el archivo por estar DUPLICADO"
-        Mover $1 $rechdir
+	loguearAdvertencia "Se rechaza el archivo por estar DUPLICADO"
+	Mover $1 $rechdir
 }
 
 ###################################################################################################
@@ -111,7 +111,7 @@ function validarCabecera() {
 	email=`grep '^[^;]*\;[^;]*\;'"$usr"';[0-9]\;'"$campo6"'\$' "$asoc"`
 	if [ -z "$email" ] || [ "$email" == "" ]
 	then
-		#loguearAdvertencia "Se rechaza el archivo por Correo electrónico del colaborador inválido"
+		loguearAdvertencia "Se rechaza el archivo por Correo electrónico del colaborador inválido"
 		Mover "$1" "$rechdir"
 		cabeceraValida="$FALSE"
 		return
@@ -120,7 +120,7 @@ function validarCabecera() {
 	nombreYsuper=`grep -s '^[0-9]*\;'"$campo2"';'"$campo1"';[^;]*\;[^;]*\;[^;]*\$' "$super"`
 	if [ -z "$nombreYsuper" ] || [ "$nombreYsuper" == "" ]
 	then
-		#loguearAdvertencia "Se rechaza el archivo por Correo electrónico del colaborador inválido"
+		loguearAdvertencia "Se rechaza el archivo por Correo electrónico del colaborador inválido"
 		Mover "$1" "$rechdir"
 		cabeceraValida="$FALSE"
 		return
@@ -132,21 +132,21 @@ function validarCabecera() {
 
 	if [ "$Campo3Valido" == $FALSE ] 
 	then
-		#loguearAdvertencia "Se rechaza el archivo por Cantidad de campos invalida"
+		loguearAdvertencia "Se rechaza el archivo por Cantidad de campos invalida"
 		Mover "$1" "$rechdir"
 		cabeceraValida="$FALSE"
 		return
 	fi
 	if [ "$Campo4Valido" == $FALSE ]
 	then
-		#loguearAdvertencia "Se rechaza el archivo por Posición producto inválida"
+		loguearAdvertencia "Se rechaza el archivo por Posición producto inválida"
 		Mover "$1" "$rechdir"
 		cabeceraValida="$FALSE"
 		return
 	fi
 	if [ "$Campo5Valido" == $FALSE ]
 	then
-		#loguearAdvertencia "Se rechaza el archivo por Posición precio inválida"
+		loguearAdvertencia "Se rechaza el archivo por Posición precio inválida"
 		Mover "$1" "$rechdir"
 		cabeceraValida="$FALSE"
 		return
@@ -208,9 +208,9 @@ function encontrarSuperID() {
 
 # Pre: -
 # Post: Se finaliza el log del interprete
-#function finalizarLog() {
-       # loguear "Fin de Masterlist"
-#}
+function finalizarLog() {
+	loguear "Fin de Masterlist"
+}
 
 ###################################################################################################
 ###################################################################################################
@@ -218,21 +218,21 @@ function encontrarSuperID() {
 
 # Pre: $1 Mensaje
 # Post: Se loguea mensaje informativo.
-#function loguear(){
-        #./Logging.sh Masterlist I "$1"
-#}
+function loguear(){
+	`"../logger/"./logging.sh "$path_log" "$1" INFO`
+}
 
 # Pre: $1 Mensaje
 # Post: Se loguea mensaje de error.
-#function loguearError(){
-        #./Logging.sh Masterlist E "      $1"
-#}
+function loguearError(){
+	`"../logger/"./logging.sh "$path_log" "$1" ERR`
+}
 
 # Pre: $1 Mensaje
 # Post: Se loguea mensaje de error.
-#function loguearAdvertencia(){
-        #./Logging.sh Masterlist W "$1"
-#}
+function loguearAdvertencia(){
+	`"../logger/"./logging.sh "$path_log" "$1" WAR`
+}
 
 ###################################################################################################
 ###################################################################################################
@@ -286,7 +286,6 @@ function procesarAltas() {
 	
 		if [ "$producto" == "" ] || [ "$precio" == "" ]
 		then
-			echo "es una mierda"
 			let registroNOk=registroNOk+1
 			continue
 		fi
@@ -295,12 +294,11 @@ function procesarAltas() {
 		let registroOk=registroOk+1
 		echo "$nuevoReg" >> "$preciosMae"
 
-		#./Logging Masterlist "Registros OK: "$regOK INFO
-		#./Logging Masterlist "Registros NOK: "$regNOK INFO
-
 
 	done < "$archivo"
 
+	loguear "Registros OK: ""$registroOk"
+	loguear "Registros NOK: ""$registroNOk"
 
 }
 
@@ -315,7 +313,7 @@ function procesarReemplazo() {
 	registrosEliminados=`grep -c '^'"$2"';'"$3"';'"$4$5$6"';[^;]*\;[0-9]*\.[0-9]*\$' "$preciosMae"`
 	`sed -i '/^'"$2"';'"$3"';'"$4$5$6"';[^;]*\;[0-9]*\.[0-9]*\$/d' "$preciosMae"`
 
-	#./Logging "Registros borrados: "$registrosEliminados INFO
+	loguear "Registros borrados: $registrosEliminados"
 	procesarAltas $1 $2 $3 $7 $8 $9
 
 }
@@ -336,11 +334,9 @@ cantRegOutput=0
 cargarVariables
 
 # Inicializacion de archivo de log
-#iniciarLog
+iniciarLog
 
 # Recorro todos los archivos de MAEDIR para procesarlos
-#listaPreciosdir=`ls "$path_preciosdir"`
-#for archp in "$listaPreciosdir"
 for archp in $path_preciosdir*.*
 do    
 
@@ -356,6 +352,8 @@ do
 	then
 		continue
 	fi
+
+	loguear "Archivo a procesar: $archn"
 
 
 	#verifico que no sea un archivo duplicado
@@ -417,7 +415,7 @@ do
 		else
 			# Rechazo
 			Mover "$archPreciodir" "$rechdir"
-			#loguearAdvertencia "Se rechaza el archivo por fecha anterior a la existente"
+			loguearAdvertencia "Se rechaza el archivo por fecha anterior a la existente"
 		fi
 
 
@@ -429,7 +427,7 @@ do
 done # fin de procesar todos los archivos
 
 # Finalizacion de archivo de log
-#finalizarLog
+finalizarLog
 
 exit 0
 
