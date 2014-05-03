@@ -9,16 +9,19 @@ RECHDIR="./rech"
 
 sed_escape_filter="s|\([\/\*\?\ ]\)|\\1|g"
 
-source ../logger/logger-2.sh
+log()
+{
+	message=user_escaped=$(echo "${1}"| sed "$sed_escape_filter")
+	type=user_escaped=$(echo "${2}"| sed "$sed_escape_filter")
+	../logger/logging.sh "listener" "$message" "$type"
+}
 
-Move()
+move()
 {
 	res=$(../move/move.pl "${1}" "${2}")
-	if [ "$res" ]
+	if [ ! "$res" ]
 	then	
-		echo "Movido ${1} a ${2}"
-	else
-		echo "No movido ${1} a ${2} por $?"
+		log "No movido ${1} a ${2} por $?" "ERR"
 	fi
 }	
 
@@ -26,7 +29,7 @@ acept_pricelist_file()
 {
 	file="${1}"
 	Move "$NOVEDIR"/"$file" "$MAEDIR"/precios/ #"$file" 
-	log "$0" "INFO" "$file - Pricelist aceptado" "Listener"  
+	log "$file - Pricelist aceptado" "INFO"  
 	
 }
 
@@ -34,7 +37,7 @@ acept_buylist_file()
 {
 	file="${1}"
 	Move "$NOVEDIR"/"$file" "$ACEPDIR"/  #"$file" 
-	log "$0" "INFO" "$file - Buylist aceptado" "Listener"
+	log "$file - Buylist aceptado" "INFO"
 	
 }
 
@@ -43,7 +46,7 @@ reject_file()
 	file="${1}"
 	reject_reason="${2}"
 	Move "$NOVEDIR"/"$file" "$RECHDIR"/ #"$file" 
-	log "$0" "INFO" "$file - Rechazado por >>$reject_reason<<" "Listener"
+	log "$file - Rechazado por >>$reject_reason<<" "INFO"
 }
 
 
@@ -226,20 +229,20 @@ invoke_program()
 
 	if [ "$pidof_Masterlist" != "" ] || [ "$pidof_Rating" != "" ]
 	then
-		log "$0" "WARN" "Invocacion de $program pospuesta para el siguiente ciclo" "Listener"
+		log "Invocacion de $program pospuesta para el siguiente ciclo" "WAR"
 		return
 	fi
 
 	program_pid=$($program &)
 	if [[ ! $program_pid =~ ^[0-9]*\ [0-9]*\$ ]]
 	then
-		log "$0" "ERRO" "Invocacion de $program fallida" "Listener"
+		log "Invocacion de $program fallida" "ERR"
 		return
 	fi
 
 	program_pid=${masterlist_pid#*\ }
 
-	log "$0" "INFO" "$program corriendo bajo el no.: $program_pid" "Listener"
+	log "$program corriendo bajo el no.: $program_pid" "INFO"
 	echo "$program corriendo bajo el no.: $program_pid"
 }
 
@@ -277,7 +280,7 @@ do
 	daemon_duration=$((daemon_duration + 1))
 
 	#Log
-	echo "Ciclo Nro $daemon_duration"
+	log "Ciclo Nro $daemon_duration" "INFO"
 
 	#Check files
 	check_new_files
