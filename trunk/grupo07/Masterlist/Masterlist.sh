@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 
 # Pre: -
 # Post: Se cargan las variables  para las rutas de archivos
