@@ -1240,3 +1240,1723 @@ Type: INFO
 Message: El usuario no acepta terminos y condiciones, se cancela la instalacion
 
 -------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 17:54:22--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 17:54:22--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 17:54:22--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 17:54:22--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 17:54:22--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 17:54:22--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: bin
+
+Directorio de Archivos Maestros y Tablas: mae
+precios
+Directorio de Novedades: nove
+
+Directorio de Novedades Aceptadas: acept
+
+Directorio de Informes de Salida: info
+pres
+Directorio de Archivos Rechazados: rech
+
+Directorio de Log de Comandos: loggeados
+
+Estado de la instalacion: COMPLETA
+
+Proceso de instalacion cancelado
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 17:54:55--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 17:54:55--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 17:54:55--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 17:54:55--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) no existe, el paquete no fue instalado, se procede con la instalacion desde cero
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 17:54:55--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El programa no fue instalado, se procede con las instalacion
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 17:54:55--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se muestran terminos y condiciones
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:00:33--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:00:33--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:00:33--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:00:33--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) no existe, el paquete no fue instalado, se procede con la instalacion desde cero
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:00:33--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El programa no fue instalado, se procede con las instalacion
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:00:33--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se muestran terminos y condiciones
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:28--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:28--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:28--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:28--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) no existe, el paquete no fue instalado, se procede con la instalacion desde cero
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:28--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El programa no fue instalado, se procede con las instalacion
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:28--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se muestran terminos y condiciones
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:30--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario acepta terminos y condiciones, se procede con las intalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:30--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+Checkeando que perl 5 o superior este instalado...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:30--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Perl se encuentra instalado
+ 
+This is perl 5, version 18, subversion 2 (v5.18.2) built for x86_64-linux-gnu-thread-multi
+(with 41 registered patches, see perl -V for more detail)
+
+Copyright 1987-2013, Larry Wall
+
+Perl may be copied only under the terms of either the Artistic License or the
+GNU General Public License, which may be found in the Perl 5 source kit.
+
+Complete documentation for Perl, including FAQ lists, should be found on
+this system using "man perl" or "perldoc perl".  If you have access to the
+Internet, point your browser at http://www.perl.org/, the Perl Home Page.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:30--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Ejecutables (grupo07/bin)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:36--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Archivos Maestros y Tablas (grupo07/mae)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:37--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Novedades (grupo07/nov)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:37--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Tamanio maximo de Directorio de Novedades (100Mb)
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:38--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El espacio en disco disponible es sufieciente
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:38--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Novedades Aceptadas (grupo07/acpt)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:40--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Informes de Salida (grupo07/info)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:40--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Archivos Rechazados (grupo07/rech)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:40--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Log de Comandos (grupo07/log)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:40--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir la Extension de Archivos de Log de Comandos (grupo07/g/log<.log)>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:41--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Tamanio maximo de Archivos de Log de Comandos (400Kb)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:42--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: a
+Directorio de Archivos Maestros y Tablas: b
+Directorio de Novedades: c
+Tamanio maximo de Directorio de Novedades: 12Mb
+Directorio de Novedades Aceptadas: d
+Directorio de Informes de Salida: e
+Directorio de Archivos Rechazados: f
+Directorio de Log de Comandos: g
+Extension de Archivos de Log de Comandos: h
+Tamanio maximo de Archivos de Log de Comandos: 214Kb
+Estado de instalacion: LISTA
+Esta de acuerdo con los parametros mostrados?(Y-N): 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:44--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario acepta, se completa la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:44--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Iniciando Instalacion. Esta Ud. Seguro? (Y-N)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:14:45--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario acepta, se completa la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:39--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:39--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:39--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:39--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:39--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:39--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Archivos Maestros y Tablas: b
+precios
+Directorio de Novedades: c
+
+Directorio de Novedades Aceptadas: d
+
+Directorio de Informes de Salida: e
+pres
+Directorio de Archivos Rechazados: f
+
+Directorio de Log de Comandos: g
+
+
+COMPONENTES FALTANTES: Directorio de Ejecutables; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:42--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario elige continuar con la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:42--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se muestran terminos y condiciones
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:45--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario acepta terminos y condiciones, se procede con las intalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:45--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+Checkeando que perl 5 o superior este instalado...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:45--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Perl se encuentra instalado
+ 
+This is perl 5, version 18, subversion 2 (v5.18.2) built for x86_64-linux-gnu-thread-multi
+(with 41 registered patches, see perl -V for more detail)
+
+Copyright 1987-2013, Larry Wall
+
+Perl may be copied only under the terms of either the Artistic License or the
+GNU General Public License, which may be found in the Perl 5 source kit.
+
+Complete documentation for Perl, including FAQ lists, should be found on
+this system using "man perl" or "perldoc perl".  If you have access to the
+Internet, point your browser at http://www.perl.org/, the Perl Home Page.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:45--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: a
+Directorio de Archivos Maestros y Tablas: bprecios
+Directorio de Novedades: c
+Tamanio maximo de Directorio de Novedades: 100Mb
+Directorio de Novedades Aceptadas: d
+Directorio de Informes de Salida: epres
+Directorio de Archivos Rechazados: f
+Directorio de Log de Comandos: g
+Extension de Archivos de Log de Comandos: log
+Tamanio maximo de Archivos de Log de Comandos: 400Kb
+Estado de instalacion: LISTA
+Esta de acuerdo con los parametros mostrados?(Y-N): 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:50--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario no acepta, se piden de nuevo los valores
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:19:50--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Ejecutables (grupo07/a)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:27--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:27--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:27--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:27--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:27--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:27--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Archivos Maestros y Tablas: b
+precios
+Directorio de Novedades: c
+
+Directorio de Novedades Aceptadas: d
+
+Directorio de Informes de Salida: e
+pres
+Directorio de Archivos Rechazados: f
+
+Directorio de Log de Comandos: g
+
+
+COMPONENTES FALTANTES: Directorio de Ejecutables; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:29--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario elige cancelar la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:32--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:32--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:32--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:32--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:32--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:32--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Archivos Maestros y Tablas: b
+precios
+Directorio de Novedades: c
+
+Directorio de Novedades Aceptadas: d
+
+Directorio de Informes de Salida: e
+pres
+Directorio de Archivos Rechazados: f
+
+Directorio de Log de Comandos: g
+
+
+COMPONENTES FALTANTES: Directorio de Ejecutables; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:34--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario elige continuar con la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:34--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se muestran terminos y condiciones
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:36--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario acepta terminos y condiciones, se procede con las intalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:36--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+Checkeando que perl 5 o superior este instalado...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:36--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Perl se encuentra instalado
+ 
+This is perl 5, version 18, subversion 2 (v5.18.2) built for x86_64-linux-gnu-thread-multi
+(with 41 registered patches, see perl -V for more detail)
+
+Copyright 1987-2013, Larry Wall
+
+Perl may be copied only under the terms of either the Artistic License or the
+GNU General Public License, which may be found in the Perl 5 source kit.
+
+Complete documentation for Perl, including FAQ lists, should be found on
+this system using "man perl" or "perldoc perl".  If you have access to the
+Internet, point your browser at http://www.perl.org/, the Perl Home Page.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:36--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: a
+Directorio de Archivos Maestros y Tablas: bprecios
+Directorio de Novedades: c
+Tamanio maximo de Directorio de Novedades: 100Mb
+Directorio de Novedades Aceptadas: d
+Directorio de Informes de Salida: epres
+Directorio de Archivos Rechazados: f
+Directorio de Log de Comandos: g
+Extension de Archivos de Log de Comandos: log
+Tamanio maximo de Archivos de Log de Comandos: 400Kb
+Estado de instalacion: LISTA
+Esta de acuerdo con los parametros mostrados?(Y-N): 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:37--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario no acepta, se piden de nuevo los valores
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:37--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Ejecutables (grupo07/a)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:42--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Archivos Maestros y Tablas (grupo07/b)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:50--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Novedades (grupo07/c)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:52--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Tamanio maximo de Directorio de Novedades (100Mb)
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:53--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El espacio en disco disponible es sufieciente
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:53--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Novedades Aceptadas (grupo07/d)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:22:59--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Informes de Salida (grupo07/e)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:23:03--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Archivos Rechazados (grupo07/f)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:23:05--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Log de Comandos (grupo07/g)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:23:07--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir la Extension de Archivos de Log de Comandos (grupo07/log/log<.log)>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:23:27--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Tamanio maximo de Archivos de Log de Comandos (400Kb)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:23:33--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: bin
+Directorio de Archivos Maestros y Tablas: maeprecios
+Directorio de Novedades: nove
+Tamanio maximo de Directorio de Novedades: 100Mb
+Directorio de Novedades Aceptadas: acept
+Directorio de Informes de Salida: infopres
+Directorio de Archivos Rechazados: rech
+Directorio de Log de Comandos: log
+Extension de Archivos de Log de Comandos: log
+Tamanio maximo de Archivos de Log de Comandos: 400Kb
+Estado de instalacion: LISTA
+Esta de acuerdo con los parametros mostrados?(Y-N): 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:23:34--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario acepta, se completa la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:23:34--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Iniciando Instalacion. Esta Ud. Seguro? (Y-N)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:23:35--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario acepta, se completa la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:21--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:21--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:21--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:21--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:21--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:21--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: bin
+
+Directorio de Archivos Maestros y Tablas: mae
+precios
+Directorio de Novedades: nove
+
+Directorio de Novedades Aceptadas: acept
+
+Directorio de Informes de Salida: info
+pres
+Directorio de Archivos Rechazados: rech
+
+Directorio de Log de Comandos: log
+
+Estado de la instalacion: COMPLETA
+
+Proceso de instalacion cancelado
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:29--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:29--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:29--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:29--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:29--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:29--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: bin
+
+Directorio de Archivos Maestros y Tablas: mae
+precios
+Directorio de Novedades: nove
+
+Directorio de Informes de Salida: info
+pres
+Directorio de Archivos Rechazados: rech
+
+Directorio de Log de Comandos: log
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:31--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario elige continuar con la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:31--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se muestran terminos y condiciones
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:33--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario acepta terminos y condiciones, se procede con las intalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:33--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+Checkeando que perl 5 o superior este instalado...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:33--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Perl se encuentra instalado
+ 
+This is perl 5, version 18, subversion 2 (v5.18.2) built for x86_64-linux-gnu-thread-multi
+(with 41 registered patches, see perl -V for more detail)
+
+Copyright 1987-2013, Larry Wall
+
+Perl may be copied only under the terms of either the Artistic License or the
+GNU General Public License, which may be found in the Perl 5 source kit.
+
+Complete documentation for Perl, including FAQ lists, should be found on
+this system using "man perl" or "perldoc perl".  If you have access to the
+Internet, point your browser at http://www.perl.org/, the Perl Home Page.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:33--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: bin
+Directorio de Archivos Maestros y Tablas: maeprecios
+Directorio de Novedades: nove
+Tamanio maximo de Directorio de Novedades: 100Mb
+Directorio de Novedades Aceptadas: acept
+Directorio de Informes de Salida: infopres
+Directorio de Archivos Rechazados: rech
+Directorio de Log de Comandos: log
+Extension de Archivos de Log de Comandos: log
+Tamanio maximo de Archivos de Log de Comandos: 400Kb
+Estado de instalacion: LISTA
+Esta de acuerdo con los parametros mostrados?(Y-N): 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:34--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario no acepta, se piden de nuevo los valores
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:34--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Ejecutables (grupo07/bin)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:36--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Archivos Maestros y Tablas (grupo07/mae)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:37--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Novedades (grupo07/nove)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:39--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Tamanio maximo de Directorio de Novedades (100Mb)
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:40--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El espacio en disco disponible es sufieciente
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:40--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Novedades Aceptadas (grupo07/acept)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:43--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Informes de Salida (grupo07/info)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:44--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Archivos Rechazados (grupo07/rech)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:46--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Log de Comandos (grupo07/log)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:24:47--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir la Extension de Archivos de Log de Comandos (grupo07/log/log<.log)>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:06--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:06--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:06--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:06--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) ya existe, se checkean directorios
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:06--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El programa ya fue instalado
+Checkeando directorios...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:06--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: bin
+
+Directorio de Archivos Maestros y Tablas: mae
+precios
+Directorio de Novedades: nove
+
+Directorio de Informes de Salida: info
+pres
+Directorio de Archivos Rechazados: rech
+
+Directorio de Log de Comandos: log
+
+
+COMPONENTES FALTANTES: Directorio de Novedades Aceptadas; 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:07--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario elige continuar con la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:07--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se muestran terminos y condiciones
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:08--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario acepta terminos y condiciones, se procede con las intalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:08--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+Checkeando que perl 5 o superior este instalado...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:08--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Perl se encuentra instalado
+ 
+This is perl 5, version 18, subversion 2 (v5.18.2) built for x86_64-linux-gnu-thread-multi
+(with 41 registered patches, see perl -V for more detail)
+
+Copyright 1987-2013, Larry Wall
+
+Perl may be copied only under the terms of either the Artistic License or the
+GNU General Public License, which may be found in the Perl 5 source kit.
+
+Complete documentation for Perl, including FAQ lists, should be found on
+this system using "man perl" or "perldoc perl".  If you have access to the
+Internet, point your browser at http://www.perl.org/, the Perl Home Page.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:08--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: bin
+Directorio de Archivos Maestros y Tablas: maeprecios
+Directorio de Novedades: nove
+Tamanio maximo de Directorio de Novedades: 100Mb
+Directorio de Novedades Aceptadas: acept
+Directorio de Informes de Salida: infopres
+Directorio de Archivos Rechazados: rech
+Directorio de Log de Comandos: log
+Extension de Archivos de Log de Comandos: log
+Tamanio maximo de Archivos de Log de Comandos: 400Kb
+Estado de instalacion: LISTA
+Esta de acuerdo con los parametros mostrados?(Y-N): 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:09--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario no acepta, se piden de nuevo los valores
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:09--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Ejecutables (grupo07/bin)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:10--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Archivos Maestros y Tablas (grupo07/mae)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:12--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Novedades (grupo07/nove)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:13--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Tamanio maximo de Directorio de Novedades (100Mb)
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:15--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: WAR
+Message: 
+Insuficiente espacio en disco
+Espacio disponible: 44769 Mb.
+Espacio requerido: 2-- Mb.
+Cancele la instalacion o intentelo nuevamente
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:17--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El espacio en disco disponible es sufieciente
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:17--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Novedades Aceptadas (grupo07/acept)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:18--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Informes de Salida (grupo07/info)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:20--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Archivos Rechazados (grupo07/rech)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:21--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Log de Comandos (grupo07/log)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:23--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir la Extension de Archivos de Log de Comandos (grupo07/log/log<.log)>
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:27--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Tamanio maximo de Archivos de Log de Comandos (400Kb)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:29--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: bin
+Directorio de Archivos Maestros y Tablas: maeprecios
+Directorio de Novedades: nove
+Tamanio maximo de Directorio de Novedades: 200Mb
+Directorio de Novedades Aceptadas: acept
+Directorio de Informes de Salida: infopres
+Directorio de Archivos Rechazados: rech
+Directorio de Log de Comandos: log
+Extension de Archivos de Log de Comandos: log
+Tamanio maximo de Archivos de Log de Comandos: 400Kb
+Estado de instalacion: LISTA
+Esta de acuerdo con los parametros mostrados?(Y-N): 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:31--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario acepta, se completa la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:31--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: Iniciando Instalacion. Esta Ud. Seguro? (Y-N)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 18:25:32--------------------------------------------------------
+
+User: luciano
+Caller: ./installer.sh
+Type: INFO
+Message: El usuario acepta, se completa la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
