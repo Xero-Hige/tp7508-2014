@@ -3,12 +3,13 @@
 #HAY QUE CORRER EL PROGRAMA ASÍ: 'source initializer.sh'
 
 
-
-initializeLog()
+log()
 {
-	#Inicializar log
-	echo -e "Comando Initializer Inicio de Ejecución\n"
+	message=user_escaped=$(echo "${1}"| sed "$sed_escape_filter")
+	type=user_escaped=$(echo "${2}"| sed "$sed_escape_filter")
+	../logger/logging.sh "initializer" "$message" "$type"
 }
+
 
 initializeListener()
 {
@@ -17,10 +18,9 @@ initializeListener()
 	do
 		case $ACCION in
 		"SI")
-		LISTENER=$(ps aux | grep -c listener.sh) #FIXME usar pgrep
-		if [ "$LISTENER" -eq 1 ]
-		then
-			#HAY PROBLEMAS CUANDO CORRO EL LISTENER			
+		LISTENER=$(pgrep -f listener.sh)
+		if [ "$LISTENER" == "" ]
+		then	
 			echo -e "Se activará el Listener. Para detenerlo, seguir los siguientes pasos.......\n"
 			../listener/listener.sh
 		else
@@ -40,6 +40,11 @@ initializeListener()
 	
 }
 
+changeMod()
+{
+	chmod -R 777 $1
+}
+
 initializeEnvironment()
 {
 	if [ "$ENVIRONMENT" = 1 ]
@@ -52,19 +57,19 @@ initializeEnvironment()
 		#CAMBIAR LOS PATH. DECIDIR AL HACER INTEGRACIÓN
 		export PATH="."		
 		export CONFDIR=$path_confdir
-		chmod -R 777 "$CONFDIR"		
+		changeMod "$CONFDIR"		
 		export MAEDIR=$path_maedir
-		chmod -R 777 "$MAEDIR"
+		changeMod "$MAEDIR"
 		export NOVEDIR=$path_novedir
-		chmod -R 777 "$NOVEDIR"
+		changeMod "$NOVEDIR"
 		export RECHDIR=$path_rechdir
-		chmod -R 777 "$RECHDIR"
+		changeMod "$RECHDIR"
 		export BINDIR=$path_bindir
-		chmod -R 777 "$BINDIR"
+		changeMod "$BINDIR"
 		export INFODIR=$path_infodir
-		chmod -R 777 "$INFODIR"
+		changeMod "$INFODIR"
 		export LOGDIR=$log_dir
-		chmod -R 777 "$LOGDIR"
+		changeMod "$LOGDIR"
 		export LOGEXT=$logext
 		export DATASIZE=$datasize
 		export LOGSIZE=$logsize
@@ -72,22 +77,23 @@ initializeEnvironment()
 }
 
 checkCorrectPath()
-{
-	
+{	
 	if [ "$#" -eq 1 ]
 	then
 		echo -e "- Falta $1\n"
 		CORRECT_INSTALLATION=0
-		#log
+		echo -e "Path incorrecto para $1"
+		log "Path incorrecto para $1" "ERR"
 	fi
 }
 
 checkFileExist()
 {
-	if [ ! -f "$path_maedir"/"$1" ]
+	if [ ! -f $path_maedir/$1 ]
 	then	
 		CORRECT_INSTALLATION=0
-		#Log
+		echo -e "No se encuentra el archivo $1 en el directorio $path_maedir"
+		log "No se encuentra el archivo $1" "ERR"
 	fi
 }
 
@@ -102,7 +108,7 @@ checkCorrectInstallation()
 	path_bindir=`grep '^BINDIR' $CONFIG | cut -f2 -d'='`
 	checkCorrectPath "$path_bindir" BINDIR
 
-	path_acepdir=`grep -s '^ACEPDIR' $CONFIG | cut -f2 -d'='`
+	path_acepdir=`grep -s '^ACEPDIR$' $CONFIG | cut -f2 -d'='`
 	checkCorrectPath "$path_acepdir" ACEPDIR
 
 	path_rechdir=`grep '^RECHDIR' $CONFIG | cut -f2 -d'='`
@@ -130,7 +136,7 @@ checkCorrectInstallation()
 
 showFiles()
 {
-	for fichero in $(ls $1) #FIXME
+	for fichero in $1/*
 	do
 		echo -e "$fichero"
 	done
@@ -152,13 +158,14 @@ showContent()
 	echo -e "Dir. Archivos Rechazados: $RECHDIR\n"
 	echo -e "Data size: $DATASIZE\n"
 	echo -e "Dir. de Logs de Comandos: "
-	for comando in $(ls $LOGDIR) #FIXME
+	for comando in $LOGDIR/*
 	do
 		echo -e "$LOGDIR/<$comando>.$LOGEXT"
 	done
 	echo -e "Log size: $LOGSIZE\n"
 	echo -e "Estado del Sistema: INICIALIZADO\n"
-	echo -e "Listener corriendo bajo el no.: <Process Id de Listener>" #Obtener process ID de Listener
+	PID_LISTENER=$(pgrep -f listener.sh)
+	echo -e "Listener corriendo bajo el no.: <$PID_LISTENER>"
 }
 
 finish()
@@ -177,16 +184,22 @@ finish()
 	done
 }
 
+runInstaller()
+{
+	PATH_INSTALLER="../installer/installer.sh"
+	changeMod "$PATH_INSTALLER"	
+	$PATH_INSTALLER
+}
+
 #---------------------------------------------------
 #PROGRAM
 
-initializeLog
+echo -e "Comando Initializer Inicio de Ejecución\n"
 checkCorrectInstallation
 if [ "$CORRECT_INSTALLATION" -eq 0 ]
 then
 	finish
-	#exit
-	../installer/installer.sh
+	runInstaller
 else
 	initializeEnvironment
 	initializeListener
