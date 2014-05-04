@@ -14,13 +14,13 @@ BINDIR="bin" #de instalacion de ejecutables
 MAEDIR="mae" #de archivos maestros
 NOVEDIR="nov" #arribos de de novedades
 DATASIZE=100 #espacio minimos en mb para NOVEDIR
-ACPTDIR="acpt" #novedades aceptadas
+ACEPDIR="acpt" #novedades aceptadas
 INFODIR="info" #reportes
 RECHDIR="rech" #archivos rechazados
 LOGDIR="log" #directorio de log
 LOGEXT="log" #extension de archivos de log
 LOGSIZE=400 #tamanio maximo para archivos de log
-INSTALLERVARIABLES=( BINDIR MAEDIR NOVEDIR DATASIZE ACPTDIR INFODIR RECHDIR LOGDIR LOGEXT LOGSIZE )
+INSTALLERVARIABLES=( BINDIR MAEDIR NOVEDIR DATASIZE ACEPTDIR INFODIR RECHDIR LOGDIR LOGEXT LOGSIZE )
 
 #checkea que perl este instalado y su version sea igual o mayos a la v5
 checkPerl() {
