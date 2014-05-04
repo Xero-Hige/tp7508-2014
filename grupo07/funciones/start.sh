@@ -14,7 +14,7 @@ if [ "$ENVIRONMENT" -ne "1" ]; then
 	exit 2
 fi
 #proceso=`ps -ef | grep "$1.sh" | wc  -l`
-proceso=`ps -ef | grep "$1" | wc  -l`
+proceso=`ps -ef | grep "$1" | wc  -l` #ver porque si trato de ejecutar start para un proceso que no existe. Este comando me retorna algo mayor que uno
 echo $proceso
 if [ "$proceso" -gt "1" ] 
 	then
