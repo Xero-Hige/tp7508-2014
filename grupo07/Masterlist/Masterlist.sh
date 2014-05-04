@@ -47,7 +47,7 @@ function cargarVariables(){
 # Pre: -
 # Post: Se inicializa el log del interprete
 function iniciarLog(){                  
-	declare local cantidadArchivos=`ls $path_preciosdir | wc -l`
+	declare local cantidadArchivos=$(ls "$path_preciosdir" | wc -l)
 	loguear "Inicio de Masterlist "
 	loguear "Cantidad de Listas de precios a procesar: $cantidadArchivos"
 }
@@ -58,25 +58,25 @@ function iniciarLog(){
 # Pre: $1 archAcepdir
 # Post: Se retorna verdadero si archAcepdir esta duplicado.
 function estaArchivoMaedirDuplicado(){
-        estaDuplicado=$FALSE
-		nombre=`basename "$1"`
-        declare local listaProcdir=`ls $path_procdir`  
-        for archProcdir in $listaProcdir
-        do
+	estaDuplicado=$FALSE
+	nombre=$(basename "$1")
+	declare local listaProcdir=$(ls "$path_procdir")  
+	for archProcdir in $listaProcdir
+	do
 
-			if [ -z "$archProcdir" ] || [ "$archProcdir" == "" ]
-			then
-				estaDuplicado=$FALSE
-				break
-			fi
+		if [ -z "$archProcdir" ] || [ "$archProcdir" == "" ]
+		then
+			estaDuplicado="$FALSE"
+			break
+		fi
 
 
-            if [ "$nombre" == "$archProcdir" ]      
-            then
-                estaDuplicado=$TRUE
-				break
-            fi
-        done
+		if [ "$nombre" == "$archProcdir" ]      
+		then
+			estaDuplicado="$TRUE"
+			break
+		fi
+	done
 }
 
 ###################################################################################################
@@ -87,7 +87,7 @@ function estaArchivoMaedirDuplicado(){
 # el mismo a la carpeta de rechazados.
 function procesarDuplicado(){
 	loguearAdvertencia "Se rechaza el archivo por estar DUPLICADO"
-	Mover $1 $rechdir
+	Mover "$1" "$rechdir"
 }
 
 ###################################################################################################
@@ -96,19 +96,19 @@ function procesarDuplicado(){
 # Pre: $1 archPreciodir 
 # Post: Procesa el archivo aceptado.
 function validarCabecera() {
-	cabeceraValida=$FALSE
-	header=$(head -n 1 $1)
-	STR="$header"
+	cabeceraValida="$FALSE"
+	header=$(head -n 1 "$1")
 
-	campo1=`echo "$header" | cut -d ";" -f1`
-	campo2=`echo "$header" | cut -d ";" -f2`
-	campo3=`echo "$header" | cut -d ";" -f3`
-	campo4=`echo "$header" | cut -d ";" -f4`
-	campo5=`echo "$header" | cut -d ";" -f5`
-	campo6=`echo "$header" | cut -d ";" -f6`
-	declare local usr=`echo "$1" | sed 's/^[^\.]*\.//'`
+	campo1=$(echo "$header" | cut -d ";" -f1)
+	campo2=$(echo "$header" | cut -d ";" -f2)
+	campo3=$(echo "$header" | cut -d ";" -f3)
+	campo4=$(echo "$header" | cut -d ";" -f4)
+	campo5=$(echo "$header" | cut -d ";" -f5)
+	campo6=$(echo "$header" | cut -d ";" -f6)
+	declare local usr=$(echo "$1" | sed 's/^[^\.]*\.//')
 
-	email=`grep '^[^;]*\;[^;]*\;'"$usr"';[0-9]\;'"$campo6"'\$' "$asoc"`
+	email=$(grep '^[^;]*\;[^;]*\;'"$usr"';[0-9]\;'"$campo6"'\$' "$asoc")
+	echo "$email"
 	if [ -z "$email" ] || [ "$email" == "" ]
 	then
 		loguearAdvertencia "Se rechaza el archivo por Correo electrónico del colaborador inválido"
@@ -117,7 +117,7 @@ function validarCabecera() {
 		return
 	fi
 
-	nombreYsuper=`grep -s '^[0-9]*\;'"$campo2"';'"$campo1"';[^;]*\;[^;]*\;[^;]*\$' "$super"`
+	nombreYsuper=$(grep -s '^[0-9]*\;'"$campo2"';'"$campo1"';[^;]*\;[^;]*\;[^;]*\$' "$super")
 	if [ -z "$nombreYsuper" ] || [ "$nombreYsuper" == "" ]
 	then
 		loguearAdvertencia "Se rechaza el archivo por Correo electrónico del colaborador inválido"
@@ -130,21 +130,21 @@ function validarCabecera() {
 	validarCampo4 "$campo4" "$campo3"
 	validarCampo5 "$campo5" "$campo3" "$campo4"
 
-	if [ "$Campo3Valido" == $FALSE ] 
+	if [ "$Campo3Valido" == "$FALSE" ] 
 	then
 		loguearAdvertencia "Se rechaza el archivo por Cantidad de campos invalida"
 		Mover "$1" "$rechdir"
 		cabeceraValida="$FALSE"
 		return
 	fi
-	if [ "$Campo4Valido" == $FALSE ]
+	if [ "$Campo4Valido" == "$FALSE" ]
 	then
 		loguearAdvertencia "Se rechaza el archivo por Posición producto inválida"
 		Mover "$1" "$rechdir"
 		cabeceraValida="$FALSE"
 		return
 	fi
-	if [ "$Campo5Valido" == $FALSE ]
+	if [ "$Campo5Valido" == "$FALSE" ]
 	then
 		loguearAdvertencia "Se rechaza el archivo por Posición precio inválida"
 		Mover "$1" "$rechdir"
@@ -159,12 +159,12 @@ function validarCabecera() {
 ###################################################################################################
 
 function validarCampo3() {
-	campo3Valido=$TRUE
-	if ([[ $1 =~ ^-?[0-9]+$ ]]) && (( $1 > "1" ))
+	campo3Valido="$TRUE"
+	if ([[ "$1" =~ ^-?[0-9]+$ ]]) && (( "$1" > "1" ))
 	then
-   		campo3Valido=$TRUE
+   		campo3Valido="$TRUE"
 	else
-		campo3Valido=$FALSE
+		campo3Valido="$FALSE"
 	fi
 }
 
@@ -172,12 +172,12 @@ function validarCampo3() {
 ###################################################################################################
 
 function validarCampo4() {
-	campo4Valido=$TRUE
-	if ([[ $1 =~ ^-?[0-9]+$ ]]) && (( $1 > "0" )) && (( $1 <= $2 ))
+	campo4Valido="$TRUE"
+	if ([[ "$1" =~ ^-?[0-9]+$ ]]) && (( "$1" > "0" )) && (( "$1" <= "$2" ))
 	then
-   		campo4Valido=$TRUE
+   		campo4Valido="$TRUE"
 	else
-		campo4Valido=$FALSE
+		campo4Valido="$FALSE"
 	fi
 }
 
@@ -185,12 +185,12 @@ function validarCampo4() {
 ###################################################################################################
 
 function validarCampo5() {
-	campo5Valido=$TRUE
-	if ([[ $1 =~ ^-?[0-9]+$ ]]) && (( $1 > "0" )) && (( $1 <= $2 )) && [ ! $1 == $3 ]
+	campo5Valido="$TRUE"
+	if ([[ "$1" =~ ^-?[0-9]+$ ]]) && (( "$1" > "0" )) && (( "$1" <= "$2" )) && [ ! "$1" == "$3" ]
 	then
-   		campo5Valido=$TRUE
+   		campo5Valido="$TRUE"
 	else
-		campo5Valido=$FALSE
+		campo5Valido="$FALSE"
 	fi
 }
 
@@ -199,8 +199,8 @@ function validarCampo5() {
 
 function encontrarSuperID() {
 
-	regSuper=`grep '^[^;]*\;'"$2"';'"$1"';[^;]*;[^;]*;[^;]\+$' $super`
-    superID=`echo "$regSuper" | cut -s -f1 -d';'`
+	regSuper=$(grep '^[^;]*\;'"$2"';'"$1"';[^;]*;[^;]*;[^;]\+$' "$super")
+    superID=$(echo "$regSuper" | cut -s -f1 -d';')
 }
 
 ###################################################################################################
@@ -219,19 +219,19 @@ function finalizarLog() {
 # Pre: $1 Mensaje
 # Post: Se loguea mensaje informativo.
 function loguear(){
-	`"../logger/"./logging.sh "$path_log" "$1" INFO`
+	"../logger/"./logging.sh "$path_log" "$1" INFO
 }
 
 # Pre: $1 Mensaje
 # Post: Se loguea mensaje de error.
 function loguearError(){
-	`"../logger/"./logging.sh "$path_log" "$1" ERR`
+	"../logger/"./logging.sh "$path_log" "$1" ERR
 }
 
 # Pre: $1 Mensaje
 # Post: Se loguea mensaje de error.
 function loguearAdvertencia(){
-	`"../logger/"./logging.sh "$path_log" "$1" WAR`
+	"../logger/"./logging.sh "$path_log" "$1" WAR
 }
 
 ###################################################################################################
@@ -272,7 +272,7 @@ function procesarAltas() {
 			continue
 		fi
 
-		cantCampos=`echo "$linea" | sed 's/[^;]//g' | wc -m`
+		cantCampos=$(echo "$linea" | sed 's/[^;]//g' | wc -m)
 
 
 		if [ ! "$cantCampos" == "$cantCamposPrecio" ]
@@ -281,8 +281,8 @@ function procesarAltas() {
 			continue
 		fi
 		
-		precio=`echo "$linea" | cut -d ";" -f"$ubicacionPrecio"`
-		producto=`echo "$linea" | cut -d ";" -f"$ubicacionProducto"`
+		precio=$(echo "$linea" | cut -d ";" -f"$ubicacionPrecio")
+		producto=$(echo "$linea" | cut -d ";" -f"$ubicacionProducto")
 	
 		if [ "$producto" == "" ] || [ "$precio" == "" ]
 		then
@@ -308,13 +308,13 @@ function procesarAltas() {
 
 function procesarReemplazo() {
 
-	declare local archivo=$1
+	declare local archivo="$1"
 
-	registrosEliminados=`grep -c '^'"$2"';'"$3"';'"$4$5$6"';[^;]*\;[0-9]*\.[0-9]*\$' "$preciosMae"`
-	`sed -i '/^'"$2"';'"$3"';'"$4$5$6"';[^;]*\;[0-9]*\.[0-9]*\$/d' "$preciosMae"`
+	registrosEliminados=$(grep -c '^'"$2"';'"$3"';'"$4$5$6"';[^;]*\;[0-9]*\.[0-9]*\$' "$preciosMae")
+	sed -i '/^'"$2"';'"$3"';'"$4$5$6"';[^;]*\;[0-9]*\.[0-9]*\$/d' "$preciosMae"
 
 	loguear "Registros borrados: $registrosEliminados"
-	procesarAltas $1 $2 $3 $7 $8 $9
+	procesarAltas "$1" "$2" "$3" "$7" "$8" "$9"
 
 }
 
@@ -345,7 +345,7 @@ do
 		break
 	fi
 
-	archn=`basename "$archp"`
+	archn=$(basename "$archp")
 	archPreciodir="$path_preciosdir$archn"
 
 	if [ "$archPreciodir" == "proc" ]
@@ -372,19 +372,19 @@ do
 			break
 		fi
 
-		usuario=`echo "$archPreciodir" | sed 's/^[^\.]*\.//'`
+		usuario=$(echo "$archPreciodir" | sed 's/^[^\.]*\.//')
 	
 		encontrarSuperID "$campo1" "$campo2"
 
 		#revisar la siguiente linea
-		reg=`grep -s '^'"$superID"'\;'"$usuario"';[0-9]\{8\};[^;]*\;[0-9]*\.[0-9]*\$' "$preciosMae" | head -n 1`
+		reg=$(grep -s '^'"$superID"'\;'"$usuario"';[0-9]\{8\};[^;]*\;[0-9]*\.[0-9]*\$' "$preciosMae" | head -n 1)
 
 
 		# Fecha del nombre del archivo de precios actual
-		fechaPrecio=`echo "$archPreciodir" | sed 's/^[^\-]*\-//' | sed 's/\..*\$//'`
-		anioPrecio=`echo "$fechaPrecio" | sed 's/[^.]\{4\}\$//'`
-		mesPrecio=`echo "$fechaPrecio" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}\$//'`
-		diaPrecio=`echo "$fechaPrecio" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}//'`
+		fechaPrecio=$(echo "$archPreciodir" | sed 's/^[^\-]*\-//' | sed 's/\..*\$//')
+		anioPrecio=$(echo "$fechaPrecio" | sed 's/[^.]\{4\}\$//')
+		mesPrecio=$(echo "$fechaPrecio" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}\$//')
+		diaPrecio=$(echo "$fechaPrecio" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}//')
 
 		
 		# No existe el archivo o no existe el registro en el archivo de precios maestro
@@ -397,10 +397,10 @@ do
 		fi
 
 		# Fecha del registro del archivo de precios maestro
-		fechaMae=`echo "$reg" | sed 's/^[^;]*\;[^;]*\;//' | sed 's/\([0-9]\{8\}\).*/\1/'`
-		anioMae=`echo "$fechaMae" | sed 's/[^.]\{4\}\$//'`
-		mesMae=`echo "$fechaMae" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}\$//'`
-		diaMae=`echo "$fechaMae" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}//'`
+		fechaMae=$(echo "$reg" | sed 's/^[^;]*\;[^;]*\;//' | sed 's/\([0-9]\{8\}\).*/\1/')
+		anioMae=$(echo "$fechaMae" | sed 's/[^.]\{4\}\$//')
+		mesMae=$(echo "$fechaMae" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}\$//')
+		diaMae=$(echo "$fechaMae" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}//')
 
 
 		if [ "$anioPrecio" -gt "$anioMae" ]
