@@ -3,10 +3,11 @@
 use Term::ReadKey;
 use File::Spec::Functions qw(catfile);
 
-$MAE_FILE = "./super.mae"; #Hacerlo posta
+#use Env qw(INFODIR MAEDIR INFON);
+$MAEDIR = "./"; # Hacerlo posta
+$MAEFILE = "super.mae"; 
 $INFODIR = "./"; #Hacerlo posta
 $PRESDIR = "pres";
-$USR_FILE = "./USUARIOTEST.tst"; #Esto en realidad no existe
 $REF_BOUNDARY = 100;
 $OBS_LE = "(*)";
 $OBS_GT = "(**)";
@@ -15,12 +16,12 @@ $INFO_LINE = "$OBS_LE Precio menor o igual al Precio Cuidado.\n$OBS_GT Precio ma
 
 sub makeSupermarketsHash { 
     my($supermarkets_ref) = @_[0];
-    open(SUPER_MAE, "<$MAE_FILE") || die "No se pudo abrir el super.mae\n";
-    while (<SUPER_MAE>) {
+    open(SUPER_MAE_H, "<".catfile($MAEDIR, $MAEFILE)) || die "No se pudo abrir el super.mae\n";
+    while (<SUPER_MAE_H>) {
         my($id, $province, $super_name) = ($_ =~ /^(\d+);(.+);(.*)(?:;.*){3}$/);
         ${$supermarkets_ref}{$id} = $province."-".$super_name;
     }
-    close(SUPER_MAE);
+    close(SUPER_MAE_H);
 }
 
 sub readKey {
@@ -36,6 +37,7 @@ sub printHelp {
     readKey;
 }
 
+#Esto se reemplaza por INFON, pero hay que setear la variable antes
 sub getNextDescriptorNumber {
     my ($ret_n) = 0;
     opendir(INFODIR_H, "$INFODIR");
