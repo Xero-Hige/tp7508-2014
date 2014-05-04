@@ -17,7 +17,7 @@ initializeListener()
 	do
 		case $ACCION in
 		"SI")
-		LISTENER=$(ps aux | grep -c listener.sh)
+		LISTENER=$(ps aux | grep -c listener.sh) #FIXME usar pgrep
 		if [ "$LISTENER" -eq 1 ]
 		then
 			#HAY PROBLEMAS CUANDO CORRO EL LISTENER			
@@ -52,19 +52,19 @@ initializeEnvironment()
 		#CAMBIAR LOS PATH. DECIDIR AL HACER INTEGRACIÓN
 		export PATH="."		
 		export CONFDIR=$path_confdir
-		chmod -R 777 $CONFDIR		
+		chmod -R 777 "$CONFDIR"		
 		export MAEDIR=$path_maedir
-		chmod -R 777 $MAEDIR
+		chmod -R 777 "$MAEDIR"
 		export NOVEDIR=$path_novedir
-		chmod -R 777 $NOVEDIR
+		chmod -R 777 "$NOVEDIR"
 		export RECHDIR=$path_rechdir
-		chmod -R 777 $RECHDIR
+		chmod -R 777 "$RECHDIR"
 		export BINDIR=$path_bindir
-		chmod -R 777 $BINDIR
+		chmod -R 777 "$BINDIR"
 		export INFODIR=$path_infodir
-		chmod -R 777 $INFODIR
+		chmod -R 777 "$INFODIR"
 		export LOGDIR=$log_dir
-		chmod -R 777 $LOGDIR
+		chmod -R 777 "$LOGDIR"
 		export LOGEXT=$logext
 		export DATASIZE=$datasize
 		export LOGSIZE=$logsize
@@ -84,7 +84,7 @@ checkCorrectPath()
 
 checkFileExist()
 {
-	if [ ! -f $path_maedir/$1 ]
+	if [ ! -f $path_maedir/$1 ] #FIXME 
 	then	
 		CORRECT_INSTALLATION=0
 		#Log
@@ -96,29 +96,29 @@ checkCorrectInstallation()
 	config="../conf/installer.conf"
 	export CONFIG=$config
 	CORRECT_INSTALLATION=1
-	path_confdir=`grep '^CONFDIR' $CONFIG | cut -f2 -d'='`
-	checkCorrectPath $path_confdir CONFDIR
+	path_confdir=$(grep '^CONFDIR' $CONFIG | cut -f2 -d'=')
+	checkCorrectPath "$path_confdir" CONFDIR
 
-	path_bindir=`grep '^BINDIR' $CONFIG | cut -f2 -d'='`
-	checkCorrectPath $path_bindir BINDIR
+	path_bindir=$(grep '^BINDIR' $CONFIG | cut -f2 -d'=')
+	checkCorrectPath "$path_bindir" BINDIR
 
-	path_acepdir=`grep -s '^ACEPDIR$' $CONFIG | cut -f2 -d'='`
-	checkCorrectPath $path_acepdir ACEPDIR
+	path_acepdir=$(grep -s '^ACEPDIR' $CONFIG | cut -f2 -d'=')
+	checkCorrectPath "$path_acepdir" ACEPDIR
 
-	path_rechdir=`grep '^RECHDIR' $CONFIG | cut -f2 -d'='`
-	checkCorrectPath $path_rechdir RECHDIR
+	path_rechdir=$(grep '^RECHDIR' $CONFIG | cut -f2 -d'=')
+	checkCorrectPath "$path_rechdir" RECHDIR
 
-	path_maedir=`grep '^MAEDIR' $CONFIG | cut -f2 -d'='`
-	checkCorrectPath $path_maedir MAEDIR
+	path_maedir=$(grep '^MAEDIR' $CONFIG | cut -f2 -d'=')
+	checkCorrectPath "$path_maedir" MAEDIR
 
-	path_logdir=`grep '^LOGDIR' $CONFIG | cut -f2 -d'='`
-	checkCorrectPath $path_logdir LOGDIR
+	path_logdir=$(grep '^LOGDIR' $CONFIG | cut -f2 -d'=')
+	checkCorrectPath "$path_logdir" LOGDIR
 
-	logext=`grep '^LOGEXT' $CONFIG | cut -f2 -d'='`
-	checkCorrectPath $logext LOGEXT
+	logext=$(grep '^LOGEXT' $CONFIG | cut -f2 -d'=')
+	checkCorrectPath "$logext" LOGEXT
 
-	logsize=`grep '^LOGSIZE' $CONFIG | cut -f2 -d'='`
-	datasize=`grep '^DATASIZE' $CONFIG | cut -f2 -d'='`
+	logsize=$(grep '^LOGSIZE' $CONFIG | cut -f2 -d'=')
+	datasize=$(grep '^DATASIZE' $CONFIG | cut -f2 -d'=')
 
 	if [ "$CORRECT_INSTALLATION" -eq 1 ]
 	then
@@ -130,7 +130,7 @@ checkCorrectInstallation()
 
 showFiles()
 {
-	for fichero in $(ls $1)
+	for fichero in $(ls $1) #FIXME
 	do
 		echo -e "$fichero"
 	done
@@ -141,18 +141,18 @@ showContent()
 {
 	echo -e "TP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\n"
 	echo -e "Direct. de Configuración: $CONFDIR"
-	showFiles $CONFDIR
+	showFiles "$CONFDIR"
 	echo -e "\nDirectorio Ejecutables: $BINDIR\n"
-	showFiles $BINDIR	
+	showFiles "$BINDIR"	
 	echo -e "\nDirect Maestros y Tablas: $MAEDIR\n"
-	showFiles $MAEDIR	
+	showFiles "$MAEDIR"	
 	echo -e "\nDirectorio de Novedades: $NOVEDIR\n"
 	echo -e "Dir. Novedades Aceptadas: $ACEPDIR\n"
 	echo -e "Dir. Informes de Salida: $INFODIR\n"
 	echo -e "Dir. Archivos Rechazados: $RECHDIR\n"
 	echo -e "Data size: $DATASIZE\n"
 	echo -e "Dir. de Logs de Comandos: "
-	for comando in $(ls $LOGDIR)
+	for comando in $(ls $LOGDIR) #FIXME
 	do
 		echo -e "$LOGDIR/<$comando>.$LOGEXT"
 	done
