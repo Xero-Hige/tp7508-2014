@@ -167,6 +167,47 @@ sub makeFilterHash {
     }
 }
 
+sub getUserList {
+    my(%users) = ();
+    opendir(PRES_H, catfile($INFODIR, $PRESDIR));
+    foreach $file (readdir(PRES_H)) {
+        (my($user_name)) = ($file =~ /^(.*)\.\w{3}$/);
+        next if ($user_name !~ /\w+/); # Skips if the user name doesn't have any letters, usually for . and ..
+        $users{$user_name} = 1 unless (exists $users{$user_name});
+    }
+    closedir(PRES_H);
+    return (keys %users);
+}
+
+sub selectUsers {
+    my(@users_list) = @_;
+    print "Usuarios con listas presupuestadas: \n";
+    for ($i = 0; $i <= $#users_list; $i++) {
+        print $i." - ".$users_list[$i]."\n";
+    }
+    print "Seleccione los usuarios que desea incluir ingresando los números correspondientes ".
+                 "a cada uno separados por comas (,): ";
+    return (<STDIN> =~ /,?\s*(\d*)\s*,?/g);
+}
+
+sub processSelectedUsers {
+    my($users_filter_ref) = @_[0];
+    my(@users_list) = @{@_[1]};
+    my(@selection) = @_[2..@_];
+    foreach $selected_user (@selection) {
+        next if (($selected_user !~ /^\d+$/) || ($selected_user > $#users_list));
+        my($user_name) = $users_list[$selected_user];
+        next if (exists ${$users_filter_ref}{$user_name});
+        ${$users_filter_ref}{$user_name} = $selected_user;
+    }
+}
+
+sub makeUserFilter {
+    my($users_filter_ref) = @_[0];
+    my(@users_list) = getUserList;
+    processSelectedUsers($users_filter_ref, \@users_list, selectUsers(@users_list));
+}
+
 sub processList {
     my($usr_file) = @_[0];
     my(%options) = %{@_[1]};
@@ -278,13 +319,19 @@ sub makeReport {
 sub printHeader {
     my(%options) = %{@_[0]};
     my($supermarkets_ref) = @_[1];
+    my($users_ref) = @_[2];
     my(@print_to) = (STDOUT);
-    push(@print_to, @_[2]) if (exists $options{"w"});
+    push(@print_to, @_[3]) if (exists $options{"w"});
     foreach $fh (@print_to) {
         print $fh "Opciones y filtros:"; print $fh " -".$_ foreach(keys (%options)); print $fh "\n";
         if (exists $options{"x"}) {
             print $fh "Supermercados elegidos (-x):";
             print " ".${$supermarkets_ref}{$_} foreach(sort {$a <=> $b} keys %{$supermarkets_ref});
+            print "\n";
+        }
+        if (exists $options{"u"}) {
+            print $fh "Usuarios elegidos (-u):";
+            print " ".$_ foreach(sort keys %{$users_ref});
             print "\n";
         }
         print $fh $INFO_LINE if ((exists $options{"r"}) && ((exists $options{"m"}) || (exists $options{"d"})));
@@ -325,18 +372,25 @@ while ($keep_running) {
         print "\nAlguna de las siguientes opciones debe estar presentes: -r -m -rm -d -rd -f\n\n";
         next;
     }
+    # Users filter
+    %users_filter = ();
+    if (exists $options{"u"}) {
+        makeUserFilter(\%users_filter);
+    }
     %supermarkets_filter = (); # Cleans the filter hash
     makeFilterHash(\%options, \%supermarkets, \%supermarkets_filter);
     if (exists $options{"w"}) {
         $ext = getNextDescriptorNumber;
         open(INFO_H, ">info_$ext");
     }
-    printHeader(\%options, \%supermarkets_filter, INFO_H);
+    printHeader(\%options, \%supermarkets_filter, \%users_filter, INFO_H);
     opendir(PRES_H, catfile($INFODIR, $PRESDIR));
     foreach $file (readdir(PRES_H)) {
         # Skips . .. and any other file that doesn't have the required format
         next unless ($file =~ /^.*\..{3}$/);
-        # No se filtra, hacerlo bien
+        # Filter by user
+        ($user_name) = ($file =~ /^(.*)\.\w{3}$/);
+        next unless (exists $users_filter{$user_name});
         %references_result = ();
         %items_result = ();
         $usr_file = catfile($INFODIR, $PRESDIR, $file);
