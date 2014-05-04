@@ -3,7 +3,7 @@ BINDIR:Directorio de Ejecutables
 MAEDIR:Directorio de Archivos Maestros y Tablas
 NOVEDIR:Directorio de Novedades
 DATASIZE:Tamanio maximo de Directorio de Novedades
-ACPTDIR:Directorio de Novedades Aceptadas
+ACEPDIR:Directorio de Novedades Aceptadas
 INFODIR:Directorio de Informes de Salida
 RECHDIR:Directorio de Archivos Rechazados
 LOGDIR:Directorio de Log de Comandos
