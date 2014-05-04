@@ -5,7 +5,7 @@ source dirManager.sh
 
 
 
-
+INFON=0
 EXE="exe"
 DATOS="datos/maestros"
 MESSAGE=""

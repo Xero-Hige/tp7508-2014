@@ -171,8 +171,8 @@ askDirPaths() {
 		else	
 			if [ "$dir" == "LOGEXT" ]
 			then
-				echo -e "Defina la $VARINFO ($GRUPO07/$LOGDIR/log.${!dir})\n"
-				log $0 "INFO" "Se pide al usuario definir la $VARINFO ($GRUPO07/$LOGDIR/log<.${!dir})>\n"
+				echo -e "Defina la $VARINFO ($GRUPO07/$LOGDIR/log.<${!dir}>)\n"
+				log $0 "INFO" "Se pide al usuario definir la $VARINFO ($GRUPO07/$LOGDIR/log.<${!dir}>)\n"
 			elif [ "$dir" == "LOGSIZE" ]
 			then
 				echo -e "Defina el $VARINFO (${!dir}Kb)\n"
@@ -191,7 +191,7 @@ askDirPaths() {
 updateConfFile() {
 	
 	echo -e "Actualizando la configuracion del sistema\n"
-	INSTALLERVARIABLES=("${INSTALLERVARIABLES[@]}" GRUPO)
+	INSTALLERVARIABLES=("${INSTALLERVARIABLES[@]}" GRUPO CONFDIR INFON)
 	if [ -f "$ROOT/$CONFGFILE" ]
 	then
 		for dir in "${INSTALLERVARIABLES[@]}"
