@@ -96,29 +96,29 @@ checkCorrectInstallation()
 	config="../conf/installer.conf"
 	export CONFIG=$config
 	CORRECT_INSTALLATION=1
-	path_confdir=$(grep '^CONFDIR' $CONFIG | cut -f2 -d'=')
+	path_confdir=`grep '^CONFDIR' $CONFIG | cut -f2 -d'='`
 	checkCorrectPath "$path_confdir" CONFDIR
 
-	path_bindir=$(grep '^BINDIR' $CONFIG | cut -f2 -d'=')
+	path_bindir=`grep '^BINDIR' $CONFIG | cut -f2 -d'='`
 	checkCorrectPath "$path_bindir" BINDIR
 
-	path_acepdir=$(grep -s '^ACEPDIR' $CONFIG | cut -f2 -d'=')
+	path_acepdir=`grep -s '^ACEPDIR' $CONFIG | cut -f2 -d'='`
 	checkCorrectPath "$path_acepdir" ACEPDIR
 
-	path_rechdir=$(grep '^RECHDIR' $CONFIG | cut -f2 -d'=')
+	path_rechdir=`grep '^RECHDIR' $CONFIG | cut -f2 -d'='`
 	checkCorrectPath "$path_rechdir" RECHDIR
 
-	path_maedir=$(grep '^MAEDIR' $CONFIG | cut -f2 -d'=')
+	path_maedir=`grep '^MAEDIR' $CONFIG | cut -f2 -d'='`
 	checkCorrectPath "$path_maedir" MAEDIR
 
-	path_logdir=$(grep '^LOGDIR' $CONFIG | cut -f2 -d'=')
+	path_logdir=`grep '^LOGDIR' $CONFIG | cut -f2 -d'='`
 	checkCorrectPath "$path_logdir" LOGDIR
 
-	logext=$(grep '^LOGEXT' $CONFIG | cut -f2 -d'=')
+	logext=`grep '^LOGEXT' $CONFIG | cut -f2 -d'='`
 	checkCorrectPath "$logext" LOGEXT
 
-	logsize=$(grep '^LOGSIZE' $CONFIG | cut -f2 -d'=')
-	datasize=$(grep '^DATASIZE' $CONFIG | cut -f2 -d'=')
+	logsize=`grep '^LOGSIZE' $CONFIG | cut -f2 -d'='`
+	datasize=`grep '^DATASIZE' $CONFIG | cut -f2 -d'='`
 
 	if [ "$CORRECT_INSTALLATION" -eq 1 ]
 	then
