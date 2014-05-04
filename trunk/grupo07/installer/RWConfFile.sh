@@ -50,9 +50,9 @@ changeValue() {
 	elif [ "$1" == "DATASIZE" ]
 	then
 		DATASIZE="$NEWVALUE"
-	elif [ "$1" == "ACPTDIR" ]
+	elif [ "$1" == "ACEPDIR" ]
 	then
-		ACPTDIR="$NEWVALUE"
+		ACEPDIR="$NEWVALUE"
 	elif [ "$1" == "INFODIR" ]
 	then
 		INFODIR="$NEWVALUE"
