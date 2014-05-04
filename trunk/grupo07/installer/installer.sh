@@ -4,7 +4,8 @@ source dirManager.sh
 
 
 
-
+EXE="exe"
+DATOS="datos/maestros"
 MESSAGE=""
 ROOT=".."
 GRUPO07="grupo07"
@@ -20,7 +21,7 @@ RECHDIR="rech" #archivos rechazados
 LOGDIR="log" #directorio de log
 LOGEXT="log" #extension de archivos de log
 LOGSIZE=400 #tamanio maximo para archivos de log
-INSTALLERVARIABLES=( BINDIR MAEDIR NOVEDIR DATASIZE ACEPTDIR INFODIR RECHDIR LOGDIR LOGEXT LOGSIZE )
+INSTALLERVARIABLES=( BINDIR MAEDIR NOVEDIR DATASIZE ACEPDIR INFODIR RECHDIR LOGDIR LOGEXT LOGSIZE )
 
 #checkea que perl este instalado y su version sea igual o mayos a la v5
 checkPerl() {
@@ -59,7 +60,7 @@ checkEnd() {
 #Le pregunta la usuario si acepta los terminos y condiciones para seguir con la instalacion
 checkTerminosYCondiciones() {
 
-	echo -e "\nTP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\n\n Al instalar TP SO7508 Primer Cuatrimestre 2014 UD. expresa aceptar los términos y condiciones del ACUERDO DE LICENCIA DE SOFTWARE incluido en este paquete.\nAcepta?(Y-N)"
+	echo -e "\nTP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\n\nAl instalar TP SO7508 Primer Cuatrimestre 2014 UD. expresa aceptar los términos y condiciones del ACUERDO DE LICENCIA DE SOFTWARE incluido en este paquete.\nAcepta?(Y-N)"
 	log "$0" "INFO" "Se muestran terminos y condiciones"
 	RESPONSE=0		
 	while [ "$RESPONSE" -eq "0" ]
@@ -68,11 +69,11 @@ checkTerminosYCondiciones() {
 		if [ "$R" == "y" ] || [ "$R" == "Y" ]
 		then 
 			log "$0" "INFO" "El usuario acepta terminos y condiciones, se procede con las intalacion"
-			RESPONSE=1
+			return 0
 		elif [ "$R" == "n" ] || [ "$R" == "N" ]
 		then 
 			log "$0" "INFO" "El usuario no acepta terminos y condiciones, se cancela la instalacion"
-			RESPONSE=1
+			return 1
 		else
 			echo -e "\nIngrese una opcion correcta(Y-N)\n"
 		fi
@@ -161,7 +162,7 @@ endInstallation() {
 			fi
 			if [ "$LIST" -eq "0" ]
 			then		
-				MESSAGE+=$(ls "$ROOT/$NEWPATH")
+				MESSAGE+=$(ls "$ROOT/${!dir}")
 			fi			
 			MESSAGE+="\n"
 		done
@@ -208,6 +209,10 @@ finish() {
 		then 
 			log "$0" "INFO" "El usuario acepta, se completa la instalacion"
 			createDirs
+			echo -e "Instalando archivos maestros y tablas..."			
+			mv "$ROOT/$DATOS"/* "$ROOT/$MAEDIR"
+			echo -e "Instalando programas y funciones..."
+			mv "$ROOT/$EXE"/* "$ROOT/$BINDIR"   #muevo los archivos ejecutables
 			updateConfFile
 			exit 0
 		elif [ "$NP" == "n" ] || [ "$NP" == "N" ]
@@ -251,6 +256,14 @@ then
 	exit
 fi
 
+#pregunto los terminos y condiciones
+checkTerminosYCondiciones
+
+R="$?"
+
+checkEnd "$R"
+
+
 #checkea que perl este instalado
 checkPerl
 
@@ -266,5 +279,5 @@ clear
 
 #presenta los valores propuestos y pregunta si se quiere terminar
 endInstallation
-
+finish
 

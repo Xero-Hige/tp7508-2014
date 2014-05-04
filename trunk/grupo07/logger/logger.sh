@@ -20,11 +20,11 @@ log() {
 #Inicializo archivo de log
 initializeLog() {
 
-	echo "Inicia ejecucion de Installer"
+	echo -e "Inicia ejecucion de Installer\n"
 	log $0 "INFO" "Inicia ejecucion de Installer"
-	echo "Log de instalacion: grupo07/conf/installer.log"
+	echo -e "Log de instalacion: grupo07/conf/installer.log\n"
 	log $0 "INFO" "Log de instalacion: grupo07/conf/installer.log"
-	echo "Directorio de configuracion: grupo07/conf"
+	echo -e "Directorio de configuracion: grupo07/conf\n"
 	log $0 "INFO" "Directorio de configuracion: grupo07/conf"
 
 }
