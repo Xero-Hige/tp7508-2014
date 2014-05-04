@@ -49,6 +49,7 @@ function cargarVariables(){
 function iniciarLog(){                  
 	declare local cantidadArchivos=`ls $path_preciosdir | wc -l`
 	loguear "Inicio de Masterlist "
+	let cantidadArchivos=cantidadArchivos-1
 	loguear "Cantidad de Listas de precios a procesar: $cantidadArchivos"
 }
 
