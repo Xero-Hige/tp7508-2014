@@ -218,6 +218,8 @@ finish() {
 			echo -e "Instalando programas y funciones..."
 			mv "$ROOT/$EXE"/* "$ROOT/$BINDIR"   #muevo los archivos ejecutables
 			updateConfFile
+			log "$0" "INFO" "Instalacion COMPLETADA"
+			echo -e "Instalacion COMPLETADA"
 			exit 0
 		elif [ "$NP" == "n" ] || [ "$NP" == "N" ]
 		then 

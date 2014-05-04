@@ -1,4 +1,4 @@
-source ../logger/logger.sh
+source logger.sh
 
 
 
