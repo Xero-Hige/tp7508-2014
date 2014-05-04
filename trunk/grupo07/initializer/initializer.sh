@@ -84,7 +84,7 @@ checkCorrectPath()
 
 checkFileExist()
 {
-	if [ ! -f $path_maedir/$1 ] #FIXME 
+	if [ ! -f "$path_maedir"/"$1" ]
 	then	
 		CORRECT_INSTALLATION=0
 		#Log
