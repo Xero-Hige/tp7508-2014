@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 source RWConfFile.sh
 source dirManager.sh
 
@@ -189,6 +191,7 @@ endInstallation() {
 		if [ "$RESPONSE" -eq "2" ] #se contesta que si
 		then
 			askDirPaths
+			clear
 		else
 			break
 		fi
@@ -243,18 +246,10 @@ R="$?" #lo que devolvio checkInstallerConfFile
 checkPreviouslyInstalled "$R"
 
 
-R="$?" #lo que devolvio checkPreviouslyInstalled (0:no estaba instalado,hay que pedir directorios. 1:Estaba completa o estaba incompleta y no se quiere seguir, se va a FIN. 2: Estaba incompleta: Se quiere seguir.)
+R2="$?" #lo que devolvio checkPreviouslyInstalled (0:no estaba instalado,hay que pedir directorios. 1:Estaba completa o estaba incompleta y no se quiere seguir, se va a FIN. 2: Estaba incompleta: Se quiere seguir.)
 
-checkEnd "$R"
+checkEnd "$R2"
 
-
-if [ "$R" -eq "2" ] # la instalacion estaba incompleta, hay que ir al final
-then
-	clear
-	endInstallation #presenta los valores propuestos y pregunta si se quiere terminar
-	finish
-	exit
-fi
 
 #pregunto los terminos y condiciones
 checkTerminosYCondiciones
@@ -271,11 +266,12 @@ R="$?" #lo que devuelve checkPerl
 
 checkEnd "$R"
 
-#le pide los datos al usuario
-askDirPaths
+if [ "$R2" -eq "0" ] # la instalacion estaba incompleta, hay que ir al final
+then
+	#le pide los datos al usuario
+	askDirPaths
+fi
 
-#limpio la pantalla
-clear
 
 #presenta los valores propuestos y pregunta si se quiere terminar
 endInstallation
