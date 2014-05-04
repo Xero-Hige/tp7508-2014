@@ -70,8 +70,7 @@ sub processOptions {
         if (($_ eq "f") && 
             (! exists ${$href}{"r"}) && 
             (! exists ${$href}{"m"}) && 
-            (! exists ${$href}{"d"}) && 
-            (! exists ${$href}{"x"})) {
+            (! exists ${$href}{"d"})) {
                 ${$href}{"f"} = 1;
         } elsif (($_ eq "x") && (! exists ${$href}{"f"})) {
             ${$href}{"x"} = 1;
@@ -88,6 +87,8 @@ sub processOptions {
     }
     if ((exists ${$href}{"r"}) && ! (exists ${$href}{"m"} || exists ${$href}{"d"})) {
         delete(${$href}{"x"});
+    } elsif (exists ${$href}{"f"}) {
+        delete(${$href}{"x"});
     }
 }
 
@@ -100,7 +101,7 @@ sub checkProcessingOptions {
 
 sub printAvailableSupermarkets {
     my($supermarkets_ref) = @_[0];
-    print "Los supermercados disponibles son: \n";
+    print "\nLos supermercados disponibles son: \n";
     foreach $super_id (sort {$a <=> $b} keys %{$supermarkets_ref}) {
         print $super_id." - ".${$supermarkets_ref}{$super_id}."\n" if ($super_id >= 100);
     }
@@ -276,10 +277,16 @@ sub makeReport {
     
 sub printHeader {
     my(%options) = %{@_[0]};
+    my($supermarkets_ref) = @_[1];
     my(@print_to) = (STDOUT);
-    push(@print_to, @_[1]) if (exists $options{"w"});
+    push(@print_to, @_[2]) if (exists $options{"w"});
     foreach $fh (@print_to) {
         print $fh "Opciones y filtros:"; print $fh " -".$_ foreach(keys (%options)); print $fh "\n";
+        if (exists $options{"x"}) {
+            print $fh "Supermercados elegidos (-x):";
+            print " ".${$supermarkets_ref}{$_} foreach(sort {$a <=> $b} keys %{$supermarkets_ref});
+            print "\n";
+        }
         print $fh $INFO_LINE if ((exists $options{"r"}) && ((exists $options{"m"}) || (exists $options{"d"})));
     }
 }
@@ -324,7 +331,7 @@ while ($keep_running) {
         $ext = getNextDescriptorNumber;
         open(INFO_H, ">info_$ext");
     }
-    printHeader(\%options, INFO_H);
+    printHeader(\%options, \%supermarkets_filter, INFO_H);
     opendir(PRES_H, catfile($INFODIR, $PRESDIR));
     foreach $file (readdir(PRES_H)) {
         # Skips . .. and any other file that doesn't have the required format
@@ -337,6 +344,8 @@ while ($keep_running) {
         @result_list = makeReport(\%options, \%supermarkets_filter, \%references_result, \%items_result);
         printResults(\%options, $usr_file, \@result_list, INFO_H);
     }
+    print "\nPresione una tecla para continuar...\n\n";
+    readKey;
     closedir(PRES_H);
     close(INFO_H) if (exists $options{"w"});
 }
