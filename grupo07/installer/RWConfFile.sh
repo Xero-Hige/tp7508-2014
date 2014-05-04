@@ -191,6 +191,7 @@ askDirPaths() {
 updateConfFile() {
 	
 	echo -e "Actualizando la configuracion del sistema\n"
+	INSTALLERVARIABLES=("${INSTALLERVARIABLES[@]}" GRUPO)
 	if [ -f "$ROOT/$CONFGFILE" ]
 	then
 		for dir in "${INSTALLERVARIABLES[@]}"
@@ -207,6 +208,7 @@ updateConfFile() {
 				fi		
 			fi
 		done
+		
 	else
 		for dir in "${INSTALLERVARIABLES[@]}"
 		do

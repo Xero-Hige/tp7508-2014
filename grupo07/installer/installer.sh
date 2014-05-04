@@ -11,6 +11,7 @@ DATOS="datos/maestros"
 MESSAGE=""
 ROOT=".."
 GRUPO07="grupo07"
+GRUPO=$(pwd | sed "s/\(^.*\)\/installer/\1/")
 CONFDIR="conf"
 CONFGFILE="conf/installer.conf"
 BINDIR="bin" #de instalacion de ejecutables
