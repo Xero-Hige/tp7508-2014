@@ -54,25 +54,24 @@ initializeEnvironment()
 		echo -e "Se inicializa ambiente\n"
 		export ENVIRONMENT=1 #AMBIENTE INICIALIZADO
 		export GRUPO="07"
-		#CAMBIAR LOS PATH. DECIDIR AL HACER INTEGRACIÓN
+		#NO SE QUE HAY QUE SETEARLE A PATH		
 		export PATH="."		
-		export CONFDIR=$path_confdir
-		changeMod "$CONFDIR"		
-		export MAEDIR=$path_maedir
+		export MAEDIR="$grupo/$path_maedir"
 		changeMod "$MAEDIR"
-		export NOVEDIR=$path_novedir
+		export NOVEDIR="$grupo/$path_novedir"
 		changeMod "$NOVEDIR"
-		export RECHDIR=$path_rechdir
+		export RECHDIR="$grupo/$path_rechdir"
 		changeMod "$RECHDIR"
-		export BINDIR=$path_bindir
+		export BINDIR="$grupo/$path_bindir"
 		changeMod "$BINDIR"
-		export INFODIR=$path_infodir
+		export INFODIR="$grupo/$path_infodir"
 		changeMod "$INFODIR"
-		export LOGDIR=$log_dir
+		export LOGDIR="$grupo/$log_dir"
 		changeMod "$LOGDIR"
 		export LOGEXT=$logext
 		export DATASIZE=$datasize
 		export LOGSIZE=$logsize
+		export INFON=`grep '^INFON' $CONFIG | cut -f2 -d'='`
 	fi
 }
 
@@ -89,7 +88,7 @@ checkCorrectPath()
 
 checkFileExist()
 {
-	if [ ! -f $path_maedir/$1 ]
+	if [ ! -f $grupo/$path_maedir/$1 ]
 	then	
 		CORRECT_INSTALLATION=0
 		echo -e "No se encuentra el archivo $1 en el directorio $path_maedir"
@@ -99,11 +98,9 @@ checkFileExist()
 
 checkCorrectInstallation()
 {
-	config="../conf/installer.conf"
-	export CONFIG=$config
+	CONFIG="$CONFDIR/installer.conf"
+	changeMod "$CONFIG"
 	CORRECT_INSTALLATION=1
-	path_confdir=`grep '^CONFDIR' $CONFIG | cut -f2 -d'='`
-	checkCorrectPath "$path_confdir" CONFDIR
 
 	path_bindir=`grep '^BINDIR' $CONFIG | cut -f2 -d'='`
 	checkCorrectPath "$path_bindir" BINDIR
@@ -122,6 +119,8 @@ checkCorrectInstallation()
 
 	logext=`grep '^LOGEXT' $CONFIG | cut -f2 -d'='`
 	checkCorrectPath "$logext" LOGEXT
+
+	grupo=`grep '^GRUPO' $CONFIG | cut -f2 -d'='`
 
 	logsize=`grep '^LOGSIZE' $CONFIG | cut -f2 -d'='`
 	datasize=`grep '^DATASIZE' $CONFIG | cut -f2 -d'='`
@@ -160,7 +159,7 @@ showContent()
 	echo -e "Dir. de Logs de Comandos: "
 	for comando in $LOGDIR/*
 	do
-		echo -e "$LOGDIR/<$comando>.$LOGEXT"
+		echo -e "$LOGDIR/<$comando>.$LOGEXT\n"
 	done
 	echo -e "Log size: $LOGSIZE\n"
 	echo -e "Estado del Sistema: INICIALIZADO\n"
