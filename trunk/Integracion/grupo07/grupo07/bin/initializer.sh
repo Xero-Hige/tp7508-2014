@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 log()
 {
 	message=user_escaped=$(echo "${1}"| sed "$sed_escape_filter")
@@ -18,7 +20,7 @@ initializeListener()
 		#then	
 			echo -e "Se activará el Listener. Para detenerlo, ejecutar en la terminal:"
 			echo -e "./stop.sh <nombre_del_proceso_a_detener_sin_extension>\n"
-			./start.sh listener
+			./start.sh listener.sh
 		#else
 		#	echo -e "El demonio Listener ya estaba corriendo\n"
 		#fi
@@ -86,6 +88,7 @@ checkCorrectPath()
 
 checkFileExist()
 {
+
 	if [ ! -f "$grupo/$path_maedir/$1" ]
 	then	
 		CORRECT_INSTALLATION=0
@@ -97,8 +100,10 @@ checkFileExist()
 findRootPath() 
 {
 	dirlong=`(pwd)`
-	declare local father=`echo "$dirlong" | sed 's/\/grupo07\/.*\$//'`
-	RUTA="$father""/grupo07/"
+	#declare local father=`echo "$dirlong" | sed 's/\/grupo07\/.*\$//'`
+	#RUTA="$father""/grupo07/"
+	header=$(head -n 1 "initializer.conf")
+	RUTA="$header/"
 }
 
 
@@ -119,6 +124,7 @@ checkCorrectInstallation()
 
 	path_maedir=`grep '^MAEDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_maedir" MAEDIR
+	echo "$path_maedir"
 
 	path_logdir=`grep '^LOGDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_logdir" LOGDIR

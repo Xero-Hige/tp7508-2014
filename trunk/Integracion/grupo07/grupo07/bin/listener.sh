@@ -11,13 +11,17 @@ sed_escape_filter="s|\([\/\*\?\ ]\)|\\1|g"
 
 log()
 {
-	message=user_escaped=$(echo "${1}"| sed "$sed_escape_filter")
-	type=user_escaped=$(echo "${2}"| sed "$sed_escape_filter")
+	message=$(echo "${1}"| sed "$sed_escape_filter")
+	echo "$message"
+	type=$(echo "${2}"| sed "$sed_escape_filter")
+	echo "$type"
 	./logging.sh "listener" "$message" "$type"
 }
 
-move()
+Mover()
 {
+	log "${1}" "INFO"
+	log "${2}" "INFO"
 	res=$(./move.pl "${1}" "${2}")
 	if [ ! "$res" ]
 	then	
@@ -28,7 +32,7 @@ move()
 acept_pricelist_file()
 {
 	file="${1}"
-	Move "$NOVEDIR"/"$file" "$MAEDIR/precios/" #"$file" 
+	Mover "$NOVEDIR"/"$file" "$MAEDIR/precios/" #"$file" 
 	log "$file - Pricelist aceptado" "INFO"  
 	
 }
@@ -36,7 +40,8 @@ acept_pricelist_file()
 acept_buylist_file()
 {
 	file="${1}"
-	Move "$NOVEDIR"/"$file" "$ACEPDIR"/  #"$file" 
+	echo "$NOVEDIR"
+	Mover "$NOVEDIR"/"$file" "$ACEPDIR"/  #"$file" 
 	log "$file - Buylist aceptado" "INFO"
 	
 }
@@ -45,7 +50,7 @@ reject_file()
 {
 	file="${1}"
 	reject_reason="${2}"
-	Move "$NOVEDIR"/"$file" "$RECHDIR"/ #"$file" 
+	Mover "$NOVEDIR"/"$file" "$RECHDIR"/ #"$file" 
 	log "$file - Rechazado por >>$reject_reason<<" "INFO"
 }
 
@@ -54,7 +59,8 @@ is_text_file()
 {
 	file_output=$(file "${1}")
 	file_output=${file_output#*: }
-	if [ "$file_output" == "ASCII text" ]
+	#log "$file_output ACAAA" "WAR"
+	if [ "$file_output" == "ASCII text, with CRLF line terminators" ]
 	then
 		return 0
 	else
@@ -193,10 +199,12 @@ process_price_list()
 
 check_new_files ()
 {
-	dir_filter=$(echo "$NOVEDIR\/" | sed "$sed_escape_filter")
-	for file_path in $NOVEDIR/*
-	do
+	dir_filter=$(echo "$NOVEDIR/" | sed "$sed_escape_filter")
+	log "$file_path" "WAR"
+	for file_path in "$NOVEDIR"/*
+	do		
 		file=${file_path/$dir_filter/}
+		log "$file" "INFO" 
 		if [ ! -f "$file_path" ]
 		then
 			continue
@@ -204,10 +212,10 @@ check_new_files ()
 	
 		if is_text_file "$file_path" 
 		then
-			if [[ $file =~ ^[^-]*-[0-9]{8}\.[^.]*$ ]]
+			if [[ "$file" =~ ^[^-]*-[0-9]{8}\.[^.]*$ ]]
 			then 
 				process_price_list "$file"
-			elif [[ $file =~ ^[^.]*\.[^-\ ]*$ ]]
+			elif [[ "$file" =~ ^[^.]*\.[^-\ ]*$ ]]
 			then
 				process_buy_list "$file"
 			else
@@ -248,24 +256,26 @@ invoke_program()
 
 check_new_prices_list()
 {
-	files=$(ls $MAEDIR/precios)
+	files=$(ls "$MAEDIR/precios")
 	if [ "$files" == "" ] #No Files
 	then
 		return
 	fi 
 
-	invoke_program "Masterlist"
+	#invoke_program "Masterlist"
+	./start.sh Masterlist.sh
 }
 
 check_new_buy_list()
 {
-	files=$(ls $ACEPDIR)
+	files=$(ls "$ACEPDIR")
 	if [ "$files" == "" ] #No Files
 	then
 		return
 	fi
 
-	invoke_program "Rating"
+	#invoke_program "Rating"
+	./start.sh Rating.sh
 }
 
 #########Program#########
