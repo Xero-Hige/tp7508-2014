@@ -219,6 +219,7 @@ finish() {
 			mv "$ROOT/$EXE"/* "$ROOT/$BINDIR"   #muevo los archivos ejecutables
 			updateConfFile
 			log "$0" "INFO" "Instalacion COMPLETADA"
+			echo "$GRUPO" > "$ROOT/$BINDIR/initializer.conf"
 			echo -e "Instalacion COMPLETADA"
 			exit 0
 		elif [ "$NP" == "n" ] || [ "$NP" == "N" ]

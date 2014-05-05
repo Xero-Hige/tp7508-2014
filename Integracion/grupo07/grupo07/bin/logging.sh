@@ -5,15 +5,15 @@ TRIM_LOG_SIZE=50
 
 # Receives the name of the env variable to get the value, returns it
 getEnvVarValue() {
-    VAR_NAME=$1
+    VAR_NAME="$1"
     grep "$VAR_NAME" "$CONF_FILE" | sed "s/^[^=]*=\([^=]*\)=.*\$/\1/"
 }
 
 # Gets the process calling the logger, returns the correspondant log file
 getFilePath() {
     CALLER="$1"
-    LOGDIR=$(getEnvVarValue LOGDIR)
-    LOGEXT=$(getEnvVarValue LOGEXT)
+    #LOGDIR=$(getEnvVarValue LOGDIR)
+   # LOGEXT=$(getEnvVarValue LOGEXT)
     echo "$LOGDIR/$CALLER.$LOGEXT"
 }
 
@@ -39,8 +39,10 @@ log () {
     return 0
 }
 
+
 # Obtains the file name and LOGSIZE
 FILE=$(getFilePath "$1")
+
 touch "$FILE"
 LOGSIZE=$(getEnvVarValue LOGSIZE)
 # Checks for trimming
@@ -50,11 +52,11 @@ then
     trimLogFile "$FILE"
 fi
 # Logs
-if [ $# -lt 2 ] 
+if [ "$#" -lt 2 ] 
 then
     echo -e "\nUso: logging comando mensaje [tipo_mensaje]\n\n\tTipo de mensaje puede ser INFO, WAR o ERR.\n\tSi se omite, por defecto es INFO.\n"
     exit -1
-elif [ $# -eq 2 ]
+elif [ "$#" -eq 2 ]
 then
     log "$1" "$2" "INFO"
 else

@@ -4,42 +4,22 @@
 # Pre: -
 # Post: Se cargan las variables  para las rutas de archivos
 function cargarVariables(){
-		config="../conf/installer.conf"
-	export CONFIG=$config
 
-	path_confdir=`grep '^CONFDIR' $CONFIG | cut -f2 -d'='`
-	export CONFDIR=$path_confdir
-
-	path_acepdir=`grep -s '^ACEPDIR$' $CONFIG | cut -f2 -d'='`
-	export ACEPDIR=$path_acepdir
-
-	path_rechdir=`grep '^RECHDIR' $CONFIG | cut -f2 -d'='`
-	export RECHDIR=$path_rechdir
-
-	path_maedir=`grep '^MAEDIR' $CONFIG | cut -f2 -d'='`
-	export MAEDIR=$path_maedir
-
-	path_logdir=`grep '^LOGDIR' $CONFIG | cut -f2 -d'='`
-	export LOGDIR=$path_logdir
-
-	logext=`grep '^LOGEXT' $CONFIG | cut -f2 -d'='`
-	export LOGEXT=$logext
-
-	acepdir="$path_acepdir/"
-	rechdir="$path_rechdir/"
-	maedir="$path_maedir/"
+	acepdir="$ACEPDIR/"
+	rechdir="$RECHDIR/"
+	maedir="$MAEDIR/"
 	path_log="Masterlist"	#para no poner ruta de log 2 veces
-	path_procdir="$path_maedir/precios/proc/"
-	path_preciosdir="$path_maedir/precios/"
+	path_procdir="$MAEDIR/precios/proc/"
+	path_preciosdir="$MAEDIR/precios/"
 	
 	superArch="super.mae"
-	super="$path_maedir/$superArch"
+	super="$MAEDIR/$superArch"
 
 	asocArch="asociados.mae"
-	asoc="$path_maedir/$asocArch"
+	asoc="$MAEDIR/$asocArch"
 
 	preciosArch="precios.mae"
-	preciosMae="$path_maedir/$preciosArch"
+	preciosMae="$MAEDIR/$preciosArch"
 
 }
 
@@ -49,7 +29,7 @@ function cargarVariables(){
 # Pre: -
 # Post: Se inicializa el log del interprete
 function iniciarLog(){                  
-	declare local cantidadArchivos=`ls $path_preciosdir | wc -l`
+	declare local cantidadArchivos=`ls "$path_preciosdir" | wc -l`
 	loguear "Inicio de Masterlist "
 	let cantidadArchivos=cantidadArchivos-1
 	loguear "Cantidad de Listas de precios a procesar: $cantidadArchivos"
@@ -63,16 +43,15 @@ function iniciarLog(){
 function estaArchivoMaedirDuplicado(){
         estaDuplicado=$FALSE
 		nombre=`basename "$1"`
-        declare local listaProcdir=`ls $path_procdir`  
+        declare local listaProcdir=`ls "$path_procdir"`  
         for archProcdir in $listaProcdir
         do
-
+			
 			if [ -z "$archProcdir" ] || [ "$archProcdir" == "" ]
 			then
 				estaDuplicado=$FALSE
 				break
 			fi
-
 
             if [ "$nombre" == "$archProcdir" ]      
             then
@@ -90,7 +69,7 @@ function estaArchivoMaedirDuplicado(){
 # el mismo a la carpeta de rechazados.
 function procesarDuplicado(){
 	loguearAdvertencia "Se rechaza el archivo por estar DUPLICADO"
-	Mover $1 $rechdir
+	Mover "$1" "$rechdir"
 }
 
 ###################################################################################################
@@ -100,7 +79,7 @@ function procesarDuplicado(){
 # Post: Procesa el archivo aceptado.
 function validarCabecera() {
 	cabeceraValida=$FALSE
-	header=$(head -n 1 $1)
+	header=$(head -n 1 "$1")
 	STR="$header"
 
 	campo1=`echo "$header" | cut -d ";" -f1`
@@ -202,7 +181,7 @@ function validarCampo5() {
 
 function encontrarSuperID() {
 
-	regSuper=`grep '^[^;]*\;'"$2"';'"$1"';[^;]*;[^;]*;[^;]\+$' $super`
+	regSuper=`grep '^[^;]*\;'"$2"';'"$1"';[^;]*;[^;]*;[^;]\+$' "$super"`
     superID=`echo "$regSuper" | cut -s -f1 -d';'`
 }
 
@@ -222,26 +201,26 @@ function finalizarLog() {
 # Pre: $1 Mensaje
 # Post: Se loguea mensaje informativo.
 function loguear(){
-	`"../logger/"./logging.sh "$path_log" "$1" INFO`
+	./logging.sh "$path_log" "$1" INFO
 }
 
 # Pre: $1 Mensaje
 # Post: Se loguea mensaje de error.
 function loguearError(){
-	`"../logger/"./logging.sh "$path_log" "$1" ERR`
+	./logging.sh "$path_log" "$1" ERR
 }
 
 # Pre: $1 Mensaje
 # Post: Se loguea mensaje de error.
 function loguearAdvertencia(){
-	`"../logger/"./logging.sh "$path_log" "$1" WAR`
+	./logging.sh "$path_log" "$1" WAR
 }
 
 ###################################################################################################
 ###################################################################################################
 
 function Mover() {
-	"../move/"./move.pl "$1" "$2"
+	./move.pl "$1" "$2"
 }
 ###################################################################################################
 ###################################################################################################
@@ -340,8 +319,9 @@ cargarVariables
 iniciarLog
 
 # Recorro todos los archivos de MAEDIR para procesarlos
-for archp in $path_preciosdir*.*
+for archp in "$path_preciosdir"*.*		#TOQUE ESTO
 do    
+
 
 	if [ "$archp" == "" ] || [ -z "$archp" ]
 	then
@@ -350,6 +330,7 @@ do
 
 	archn=`basename "$archp"`
 	archPreciodir="$path_preciosdir$archn"
+
 
 	if [ "$archPreciodir" == "proc" ]
 	then
@@ -382,13 +363,11 @@ do
 		#revisar la siguiente linea
 		reg=`grep -s '^'"$superID"'\;'"$usuario"';[0-9]\{8\};[^;]*\;[0-9]*\.[0-9]*\$' "$preciosMae" | head -n 1`
 
-
 		# Fecha del nombre del archivo de precios actual
-		fechaPrecio=`echo "$archPreciodir" | sed 's/^[^\-]*\-//' | sed 's/\..*\$//'`
+		fechaPrecio=`echo "$archn" | sed 's/^[^\-]*\-//' | sed 's/\..*\$//'`
 		anioPrecio=`echo "$fechaPrecio" | sed 's/[^.]\{4\}\$//'`
 		mesPrecio=`echo "$fechaPrecio" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}\$//'`
 		diaPrecio=`echo "$fechaPrecio" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}//'`
-
 		
 		# No existe el archivo o no existe el registro en el archivo de precios maestro
 		if  ([ -z "$reg" ]) || ([ "$reg" == "" ])
