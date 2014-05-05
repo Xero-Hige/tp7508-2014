@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-
+#!/bin/sh
 # Este script ejecuta el script pasado por parametro
 # solo si este no se encuentra en ejecucion actualmente
 
@@ -15,8 +14,9 @@ if [ "$ENVIRONMENT" -ne "1" ]; then
 	echo "El ambiente no está inicializado"
 	exit 2
 fi
-#proceso=`ps -ef | grep "$1.sh" | wc  -l`
-proceso=`ps -ef | grep "$1.sh" | wc  -l` #ver porque si trato de ejecutar start para un proceso que no existe. Este comando me retorna algo mayor que uno
+
+proceso=`ps -C "$1" | wc -l`
+
 if [ "$proceso" -gt "1" ] 
 	then
 	#El proceso se esta ejecutando
@@ -26,7 +26,7 @@ else
 	#Sino lo ejecuto
 	# se supone que start se encuentra en la misma carpeta que
 	# el script a ejecutar (BINDIR)
-	`./"$1.sh"`
-	#$(./"$1")
+	#`./"$1.sh"`
+	$(./"$1")
 	exit 0
 fi

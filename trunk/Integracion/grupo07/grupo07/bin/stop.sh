@@ -1,3 +1,4 @@
+#!/bin/sh
 # Este script detiene el script pasado por parametro
 # solo si este se encuentra en ejecucion actualmente
 #ACLARACION: Las lineas comentadas con doble # posiblemente no se utilicen. 
@@ -19,8 +20,7 @@ then
 	##pidof "$1.sh"
 	#matar=$(kill -9 $(pidof "$1.sh"))
 	#El proceso se esta ejecutando, para matarlo busco su PID y le realizo kill -9
-	pid=$(pidof "$1")
-	matar=$(kill -9 "$pid")
+	matar=$(kill -9 $(pidof "$1"))
 	# Verifico que se haya finalizado el proceso
 	if [[ "$matar" -eq "0" ]]; then
 		echo "Se finalizo correctamente el proceso $1"
