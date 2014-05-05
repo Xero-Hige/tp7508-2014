@@ -1,0 +1,269 @@
+
+--------------------------------------------------------04/05/2014 - 22:26:15--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Inicia ejecucion de Installer
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:26:15--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Log de instalacion: grupo07/conf/installer.log
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:26:15--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Directorio de configuracion: grupo07/conf
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:26:15--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: WAR
+Message: El archivo de configuracion (installer.conf) no existe, el paquete no fue instalado, se procede con la instalacion desde cero
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:26:15--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: El programa no fue instalado, se procede con las instalacion
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:26:15--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Se muestran terminos y condiciones
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:26:23--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: El usuario acepta terminos y condiciones, se procede con las intalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:26:23--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: 
+Checkeando que perl 5 o superior este instalado...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:26:23--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Perl se encuentra instalado
+ 
+This is perl 5, version 14, subversion 2 (v5.14.2) built for i686-linux-gnu-thread-multi-64int
+(with 80 registered patches, see perl -V for more detail)
+
+Copyright 1987-2011, Larry Wall
+
+Perl may be copied only under the terms of either the Artistic License or the
+GNU General Public License, which may be found in the Perl 5 source kit.
+
+Complete documentation for Perl, including FAQ lists, should be found on
+this system using "man perl" or "perldoc perl".  If you have access to the
+Internet, point your browser at http://www.perl.org/, the Perl Home Page.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:26:23--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Ejecutables (grupo07/bin)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:26:41--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Archivos Maestros y Tablas (grupo07/mae)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:26:49--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Novedades (grupo07/nov)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:26:56--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Tamanio maximo de Directorio de Novedades (100Mb)
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:27:02--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: El espacio en disco disponible es sufieciente
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:27:02--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Novedades Aceptadas (grupo07/acpt)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:27:15--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Informes de Salida (grupo07/info)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:27:24--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Archivos Rechazados (grupo07/rech)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:27:33--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Directorio de Log de Comandos (grupo07/log)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:27:42--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Se pide al usuario definir la Extension de Archivos de Log de Comandos (grupo07/grupo07/log/log.<log>)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:27:48--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Se pide al usuario definir el Tamanio maximo de Archivos de Log de Comandos (400Kb)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:27:56--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: 
+
+TP S07508 Primer Cuatrimestre 2014. Tema C Copyright Grupo 07
+
+Directorio de Ejecutables: grupo07/bin
+Directorio de Archivos Maestros y Tablas: grupo07/mae
+Directorio de Novedades: grupo07/nov
+Tamanio maximo de Directorio de Novedades: 100Mb
+Directorio de Novedades Aceptadas: grupo07/acpt
+Directorio de Informes de Salida: grupo07/info
+Directorio de Archivos Rechazados: grupo07/rech
+Directorio de Log de Comandos: grupo07/log
+Extension de Archivos de Log de Comandos: log
+Tamanio maximo de Archivos de Log de Comandos: 400Kb
+Estado de instalacion: LISTA
+Esta de acuerdo con los parametros mostrados?(Y-N): 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:28:04--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: El usuario acepta, se completa la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:28:04--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Iniciando Instalacion. Esta Ud. Seguro? (Y-N)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:28:07--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: El usuario acepta, se completa la instalacion
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------04/05/2014 - 22:28:07--------------------------------------------------------
+
+User: fibrizo
+Caller: installer.sh
+Type: INFO
+Message: Instalacion COMPLETADA
+
+-------------------------------------------------------------------------------------------------------------------------------------
