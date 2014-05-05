@@ -9,9 +9,7 @@ if [ $# -ne "1" ]; then
 	exit 1
 fi
 
-#proceso=`ps -ef | grep "$1.sh" | wc  -l`
-proceso=`ps -ef | grep "$1" | wc  -l`
-##if [ ! "$proceso" -gt "1" ] 
+proceso=`ps -C "$1" | wc -l` 
 if [  "$proceso" -gt "1" ] 
 then
 	# se supone que stop se encuentra en la misma carpeta que
