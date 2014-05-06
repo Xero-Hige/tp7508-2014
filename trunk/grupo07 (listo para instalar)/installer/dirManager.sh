@@ -37,7 +37,7 @@ createDirs() {
 			echo -e "$DIRPATH/precios\n"
 			echo -e "$DIRPATH/precios/proc"
 			DIRPATH+="/precios/proc"
-		elif [ "$dir" == "ACPTDIR" ]
+		elif [ "$dir" == "ACEPDIR" ]
 		then
 			echo -e "$DIRPATH\n"
 			echo -e "$DIRPATH/proc\n"
