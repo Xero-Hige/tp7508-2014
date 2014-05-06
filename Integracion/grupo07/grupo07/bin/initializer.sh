@@ -4,7 +4,7 @@ log()
 {
 	message=user_escaped=$(echo "${1}"| sed "$sed_escape_filter")
 	type=user_escaped=$(echo "${2}"| sed "$sed_escape_filter")
-	./logging.sh "initializer" "$message" "$type"
+	./logging.sh "initializer" "$message" "$type" 
 }
 
 
@@ -18,9 +18,10 @@ initializeListener()
 		LISTENER=$(pgrep -f listener.sh)
 		#if [ "$LISTENER" == "" ]
 		#then	
-			echo -e "Se activará el Listener. Para detenerlo, ejecutar en la terminal:"
-			echo -e "./stop.sh <nombre_del_proceso_a_detener_sin_extension>\n"
-			./start.sh "listener.sh" "T" &
+			#echo -e "Se activará el Listener. Para detenerlo, ejecutar en la terminal:"
+			#echo -e "./stop.sh <nombre_del_proceso_a_detener_sin_extension>\n"
+			./start.sh "listener.sh" "T" & 
+			sleep 2s
 		#else
 		#	echo -e "El demonio Listener ya estaba corriendo\n"
 		#fi
@@ -71,7 +72,7 @@ initializeEnvironment()
 		export RECHDIR="$grupo/$path_rechdir"
 		#changeModRW "$RECHDIR"
 		export BINDIR="$grupo/$path_bindir"
-		#changeModBin
+		changeModBin
 		export INFODIR="$grupo/$path_infodir"
 		#changeModRW "$INFODIR"
 		export LOGDIR="$grupo/$path_logdir"
