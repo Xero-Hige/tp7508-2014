@@ -263,7 +263,7 @@ check_new_prices_list()
 	fi 
 
 	#invoke_program "Masterlist"
-	./start.sh Masterlist.sh
+	./start.sh "Masterlist.sh" "T"
 }
 
 check_new_buy_list()
@@ -275,7 +275,7 @@ check_new_buy_list()
 	fi
 
 	#invoke_program "Rating"
-	./start.sh Rating.sh
+	./start.sh "Rating.sh" "T"
 }
 
 #########Program#########

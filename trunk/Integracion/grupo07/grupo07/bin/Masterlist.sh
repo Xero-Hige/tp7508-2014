@@ -323,7 +323,7 @@ for archp in "$path_preciosdir"*.*		#TOQUE ESTO
 do    
 
 
-	if [ "$archp" == "" ] || [ -z "$archp" ]
+	if [ "$archp" == "" ] || [ -z "$archp" ] || [ "$archp" == "$path_preciosdir*.*" ]
 	then
 		break
 	fi

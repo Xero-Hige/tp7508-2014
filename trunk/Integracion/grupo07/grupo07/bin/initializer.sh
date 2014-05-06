@@ -20,7 +20,7 @@ initializeListener()
 		#then	
 			echo -e "Se activará el Listener. Para detenerlo, ejecutar en la terminal:"
 			echo -e "./stop.sh <nombre_del_proceso_a_detener_sin_extension>\n"
-			./start.sh listener.sh
+			./start.sh "listener.sh" "B"
 		#else
 		#	echo -e "El demonio Listener ya estaba corriendo\n"
 		#fi
