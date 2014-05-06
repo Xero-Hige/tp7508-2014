@@ -256,8 +256,10 @@ invoke_program()
 
 check_new_prices_list()
 {
-	files=$(ls "$MAEDIR/precios")
-	if [ "$files" == "" ] #No Files
+	#files=$(ls "$MAEDIR/precios")
+	declare local cantidadArchivos=`ls "$MAEDIR/precios" | wc -l`
+	#if [ "$files" == "" ] #No Files
+	if [ "$cantidadArchivos" -eq "1" ]
 	then
 		return
 	fi 
@@ -268,8 +270,10 @@ check_new_prices_list()
 
 check_new_buy_list()
 {
-	files=$(ls "$ACEPDIR")
-	if [ "$files" == "" ] #No Files
+	#files=$(ls "$ACEPDIR")
+	declare local cantidadArchivos=`ls "$ACEPDIR" | wc -l`
+	#if [ "$files" == "" ] #No Files
+	if [ "$cantidadArchivos" -eq "1" ]
 	then
 		return
 	fi
