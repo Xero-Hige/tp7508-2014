@@ -13,6 +13,7 @@ $OBS_LE = "(*)";
 $OBS_GT = "(**)";
 $OBS_NF = "(***)";
 $INFO_LINE = "$OBS_LE Precio menor o igual al Precio Cuidado.\n$OBS_GT Precio mayor al Precio Cuidado.\n$OBS_NF Precio Cuidado no encontrado.\n";
+$NO_RESULT_MSG = "No hay resultados para la consulta\n";
 
 sub makeSupermarketsHash { 
     my($supermarkets_ref) = @_[0];
@@ -392,12 +393,13 @@ while ($keep_running) {
         next unless ($file =~ /^.*\..{3}$/);
         # Filter by user
         ($user_name) = ($file =~ /^(.*)\.\w{3}$/);
-        next unless (exists $users_filter{$user_name});
+        next unless ((scalar keys %users_filter < 1) || (exists $users_filter{$user_name}));
         %references_result = ();
         %items_result = ();
         $usr_file = catfile($INFODIR, $PRESDIR, $file);
         processList($usr_file, \%options, \%supermarkets_filter, \%references_result, \%items_result);
         @result_list = makeReport(\%options, \%supermarkets_filter, \%references_result, \%items_result);
+        push(@result_list, $NO_RESULT_MSG) if ($#result_list < 0);
         printResults(\%options, $usr_file, \@result_list, INFO_H);
     }
     print "\nPresione una tecla para continuar...\n\n";
