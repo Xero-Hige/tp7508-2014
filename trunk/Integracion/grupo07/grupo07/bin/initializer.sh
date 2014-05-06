@@ -20,7 +20,7 @@ initializeListener()
 		#then	
 			echo -e "Se activará el Listener. Para detenerlo, ejecutar en la terminal:"
 			echo -e "./stop.sh <nombre_del_proceso_a_detener_sin_extension>\n"
-			./start.sh "listener.sh" "B"
+			./start.sh "listener.sh" "T" &
 		#else
 		#	echo -e "El demonio Listener ya estaba corriendo\n"
 		#fi
@@ -39,8 +39,14 @@ initializeListener()
 	
 }
 
-changeMod()
+changeModBin()
 {
+	
+	chmod -R 777 "$BINDIR"
+}
+
+changeModRW() {
+
 	chmod -R 777 "$1"
 }
 
@@ -52,26 +58,29 @@ initializeEnvironment()
 	else
 		echo -e "Se inicializa ambiente\n"
 		export ENVIRONMENT=1 #AMBIENTE INICIALIZADO
+
 		export GRUPO="$grupo"
+		chmod -R 777 "$grupo"
 		#NO SE QUE HAY QUE SETEARLE A PATH		
 		#export PATH="."		
 		export MAEDIR="$grupo/$path_maedir"
-		#changeMod "$MAEDIR"
+		#changeModRW "$MAEDIR"
 		export NOVEDIR="$grupo/$path_novedir"
 		export ACEPDIR="$grupo/$path_acepdir"
-		#changeMod "$NOVEDIR"
+		#changeModRW "$NOVEDIR"
 		export RECHDIR="$grupo/$path_rechdir"
-		#changeMod "$RECHDIR"
+		#changeModRW "$RECHDIR"
 		export BINDIR="$grupo/$path_bindir"
-		#changeMod "$BINDIR"
+		#changeModBin
 		export INFODIR="$grupo/$path_infodir"
-		#changeMod "$INFODIR"
+		#changeModRW "$INFODIR"
 		export LOGDIR="$grupo/$path_logdir"
-		#changeMod "$LOGDIR"
+		#changeModRW "$LOGDIR"
 		export LOGEXT="$logext"
 		export DATASIZE="$datasize"
 		export LOGSIZE="$logsize"
 		export INFON="$grupo/$path_infon"
+		#changeModRW "$INFON"
 	fi
 }
 
@@ -112,6 +121,9 @@ checkCorrectInstallation()
 	CONFIG="$CONFDIR/installer.conf"
 	#changeMod "$CONFIG"
 	CORRECT_INSTALLATION=1
+	
+	user=`grep '^BINDIR' "$CONFIG" | cut -f3 -d'='`
+	echo "$user"
 
 	path_bindir=`grep '^BINDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_bindir" BINDIR
