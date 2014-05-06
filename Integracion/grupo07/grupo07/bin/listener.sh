@@ -12,18 +12,14 @@ sed_escape_filter="s|\([\/\*\?\ ]\)|\\1|g"
 log()
 {
 	message=$(echo "${1}"| sed "$sed_escape_filter")
-	echo "$message"
 	type=$(echo "${2}"| sed "$sed_escape_filter")
-	echo "$type"
 	./logging.sh "listener" "$message" "$type"
 }
 
 Mover()
 {
-	log "${1}" "INFO"
-	log "${2}" "INFO"
 	res=$(./move.pl "${1}" "${2}")
-	if [ ! "$res" ]
+	if [ ! "$res" == "0" ]
 	then	
 		log "No movido ${1} a ${2} por $?" "ERR"
 	fi
@@ -155,7 +151,7 @@ process_buy_list()
 
 	if ! is_valid_exten "$exten"
 	then
-		reject_file "$file" "Exten invalido"
+		reject_file "$file" "Extesion invalida"
 		return
 	fi
 		
@@ -200,11 +196,9 @@ process_price_list()
 check_new_files ()
 {
 	dir_filter=$(echo "$NOVEDIR/" | sed "$sed_escape_filter")
-	log "$file_path" "WAR"
 	for file_path in "$NOVEDIR"/*
 	do		
 		file=${file_path/$dir_filter/}
-		log "$file" "INFO" 
 		if [ ! -f "$file_path" ]
 		then
 			continue
@@ -288,7 +282,6 @@ daemon_duration=0 #Ciclos que duro el demonio
 sleep_time=2s
 run=0
 
-echo "LISTENER"
 
 while [ $run -eq 0 ]
 do	
