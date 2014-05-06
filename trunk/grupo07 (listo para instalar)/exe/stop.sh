@@ -18,9 +18,15 @@ then
 	##pidof "$1.sh"
 	#matar=$(kill -9 $(pidof "$1.sh"))
 	#El proceso se esta ejecutando, para matarlo busco su PID y le realizo kill -9
-	matar=$(kill -9 $(pidof "$1"))
+	#pid=$(pidof "$1")
+	pid=`ps -ef | grep "./$1" | grep "bash" | grep -v "grep" | awk '{print $2}'`
+	matar=$(kill -9 "$pid")
+	sleep 1s
 	# Verifico que se haya finalizado el proceso
-	if [[ "$matar" -eq "0" ]]; then
+	#if [ "$matar" -eq "0" ]
+	proceso1=`ps -C "$1" | wc -l`
+	if [ "$proceso" -gt "$proceso1" ]
+	then
 		echo "Se finalizo correctamente el proceso $1"
 		exit 0
 	else

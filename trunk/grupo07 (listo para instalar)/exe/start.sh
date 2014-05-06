@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Este script ejecuta el script pasado por parametro
 # solo si este no se encuentra en ejecucion actualmente
 
@@ -27,13 +27,14 @@ else
 	# se supone que start se encuentra en la misma carpeta que
 	# el script a ejecutar (BINDIR)
 	#`./"$1.sh"`
-	var=`echo "$1"`
 	if [ "$2" == "B" ]	# B=Back, se ejecuta de fondo
 	then
-		$(./"$1"&)
+		$(./"$1" &)
+		exit 0
 	elif [ "$2" == "T" ] # T=Top, se ejecuta en la superficie
 	then
 		$(./"$1")
+		exit 0
 	else
 		echo "Argumentos incorrectos"
 	fi
