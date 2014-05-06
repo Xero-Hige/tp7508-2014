@@ -18,7 +18,8 @@ log()
 
 Mover()
 {
-	res=$(./move.pl "${1}" "${2}")
+	res=`./move.pl "${1}" "${2}"`
+	log "RESULTADO DE MOVER $res" "INFO"
 	if [ ! "$res" == "0" ]
 	then	
 		log "No movido ${1} a ${2} por $?" "ERR"
@@ -55,8 +56,9 @@ is_text_file()
 {
 	file_output=$(file "${1}")
 	file_output=${file_output#*: }
-	#log "$file_output ACAAA" "WAR"
-	if [ "$file_output" == "ASCII text, with CRLF line terminators" ]
+	out_file=` echo "$file_output" | grep "text"` 
+	#if [ "$file_output" == "ASCII text, with CRLF line terminators" ] || [ "$file_output" == "ASCII text" ]
+	if [ ! -z "$out_file" ] && [ ! "$out_file" == "" ]
 	then
 		return 0
 	else
