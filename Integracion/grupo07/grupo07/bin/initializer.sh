@@ -200,7 +200,7 @@ showContent()
 
 	if [ "$ACCION" == "SI" ]
 	then
-		PID_LISTENER=$(pgrep -f listener.sh)
+		PID_LISTENER=`ps -ef | grep "./listener.sh" | grep "bash" | grep -v "grep" | awk '{print $2}'`
 		echo -e "Listener corriendo bajo el no.: <$PID_LISTENER>"
 	fi
 }
