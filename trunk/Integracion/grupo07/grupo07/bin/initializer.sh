@@ -124,7 +124,6 @@ checkCorrectInstallation()
 	CORRECT_INSTALLATION=1
 	
 	user=`grep '^BINDIR' "$CONFIG" | cut -f3 -d'='`
-	echo "$user"
 
 	path_bindir=`grep '^BINDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_bindir" BINDIR
@@ -137,7 +136,6 @@ checkCorrectInstallation()
 
 	path_maedir=`grep '^MAEDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_maedir" MAEDIR
-	echo "$path_maedir"
 
 	path_logdir=`grep '^LOGDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_logdir" LOGDIR
