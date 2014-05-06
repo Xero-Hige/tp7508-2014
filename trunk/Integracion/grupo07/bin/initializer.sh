@@ -1,13 +1,10 @@
-
-
-#HAY QUE CORRER EL PROGRAMA ASÍ: 'source initializer.sh'
-
+#!/usr/bin/env bash
 
 log()
 {
 	message=user_escaped=$(echo "${1}"| sed "$sed_escape_filter")
 	type=user_escaped=$(echo "${2}"| sed "$sed_escape_filter")
-	./logging.sh "initializer" "$message" "$type"
+	./logging.sh "initializer" "$message" "$type" 
 }
 
 
@@ -19,17 +16,20 @@ initializeListener()
 		case $ACCION in
 		"SI")
 		LISTENER=$(pgrep -f listener.sh)
-		if [ "$LISTENER" == "" ]
-		then	
-			echo -e "Se activará el Listener. Para detenerlo, seguir los siguientes pasos.......\n"
-			./listener.sh
-		else
-			echo -e "El demonio Listener ya estaba corriendo\n"
-		fi
+		#if [ "$LISTENER" == "" ]
+		#then	
+			#echo -e "Se activará el Listener. Para detenerlo, ejecutar en la terminal:"
+			#echo -e "./stop.sh <nombre_del_proceso_a_detener_sin_extension>\n"
+			./start.sh "listener.sh" "T" & 
+			sleep 2s
+		#else
+		#	echo -e "El demonio Listener ya estaba corriendo\n"
+		#fi
 		break		
 		;;
 		"NO")
-		echo -e "Listener inactivo. Para arrancar el Listener, seguir los siguientes pasos........\n"
+		echo -e "Listener inactivo. Para arrancar el Listener, ejecutar en la terminal:"
+		echo -e "./start.sh <nombre_del_proceso_a_inciar_sin_extension>\n"
 		break
 		;;
 		*)
@@ -40,9 +40,15 @@ initializeListener()
 	
 }
 
-changeMod()
+changeModBin()
 {
-	chmod -R 777 "$1"
+	
+	chmod -R 777 "$BINDIR"
+}
+
+changeModRW() {
+
+	chmod -R 666 "$1"
 }
 
 initializeEnvironment()
@@ -53,26 +59,29 @@ initializeEnvironment()
 	else
 		echo -e "Se inicializa ambiente\n"
 		export ENVIRONMENT=1 #AMBIENTE INICIALIZADO
+
 		export GRUPO="$grupo"
+		chmod -R 777 "$grupo"
 		#NO SE QUE HAY QUE SETEARLE A PATH		
-		export PATH="."		
+		#export PATH="."		
 		export MAEDIR="$grupo/$path_maedir"
-		#changeMod "$MAEDIR"
+		changeModRW "$MAEDIR"
 		export NOVEDIR="$grupo/$path_novedir"
 		export ACEPDIR="$grupo/$path_acepdir"
-		#changeMod "$NOVEDIR"
+		changeModRW "$NOVEDIR"
 		export RECHDIR="$grupo/$path_rechdir"
-		#changeMod "$RECHDIR"
+		changeModRW "$RECHDIR"
 		export BINDIR="$grupo/$path_bindir"
-		#changeMod "$BINDIR"
+		changeModBin
 		export INFODIR="$grupo/$path_infodir"
-		#changeMod "$INFODIR"
-		export LOGDIR="$grupo/$log_dir"
-		#changeMod "$LOGDIR"
+		changeModRW "$INFODIR"
+		export LOGDIR="$grupo/$path_logdir"
+		changeModRW "$LOGDIR"
 		export LOGEXT="$logext"
 		export DATASIZE="$datasize"
 		export LOGSIZE="$logsize"
-		export INFON="$path_infon"
+		export INFON="$grupo/$path_infon"
+		changeModRW "$INFON"
 	fi
 }
 
@@ -89,6 +98,7 @@ checkCorrectPath()
 
 checkFileExist()
 {
+
 	if [ ! -f "$grupo/$path_maedir/$1" ]
 	then	
 		CORRECT_INSTALLATION=0
@@ -100,19 +110,22 @@ checkFileExist()
 findRootPath() 
 {
 	dirlong=`(pwd)`
-	declare local father=`echo "$dirlong" | sed 's/\/grupo07\/.*\$//'`
-	ROOT="$father""/grupo07/"
+	#declare local father=`echo "$dirlong" | sed 's/\/grupo07\/.*\$//'`
+	#RUTA="$father""/grupo07/"
+	header=$(head -n 1 "initializer.conf")
+	RUTA="$header/"
 }
 
 
 checkCorrectInstallation()
 {
 	CONFIG="$CONFDIR/installer.conf"
-	changeMod "$CONFIG"
+	#changeMod "$CONFIG"
 	CORRECT_INSTALLATION=1
+	
+	user=`grep '^BINDIR' "$CONFIG" | cut -f3 -d'='`
 
 	path_bindir=`grep '^BINDIR' "$CONFIG" | cut -f2 -d'='`
-	echo "$path_bindir"
 	checkCorrectPath "$path_bindir" BINDIR
 
 	path_acepdir=`grep -s '^ACEPDIR' "$CONFIG" | cut -f2 -d'='`
@@ -126,6 +139,12 @@ checkCorrectInstallation()
 
 	path_logdir=`grep '^LOGDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_logdir" LOGDIR
+
+	path_infodir=`grep '^INFODIR' "$CONFIG" | cut -f2 -d'='`
+	checkCorrectPath "$path_infodir" INFODIR
+
+	path_novedir=`grep '^NOVEDIR' "$CONFIG" | cut -f2 -d'='`
+	checkCorrectPath "$path_novedir" NOVEDIR
 
 	logext=`grep '^LOGEXT' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$logext" LOGEXT
@@ -148,7 +167,8 @@ showFiles()
 {
 	for fichero in "$1"/*
 	do
-		echo -e "$fichero"
+		arch=$(echo "$fichero" | sed 's/^.*\///')
+		echo -e "$arch"
 	done
 }
 
@@ -156,27 +176,31 @@ showFiles()
 showContent()
 {
 	echo -e "TP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\n"
-	echo -e "Direct. de Configuración: $CONFDIR"
+	echo -e "Direct. de Configuración: $path_confdir"
 	showFiles "$CONFDIR"
-	echo -e "\nDirectorio Ejecutables: $BINDIR\n"
+	echo -e "\nDirectorio Ejecutables: $path_bindir"
 	showFiles "$BINDIR"	
-	echo -e "\nDirect Maestros y Tablas: $MAEDIR\n"
+	echo -e "\nDirect Maestros y Tablas: $path_maedir"
 	showFiles "$MAEDIR"	
-	echo -e "\nDirectorio de Novedades: $NOVEDIR\n"
-	echo -e "Dir. Novedades Aceptadas: $ACEPDIR\n"
-	echo -e "Dir. Informes de Salida: $INFODIR\n"
-	echo -e "Dir. Archivos Rechazados: $RECHDIR\n"
+	echo -e "\nDirectorio de Novedades: $path_novedir"
+	echo -e "Dir. Novedades Aceptadas: $path_acepdir"
+	echo -e "Dir. Informes de Salida: $path_infodir"
+	echo -e "Dir. Archivos Rechazados: $path_rechdir"
 	echo -e "Data size: $DATASIZE\n"
-	echo -e "Dir. de Logs de Comandos: "
+	echo -e "Dir. de Logs de Comandos: $path_logdir"
 	for comando in "$LOGDIR"/*
 	do
-		echo -e "$LOGDIR/<$comando>.$LOGEXT\n"
+		com=$(echo "$comando" | sed 's/^.*\///')
+		echo -e "$com.$LOGEXT\n"
 	done
 	echo -e "Log size: $LOGSIZE\n"
 	echo -e "Estado del Sistema: INICIALIZADO\n"
-	#PID_LISTENER=$(pgrep -f listener.sh)
-	PID_LISTENER=`ps ax | grep listener.sh | grep -v grep | awk '{print $1}'`
-	echo -e "Listener corriendo bajo el no.: <$PID_LISTENER>"
+
+	if [ "$ACCION" == "SI" ]
+	then
+		PID_LISTENER=`ps -ef | grep "./listener.sh" | grep "bash" | grep -v "grep" | awk '{print $2}'`
+		echo -e "Listener corriendo bajo el no.: <$PID_LISTENER>"
+	fi
 }
 
 finish()
@@ -197,8 +221,8 @@ finish()
 
 runInstaller()
 {
-	PATH_INSTALLER="$ROOT""installer/installer.sh"
-	changeMod "$PATH_INSTALLER"	
+	PATH_INSTALLER="$RUTA""installer/installer.sh"
+	#changeMod "$PATH_INSTALLER"	
 	"$PATH_INSTALLER"
 }
 
@@ -211,9 +235,13 @@ prueba() {
 
 #---------------------------------------------------
 #PROGRAM
+#Esto es necesario debido a que no se puede parsear la cantidad
+#de espacio disponible en el installer si el lenguaje es distinto
+#al ingles
+export LANG=en_US.UTF-8
 
 findRootPath
-CONFDIR="$ROOT""conf"
+export CONFDIR="$RUTA""conf"
 echo "$CONFDIR"
 
 echo -e "Comando Initializer Inicio de Ejecución\n"
