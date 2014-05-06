@@ -29,11 +29,13 @@ else
 	#`./"$1.sh"`
 	if [ "$2" == "B" ]	# B=Back, se ejecuta de fondo
 	then
-		$(./"$1" &)
+		$(./"$1" &) 2>/dev/null
 		exit 0
 	elif [ "$2" == "T" ] # T=Top, se ejecuta en la superficie
 	then
-		$(./"$1")
+		echo -e "Se activará el $1. Para detenerlo, ejecutar en la terminal:"
+		echo -e "./stop.sh $1\n"
+		$(./"$1")  2>/dev/null	#Ver mutear los mensajes de finalizacion del proceso no trae problemas
 		exit 0
 	else
 		echo "Argumentos incorrectos"

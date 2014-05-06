@@ -20,7 +20,8 @@ then
 	#El proceso se esta ejecutando, para matarlo busco su PID y le realizo kill -9
 	#pid=$(pidof "$1")
 	pid=`ps -ef | grep "./$1" | grep "bash" | grep -v "grep" | awk '{print $2}'`
-	matar=$(kill -9 "$pid")
+	kill -9 "$pid" > /dev/null 2>&1 &
+	wait "$pid"
 	sleep 1s
 	# Verifico que se haya finalizado el proceso
 	#if [ "$matar" -eq "0" ]
