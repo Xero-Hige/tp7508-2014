@@ -33,7 +33,24 @@ sub readKey {
 }
 
 sub printHelp {
-    print "Ayuda\n";
+    print "\nAyuda\n\n";
+    print "El programa reporting analiza las listas presupuestadas y realiza informes sobre los resultados\n".
+                "Se ofrecen varias opciones para los informes:\n\n\t-r: Informa sobre los Precios Cuidados, ".
+                "para cada producto de la lista. Puede combinarse con -m y -d (ya sea poniendo las dos opciones, o ".
+                "con -rm y -rd). En ese caso, muestra la información correspondiente a -r o -d, y la comparación con los ".
+                "Precios Cuidados.\n\n\t-m: Informa sobre el precio más bajo para cada producto. Se puede combinar ".
+                "con -r (ya sea usando las dos opciones o como -rm) para mostrar esta información, más la ".
+                "comparación con los Precios Cuidados.\n\n\t-d: Informa sobre donde comprar. Busca el precio más ".
+                "bajo de cada producto y lo agrupa por provincia-supermercado. Se puede combinar con -r (ya sea ".
+                "usando las dos opciones o como -rd) para mostrar esta información, más la comparación con los ".
+                "Precios Cuidados.\n\n\t-f: Informa sobre los productos a los que les falta información. No es ".
+                "combinable con ninguna opción.\n\n\t-w: Graba en un archivo los resultados de la consulta realizada. ".
+                "Este archivo se guarda en el directorio de info con el nombre info_xxx, siendo xxx un número ".
+                "consecutivo al último informe realizado.\n\n\t-x: Filtra por provincia-supermercado. Despliega un ".
+                "menú con todas las opciones disponibles, y permite elegir todos, algunos o ninguno para que sea ".
+                "considerado en el reporte.\n\n\t-u: Filtra por usuario. Muestra una lista de usuarios disponibles y ".
+                "permite elegir las listas de quienes serán analizadas para realizar el informe.\n\n\t-s: Sale del ".
+                "programa.\n\n";    
     print "Presione una tecla para continuar...\n\n";
     readKey;
 }
@@ -368,26 +385,31 @@ sub printMenu {
     print "\n";
 }
 
-$keep_running = 1;
-while ($keep_running) {
+#$keep_running = 1;
+#while ($keep_running) {
     %supermarkets = ();
     makeSupermarketsHash(\%supermarkets);
-    printMenu;
-    print "\tIngresar las opciones deseadas: ";
-    @options_input = (<STDIN> =~ /-(\w)(\w*)/g);
+    #printMenu;
+    #print "\tIngresar las opciones deseadas: ";
+    $parameters = "";
+    $parameters = $parameters.$_ foreach(@ARGV);
+    #@options_input = (@ARGV =~ /-(\w)(\w*)/g);
+    @options_input = ($parameters =~ /-(\w)(\w*)/g);
     %options = (); # Cleans the options hash
     processOptions(\@options_input, \%options);
     if (exists $options{"s"}) {
-        $keep_running = 0;
-        next;
+        #$keep_running = 0;
+        #next;
     }
     if (exists $options{"a"}) {
         printHelp;
-        next;
+        #next;
+        end;
     }
     if (! checkProcessingOptions(\%options)) {
         print "\nAlguna de las siguientes opciones debe estar presentes: -r -m -rm -d -rd -f\n\n";
-        next;
+        #next;
+        end;
     }
     # Users filter
     %users_filter = ();
@@ -420,4 +442,4 @@ while ($keep_running) {
     readKey;
     closedir(PRES_H);
     close(INFO_H) if (exists $options{"w"});
-}
+#}
