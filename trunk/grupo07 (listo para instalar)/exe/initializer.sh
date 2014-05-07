@@ -48,7 +48,7 @@ changeModBin()
 
 changeModRW() {
 
-	chmod -R 777 "$1"
+	chmod -R 666 "$1"
 }
 
 initializeEnvironment()
@@ -65,23 +65,23 @@ initializeEnvironment()
 		#NO SE QUE HAY QUE SETEARLE A PATH		
 		#export PATH="."		
 		export MAEDIR="$grupo/$path_maedir"
-		#changeModRW "$MAEDIR"
+		changeModRW "$MAEDIR"
 		export NOVEDIR="$grupo/$path_novedir"
 		export ACEPDIR="$grupo/$path_acepdir"
-		#changeModRW "$NOVEDIR"
+		changeModRW "$NOVEDIR"
 		export RECHDIR="$grupo/$path_rechdir"
-		#changeModRW "$RECHDIR"
+		changeModRW "$RECHDIR"
 		export BINDIR="$grupo/$path_bindir"
 		changeModBin
 		export INFODIR="$grupo/$path_infodir"
-		#changeModRW "$INFODIR"
+		changeModRW "$INFODIR"
 		export LOGDIR="$grupo/$path_logdir"
-		#changeModRW "$LOGDIR"
+		changeModRW "$LOGDIR"
 		export LOGEXT="$logext"
 		export DATASIZE="$datasize"
 		export LOGSIZE="$logsize"
 		export INFON="$grupo/$path_infon"
-		#changeModRW "$INFON"
+		changeModRW "$INFON"
 	fi
 }
 
@@ -124,7 +124,6 @@ checkCorrectInstallation()
 	CORRECT_INSTALLATION=1
 	
 	user=`grep '^BINDIR' "$CONFIG" | cut -f3 -d'='`
-	echo "$user"
 
 	path_bindir=`grep '^BINDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_bindir" BINDIR
@@ -137,7 +136,6 @@ checkCorrectInstallation()
 
 	path_maedir=`grep '^MAEDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_maedir" MAEDIR
-	echo "$path_maedir"
 
 	path_logdir=`grep '^LOGDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_logdir" LOGDIR
@@ -200,7 +198,7 @@ showContent()
 
 	if [ "$ACCION" == "SI" ]
 	then
-		PID_LISTENER=$(pgrep -f listener.sh)
+		PID_LISTENER=`ps -ef | grep "./listener.sh" | grep "bash" | grep -v "grep" | awk '{print $2}'`
 		echo -e "Listener corriendo bajo el no.: <$PID_LISTENER>"
 	fi
 }
@@ -237,6 +235,10 @@ prueba() {
 
 #---------------------------------------------------
 #PROGRAM
+#Esto es necesario debido a que no se puede parsear la cantidad
+#de espacio disponible en el installer si el lenguaje es distinto
+#al ingles
+export LANG=en_US.UTF-8
 
 findRootPath
 export CONFDIR="$RUTA""conf"

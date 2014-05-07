@@ -329,13 +329,13 @@ sub printHeader {
         print $fh "Opciones y filtros:"; print $fh " -".$_ foreach(keys (%options)); print $fh "\n";
         if (exists $options{"x"}) {
             print $fh "Supermercados elegidos (-x):";
-            print " ".${$supermarkets_ref}{$_} foreach(sort {$a <=> $b} keys %{$supermarkets_ref});
-            print "\n";
+            print $fh " ".${$supermarkets_ref}{$_} foreach(sort {$a <=> $b} keys %{$supermarkets_ref});
+            print $fh "\n";
         }
         if (exists $options{"u"}) {
             print $fh "Usuarios elegidos (-u):";
-            print " ".$_ foreach(sort keys %{$users_ref});
-            print "\n";
+            print $fh " ".$_ foreach(sort keys %{$users_ref});
+            print $fh "\n";
         }
         print $fh $INFO_LINE if ((exists $options{"r"}) && ((exists $options{"m"}) || (exists $options{"d"})));
     }
@@ -354,11 +354,25 @@ sub printResults {
     }
 }
 
+sub printMenu {
+    print "\nReporting - Herramienta de informes de RETAILC\n\n";
+    print "Opciones:\n";
+    print "\t-a: Imprime la ayuda del programa\n";
+    print "\t-r: Reporte de precios de referencia. Combinable con -m y -d\n";
+    print "\t-m: Reporte de menor precio. Combinable con -r\n";
+    print "\t-d: Reporte de donde comprar. Combinable con -r\n";
+    print "\t-f: Reporte de faltantes\n";
+    print "\t-x: Filtrar por provincia-supermercado\n";
+    print "\t-u: Filtrar por usuario\n";
+    print "\t-s: Salir del programa\n";
+    print "\n";
+}
+
 $keep_running = 1;
 while ($keep_running) {
     %supermarkets = ();
     makeSupermarketsHash(\%supermarkets);
-    print "\n\tAlgun menú blah blah blah\n\n";
+    printMenu;
     print "\tIngresar las opciones deseadas: ";
     @options_input = (<STDIN> =~ /-(\w)(\w*)/g);
     %options = (); # Cleans the options hash
