@@ -18,9 +18,9 @@ initializeListener()
 		LISTENER=$(pgrep -f listener.sh)
 		#if [ "$LISTENER" == "" ]
 		#then	
-			#echo -e "Se activará el Listener. Para detenerlo, ejecutar en la terminal:"
-			#echo -e "./stop.sh <nombre_del_proceso_a_detener_sin_extension>\n"
-			./start.sh "listener.sh" "T" & 
+			echo -e "Se activará el listener. Para detenerlo, ejecutar en la terminal:"
+			echo -e "./stop.sh listener.sh\n"
+			./start.sh "listener.sh" "B"
 			sleep 2s
 		#else
 		#	echo -e "El demonio Listener ya estaba corriendo\n"
@@ -43,12 +43,12 @@ initializeListener()
 changeModBin()
 {
 	
-	chmod -R 777 "$BINDIR"
+	chmod -R +rwx "$BINDIR"
 }
 
 changeModRW() {
 
-	chmod -R 666 "$1"
+	chmod -R +rw "$1"
 }
 
 initializeEnvironment()
@@ -59,20 +59,20 @@ initializeEnvironment()
 	else
 		echo -e "Se inicializa ambiente\n"
 		export ENVIRONMENT=1 #AMBIENTE INICIALIZADO
-
 		export GRUPO="$grupo"
-		chmod -R 777 "$grupo"
+		#chmod -R 777 "$grupo"
 		#NO SE QUE HAY QUE SETEARLE A PATH		
 		#export PATH="."		
 		export MAEDIR="$grupo/$path_maedir"
 		changeModRW "$MAEDIR"
 		export NOVEDIR="$grupo/$path_novedir"
-		export ACEPDIR="$grupo/$path_acepdir"
 		changeModRW "$NOVEDIR"
+		export ACEPDIR="$grupo/$path_acepdir"
+		changeModRW "$ACEPDIR"
 		export RECHDIR="$grupo/$path_rechdir"
 		changeModRW "$RECHDIR"
 		export BINDIR="$grupo/$path_bindir"
-		changeModBin
+		#changeModBin
 		export INFODIR="$grupo/$path_infodir"
 		changeModRW "$INFODIR"
 		export LOGDIR="$grupo/$path_logdir"
@@ -81,7 +81,7 @@ initializeEnvironment()
 		export DATASIZE="$datasize"
 		export LOGSIZE="$logsize"
 		export INFON="$grupo/$path_infon"
-		changeModRW "$INFON"
+		#changeModRW "$INFON"
 	fi
 }
 
@@ -242,7 +242,6 @@ export LANG=en_US.UTF-8
 
 findRootPath
 export CONFDIR="$RUTA""conf"
-echo "$CONFDIR"
 
 echo -e "Comando Initializer Inicio de Ejecución\n"
 checkCorrectInstallation
