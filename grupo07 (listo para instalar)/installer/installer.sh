@@ -4,7 +4,7 @@ source RWConfFile.sh
 source dirManager.sh
 
 
-
+export LANG=en_US.UTF-8
 INFON=0
 EXE="exe"
 DATOS="datos/maestros"
