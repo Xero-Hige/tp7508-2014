@@ -26,6 +26,10 @@ LOGEXT="log" #extension de archivos de log
 LOGSIZE=400 #tamanio maximo para archivos de log
 INSTALLERVARIABLES=( BINDIR MAEDIR NOVEDIR DATASIZE ACEPDIR INFODIR RECHDIR LOGDIR LOGEXT LOGSIZE )
 
+
+
+
+
 #checkea que perl este instalado y su version sea igual o mayos a la v5
 checkPerl() {
 
