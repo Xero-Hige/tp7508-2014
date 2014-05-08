@@ -159,9 +159,8 @@ sub processSelectedFilters {
 
 # Devuelve 1 o 0, dependiendo si se confirmo o rechazo la selección de filtros
 sub confirmFilterSelection {
-    print "Es correcto? Presione s para continuar, n para elegir de vuelta.\n\n";
-    my($aux_input) = <STDIN>;
-    return 1 if (($aux_input =~ /[s|S]/));
+    print "Es correcto? Ingrese s para continuar, n para elegir de vuelta:";
+    return 1 if ((<STDIN> =~ /^[s|S]/));
     return 0;
 }
 
