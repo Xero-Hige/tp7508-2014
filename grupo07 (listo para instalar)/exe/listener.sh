@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #############----------------------------------------------------------------------------------
 #NOVEDIR="./novedir"
@@ -19,7 +19,7 @@ log()
 Mover()
 {
 	res=`./move.pl "${1}" "${2}"`
-	log "RESULTADO DE MOVER $res" "INFO"
+	res="$?"
 	if [ ! "$res" == "0" ]
 	then	
 		log "No movido ${1} a ${2} por $?" "ERR"
@@ -37,7 +37,6 @@ acept_pricelist_file()
 acept_buylist_file()
 {
 	file="${1}"
-	echo "$NOVEDIR"
 	Mover "$NOVEDIR"/"$file" "$ACEPDIR"/  #"$file" 
 	log "$file - Buylist aceptado" "INFO"
 	

@@ -15,9 +15,9 @@ if [ "$ENVIRONMENT" -ne "1" ]; then
 	exit 2
 fi
 
-proceso=`ps -C "$1" | wc -l`
+proceso=`ps -ef | grep "./$1" | grep "bash" | grep -v "grep" | wc -l` 
 
-if [ "$proceso" -gt "1" ] 
+if [ ! "$proceso" -lt "1" ] 
 	then
 	#El proceso se esta ejecutando
 	echo "El proceso $1 ya se esta ejecutando"

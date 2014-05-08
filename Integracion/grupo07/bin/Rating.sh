@@ -99,7 +99,7 @@ cantListas=`ls -p "$ACEPDIR" | grep -v / | wc -l`
 loguear "Cantidad  de Listas de compras a procesar: ""$cantListas"
 archivos=`ls -p "$ACEPDIR" | grep -v / ` 
 for archivo in $archivos; do    
-echo $archivo
+#echo $archivo
 
   #valida si el archivo no esta vacio
  if  ! [[ -s "$ACEPDIR"/"$archivo" ]]; then

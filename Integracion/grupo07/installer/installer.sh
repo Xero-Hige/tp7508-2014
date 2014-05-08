@@ -4,7 +4,7 @@ source RWConfFile.sh
 source dirManager.sh
 
 
-export LANG=en_US.UTF-8
+
 INFON=0
 EXE="exe"
 DATOS="datos/maestros"
@@ -25,10 +25,6 @@ LOGDIR="log" #directorio de log
 LOGEXT="log" #extension de archivos de log
 LOGSIZE=400 #tamanio maximo para archivos de log
 INSTALLERVARIABLES=( BINDIR MAEDIR NOVEDIR DATASIZE ACEPDIR INFODIR RECHDIR LOGDIR LOGEXT LOGSIZE )
-
-
-
-
 
 #checkea que perl este instalado y su version sea igual o mayos a la v5
 checkPerl() {
