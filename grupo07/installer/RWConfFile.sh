@@ -136,7 +136,7 @@ checkDiskSpace() {
 	#primero checkea que exista el directorio
 	if [ -d "$1" ]
 	then
-		DIRSZ=$(df -h -B MB "$1" |grep -v "Avail" | sed "s/^[^ ]* *[^ ]* *[^ *]* *\([^ ]*\)MB.*$/\1/")
+		DIRSZ=$(df -h -B MB "$1" |grep  "[0-9][0-9]MB" | sed "s/^[^ ]* *[^ ]* *[^ *]* *\([^ ]*\)MB.*$/\1/")
 		if [ "$DIRSZ" -gt "$2" ]
 		then 
 			log $0 "INFO" "El espacio en disco disponible es sufieciente\n\n"
