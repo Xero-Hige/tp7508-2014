@@ -40,7 +40,7 @@ dir+=$1
     done
     #echo $busqueda
     if [[ ${#busqueda} -eq 0 ]]; then
-      echo "$id,$descripcion $unidad" >> "$INFODIR/pres/$archivo"
+      echo "$id;$descripcion $unidad" >> "$INFODIR/pres/$archivo"
       continue      
     fi
     #quito el espacio al final
@@ -57,7 +57,7 @@ dir+=$1
     if [[ $noMachea -eq 1 ]]; then
      #grabo en $INFODIR/pres/arch.xxx
      #N_Item,Producto Pedido
-      echo "$id,$descripcion $unidad" >> "$INFODIR/pres/$archivo"
+      echo "$id;$descripcion $unidad" >> "$INFODIR/pres/$archivo"
     else
       while read -r descrp
         do
@@ -65,7 +65,7 @@ dir+=$1
           producEncontrado=` echo $descrp | cut -d ";" -f4`
           unidad=`echo "$unidad" | sed '$s/.$//'`
           precio=`echo "$descrp" | grep -oE '[^;]+$' ` 
-          echo "$id,$descripcion $unidad,$superId,$producEncontrado,$precio" >> "$INFODIR/pres/$archivo"  
+          echo "$id;$descripcion $unidad;$superId;$producEncontrado;$precio" >> "$INFODIR/pres/$archivo"  
       done <<< "$busqueda" 
     fi
 done < "$dir"
