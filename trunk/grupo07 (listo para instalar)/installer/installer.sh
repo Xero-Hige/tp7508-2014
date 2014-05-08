@@ -214,9 +214,19 @@ finish() {
 			log "$0" "INFO" "El usuario acepta, se completa la instalacion"
 			createDirs
 			echo -e "Instalando archivos maestros y tablas..."			
-			mv "$ROOT/$DATOS"/* "$ROOT/$MAEDIR"
+			mv "$ROOT/$DATOS"/* "$ROOT/$MAEDIR" 2>/dev/null #muevo los archivos maestros
+			if [ "$?" -ne "0" ] #no existen maestros
+			then
+				echo -e "NO EXISTEN ARCHIVOS MAESTROS"
+				log "$0" "WAR" "NO EXISTEN ARCHIVOS MAESTROS"
+			fi
 			echo -e "Instalando programas y funciones..."
-			mv "$ROOT/$EXE"/* "$ROOT/$BINDIR"   #muevo los archivos ejecutables
+			mv "$ROOT/$EXE"/* "$ROOT/$BINDIR" 2>/dev/null  #muevo los archivos ejecutables
+			if [ "$?" -ne "0" ]  #no existen ejecutables
+			then
+				echo -e "NO EXISTEN ARCHIVOS EJECUTABLES"
+				log "$0" "WAR" "NO EXISTEN ARCHIVOS EJECUTABLES"
+			fi
 			updateConfFile
 			log "$0" "INFO" "Instalacion COMPLETADA"
 			echo "$GRUPO" > "$ROOT/$BINDIR/initializer.conf"  
@@ -279,5 +289,6 @@ fi
 
 #presenta los valores propuestos y pregunta si se quiere terminar
 endInstallation
+chmod -R 777 "$GRUPO"
 finish
 
