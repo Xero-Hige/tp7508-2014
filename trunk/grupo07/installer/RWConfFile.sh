@@ -34,7 +34,12 @@ changeValue() {
 	
 	if [ "$#" -eq "2" ]
 	then
-		NEWVALUE="$2"
+		if [ "$2" != "" ]
+		then
+			NEWVALUE="$2"
+		else
+			NEWVALUE="${!1}"
+		fi
 	else
 		NEWVALUE=$(grep "$1" "$ROOT/$CONFGFILE" | sed "s/^.*=\([^=]*\)=.*=.*$/\1/" )
 	fi
@@ -161,22 +166,41 @@ askDirPaths() {
 			do
 				echo -e "Defina el $VARINFO (${!dir}Mb)\n"
 				read NP
+				if [[ ! "$NP" =~ ^[0-9]+$ ]] && [ "$NP" != "" ]
+				then
+					echo -e "Ingrese valor nuemerico"
+					continue
+				fi
+				if [ "$NP" == "" ]
+				then
+					NP="${!dir}"
+				fi
 				checkDiskSpace "$ROOT" "$NP"
 				if [ "$?" -eq "0" ]
 				then
 					break
 				fi
 			done
-
+		
+		elif [ "$dir" == "LOGSIZE" ]
+		then
+			log $0 "INFO" "Se pide al usuario definir el $VARINFO (${!dir}Kb)\n"
+			while true
+			do
+				echo -e "Defina el $VARINFO (${!dir}Kb)\n"
+				read NP
+				if [[ ! "$NP" =~ ^[0-9]+$ ]] && [ "$NP" != "" ]
+				then
+					echo -e "Ingrese valor nuemerico"
+					continue
+				fi
+				break
+			done
 		else	
 			if [ "$dir" == "LOGEXT" ]
 			then
 				echo -e "Defina la $VARINFO ($GRUPO07/$LOGDIR/log.<${!dir}>)\n"
 				log $0 "INFO" "Se pide al usuario definir la $VARINFO ($GRUPO07/$LOGDIR/log.<${!dir}>)\n"
-			elif [ "$dir" == "LOGSIZE" ]
-			then
-				echo -e "Defina el $VARINFO (${!dir}Kb)\n"
-				log $0 "INFO" "Se pide al usuario definir el $VARINFO (${!dir}Kb)\n"
 			else		
 				echo -e "Defina el $VARINFO ($GRUPO07/${!dir})\n"
 				log $0 "INFO" "Se pide al usuario definir el $VARINFO ($GRUPO07/${!dir})\n"
