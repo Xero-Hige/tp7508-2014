@@ -3,7 +3,7 @@
 use Term::ReadKey;
 use File::Spec::Functions qw(catfile);
 
-use Env qw(INFODIR MAEDIR INFON);
+use Env qw(ENVIRONMENT INFODIR MAEDIR INFON);
 #$MAEDIR = "./"; # Hacerlo posta
 $MAEFILE = "super.mae"; 
 #$INFODIR = "./"; #Hacerlo posta
@@ -385,6 +385,9 @@ sub printMenu {
     print "\n";
 }
 
+die "No se realizó la inicialización de ambiente\n" if ($ENVIRONMENT != 1);
+($process_name) = ($0 =~ /\/(.+)$/);
+die "Reporting ya está ejecutándose\n" if (`ps -C  $process_name -o pid=`);
 #$keep_running = 1;
 #while ($keep_running) {
     %supermarkets = ();
@@ -404,12 +407,12 @@ sub printMenu {
     if (exists $options{"a"}) {
         printHelp;
         #next;
-        end;
+        die;
     }
     if (! checkProcessingOptions(\%options)) {
         print "\nAlguna de las siguientes opciones debe estar presentes: -r -m -rm -d -rd -f\n\n";
         #next;
-        end;
+        die;
     }
     # Users filter
     %users_filter = ();
