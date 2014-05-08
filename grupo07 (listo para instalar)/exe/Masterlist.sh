@@ -1,5 +1,29 @@
 #!/usr/bin/env bash
 
+#*****************************************************************************#
+#listener.sh								      
+
+#Copyright 2014: Agustin Rojas			<>
+#		 Bruno Merlo Schurmann		<mail>
+#		 Fabrizio Graffe		<zebas.graffe@gmail.com>
+#		 Gaston Alberto Martinez	<gaston.martinez.90@gmail.com>
+#		 Leandro Gallipi		<mail>
+#		 Luciano Raineri Marchina	<mail>
+
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+
+#You should have received a copy of the GNU General Public License
+#along with this program. If not, see <http://www.gnu.org/licenses>
+#*****************************************************************************#
+
 
 # Pre: -
 # Post: Se cargan las variables  para las rutas de archivos
@@ -140,6 +164,8 @@ function validarCabecera() {
 ###################################################################################################
 ###################################################################################################
 
+# Pre: 
+# Post: Valida que el campo 3 sea numerico y mayor a 1.
 function validarCampo3() {
 	campo3Valido=$TRUE
 	if ([[ $1 =~ ^-?[0-9]+$ ]]) && (( $1 > "1" ))
@@ -153,6 +179,8 @@ function validarCampo3() {
 ###################################################################################################
 ###################################################################################################
 
+# Pre: $1 archPreciodir 
+# Post: Valida que el campo 4 sea numerico, mayor a 0 y menor o igual al campo 3.
 function validarCampo4() {
 	campo4Valido=$TRUE
 	if ([[ $1 =~ ^-?[0-9]+$ ]]) && (( $1 > "0" )) && (( $1 <= $2 ))
@@ -166,6 +194,8 @@ function validarCampo4() {
 ###################################################################################################
 ###################################################################################################
 
+# Pre: $1 archPreciodir 
+# Post: Valida que el campo 5 sea numerico, mayor a 0, menor o igual al campo 3 y distinto que el 4.
 function validarCampo5() {
 	campo5Valido=$TRUE
 	if ([[ $1 =~ ^-?[0-9]+$ ]]) && (( $1 > "0" )) && (( $1 <= $2 )) && [ ! $1 == $3 ]
@@ -179,6 +209,8 @@ function validarCampo5() {
 ###################################################################################################
 ###################################################################################################
 
+# Pre: $1 es el campo1 y $2 es el campo2 del archivo de precios.
+# Post: superID contiene el id del supermercado si existen los campos recibidos en super.mae
 function encontrarSuperID() {
 
 	regSuper=`grep '^[^;]*\;'"$2"';'"$1"';[^;]*;[^;]*;[^;]\+$' "$super"`
@@ -219,12 +251,16 @@ function loguearAdvertencia(){
 ###################################################################################################
 ###################################################################################################
 
+# Pre: Tanto $1 como $2 son paths validos.
+# Post: Mueve un archivo $1 a la locacion indicada por $2 usando Mover.
 function Mover() {
 	./move.pl "$1" "$2"
 }
 ###################################################################################################
 ###################################################################################################
 
+# Da de alta los registros en el precios.mae que se correspondan con
+# el archivo de lista de precios actual si estos son validos.
 function procesarAltas() {
 
 	registroOk=0
@@ -287,7 +323,8 @@ function procesarAltas() {
 ###################################################################################################
 ###################################################################################################
 
-
+# Reemplaza los registros del precios.mae que se correspondan con
+# el archivo de lista de precios actual si estos son de una fecha posterior y son validos.
 function procesarReemplazo() {
 
 	declare local archivo=$1
