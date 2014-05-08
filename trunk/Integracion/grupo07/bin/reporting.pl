@@ -440,7 +440,8 @@ if (exists $options{"a"}) {
 }
 # Checks for query options
 if (! checkProcessingOptions(\%options)) {
-    print "\nAlguna de las siguientes opciones debe estar presentes: -r -m -rm -d -rd -f\n\n";
+    print "\nAlguna de las siguientes opciones debe estar presentes: -r -m -rm -d -rd -f\n";
+    print "Use la opción -a para ver la ayuda del programa.\n\n";
     die;
 }
 # Users filter
