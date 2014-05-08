@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
 
-use Term::ReadKey;
 use File::Spec::Functions qw(catfile);
 
 use Env qw(ENVIRONMENT INFODIR MAEDIR INFON);
@@ -24,14 +23,6 @@ sub makeSupermarketsHash {
     close(SUPER_MAE_H);
 }
 
-# Lee una tecla del stdin y la devuelve
-sub readKey {
-    ReadMode('cbreak');
-    my($key) = ReadKey(0);
-    ReadMode('normal');
-    return $key;
-}
-
 # Imprime a stdout el mensaje de ayuda del comando
 sub printHelp {
     print "\nAyuda\n\n";
@@ -51,8 +42,7 @@ sub printHelp {
                 "menú con todas las opciones disponibles, y permite elegir todos, algunos o ninguno para que sea ".
                 "considerado en el reporte.\n\n\t-u: Filtra por usuario. Muestra una lista de usuarios disponibles y ".
                 "permite elegir las listas de quienes serán analizadas para realizar el informe.\n\n";    
-    print "Presione una tecla para continuar...\n\n";
-    readKey;
+    print "Presione enter para continuar...\n\n";
 }
 
 # Obtiene el número de secuencia para nombrar los archivos de informes
@@ -170,7 +160,8 @@ sub processSelectedFilters {
 # Devuelve 1 o 0, dependiendo si se confirmo o rechazo la selección de filtros
 sub confirmFilterSelection {
     print "Es correcto? Presione s para continuar, n para elegir de vuelta.\n\n";
-    return 1 if (readKey =~ /[s|S]/);
+    my($aux_input) = <STDIN>;
+    return 1 if (($aux_input =~ /[s|S]/));
     return 0;
 }
 
@@ -473,7 +464,6 @@ foreach $file (readdir(PRES_H)) {
     push(@result_list, $NO_RESULT_MSG) if ($#result_list < 0);
     printResults(\%options, $usr_file, \@result_list, INFO_H);
 }
-print "\nPresione una tecla para continuar...\n\n";
-readKey;
+print "\nPresione enter para continuar...\n\n";
 closedir(PRES_H);
 close(INFO_H) if (exists $options{"w"});
