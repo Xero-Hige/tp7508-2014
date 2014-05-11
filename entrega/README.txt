@@ -15,18 +15,27 @@ QUE ES RETAILC
 
 #################################################################################################
 
-DESCOMPRESION
-
-	Se debe descomprimir en el directorio actual (o en el que se desee instalar) el siguiente
-	comando:
+COMO INSTALAR
 	
+	Para poder instalar el sistema, primero debe descomprimir el archivador descargado:
+
+
+	DESCOMPRESION:
+
+	El fichero se puede descomprimir en cualquier carpeta. Se recomienda realizarlo en el directorio
+	donde se desea instalar para poder contar con las opciones de reparacion de instalacion mas 
+	facilmente en el futuro. Para mover el archivador puede hacer uso del comando:
+
+	mv ./grupo07.tgz [DIRECTORIO DESTINO]
+	
+	Para descomprimir, se utiliza el siguiente comando, ubicado en la carpeta donde se encuentra
+	el mismo
+
 	tar -zxf grupo07.tgz -C [DESTINO]
 
-#################################################################################################
 
-INSTALACION
-
-	Una vez descomprimido el paqute se debera contar con 4 directorio:
+	Una vez descomprimido el paquete, se generara una carpeta grupo07, que cuenta con los siguientes
+	directorios:
 
 	. installer
 	. exe
@@ -34,9 +43,13 @@ INSTALACION
 	. conf
 
 
+	INSTALACION
+
 	Para instalar el Paquete:
 
-	1) Ejecutar el comando "installer.sh" que se encuentra en el directorio "installer".
+	1) Colocarse en el directorio installer y ejecutar installer.sh mediante el comando:
+
+	bash ./installer.sh
 
 	2) Aceptar los terminos y condiciones de la instalacion.
 
@@ -157,6 +170,6 @@ AUTORES
 	Merlo Schurmann, Bruno
 	Raineri, Luciano
 	Rojas, Agustin
-	
+
 
 #################################################################################################
