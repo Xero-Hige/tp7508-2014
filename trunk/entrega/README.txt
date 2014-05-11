@@ -1,6 +1,6 @@
 #################################################################################################
 
-README.txt para version 1.0 de RETAILC.
+README.txt para version 1.3 de RETAILC.
 
 Este archivo explica la instalacion del sistema RETAILC y su modo de uso.
 
@@ -33,7 +33,6 @@ COMO INSTALAR
 
 	tar -zxf grupo07.tgz -C [DESTINO]
 
-
 	Una vez descomprimido el paquete, se generara una carpeta grupo07, que cuenta con los siguientes
 	directorios:
 
@@ -43,9 +42,7 @@ COMO INSTALAR
 	. conf
 
 
-	INSTALACION
-
-	Para instalar el Paquete:
+	INSTALACION:
 
 	1) Colocarse en el directorio installer y ejecutar installer.sh mediante el comando:
 
