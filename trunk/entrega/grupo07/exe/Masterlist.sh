@@ -115,10 +115,8 @@ function validarCabecera() {
 	declare local usr=`echo "$1" | sed 's/^[^\.]*\.//'`
 
 
-	echo "$usr\n"
-	echo "$campo6\n"
 	email=`grep '^[^;]*\;[^;]*\;'"$usr"';[0-9]\;'"$campo6"'\$' "$asoc"`
-	echo "$email"
+
 	if [ -z "$email" ] || [ "$email" == "" ]
 	then
 		loguearAdvertencia "Se rechaza el archivo por Correo electrónico del colaborador inválido"
@@ -126,10 +124,8 @@ function validarCabecera() {
 		cabeceraValida="$FALSE"
 		return
 	fi
-	echo "$campo2"
-	echo "$campo1"
+
 	nombreYsuper=`grep -s '^[0-9]*\;'"$campo2"';'"$campo1"';[^;]*\;[^;]*\;[^;]*' "$super"`
-	echo "$nombreYsuper"
 	if [ -z "$nombreYsuper" ] || [ "$nombreYsuper" == "" ]
 	then
 		loguearAdvertencia "Se rechaza el archivo por supermercado inexistente"
@@ -318,7 +314,6 @@ function procesarAltas() {
 			continue
 		fi
 
-
 		nuevoReg="$superID"';'"$usuarioPrecio"';'"$fecha"';'"$producto"';'"$precio"
 		if [ -z "$nuevoReg" ] || [ "$nuevoReg" == "" ]
 		then
@@ -334,7 +329,6 @@ function procesarAltas() {
 
 	loguear "Registros OK: ""$registroOk"
 	loguear "Registros NOK: ""$registroNOk"
-	loguear "Cantidad de lineas leidas: ""$count"
 
 }
 
@@ -415,10 +409,6 @@ do
 	
 		encontrarSuperID "$campo1" "$campo2"
 
-		echo "$campo1"
-		echo "$campo2"
-		echo "$superID"
-
 		#revisar la siguiente linea
 		reg=`grep -s '^'"$superID"'\;'"$usuario"';[0-9]\{8\};[^;]*\;[0-9]*\.[0-9]*\$' "$preciosMae" | head -n 1`
 
@@ -443,6 +433,18 @@ do
 		mesMae=`echo "$fechaMae" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}\$//'`
 		diaMae=`echo "$fechaMae" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}//'`
 
+
+		# Valido que la fecha sea una fecha valida hasta el anio calendario actual
+		if [ "$anioPrecio" -gt 2014 ] || [ "$mesPrecio" -gt 12 ] || [ "$diaPrecio" -gt 31 ]
+		then
+			continue
+		fi
+
+		# Valido que el valor de mes y dia sean mayor a cero
+		if [ "$mesPrecio" -lt 1 ] || [ "$diaPrecio" -lt 1 ]
+		then
+			continue
+		fi
 
 		if [ "$anioPrecio" -gt "$anioMae" ]
 		then
