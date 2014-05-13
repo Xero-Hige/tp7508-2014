@@ -144,7 +144,7 @@ Almacen;Copetin;Encurtidos;N/A;Aceitunas verdes NUCETE descarozada premium fra 3
 Almacen;Copetin;Encurtidos;N/A;Aceitunas verdes NUCETE descarozada sch 180 grm;7.37
 Almacen;Copetin;Encurtidos;N/A;Aceitunas verdes NUCETE en rodajas pou 300 grm;11.83
 Almacen;Copetin;Encurtidos;N/A;Aceitunas verdes NUCETE fra 660 grm;51.67
-Almacen;Copetin;Encurtidos;N/A;Aceitunas verdes NUCETE nº 5 fra 330 grm;23.33
+Almacen;Copetin;Encurtidos;N/A;Aceitunas verdes NUCETE n. 5 fra 330 grm;23.33
 Almacen;Copetin;Encurtidos;N/A;Aceitunas verdes NUCETE pou 300 grm;10.69
 Almacen;Copetin;Encurtidos;N/A;Aceitunas verdes NUCETE premium fra 360 grm;26.63
 Almacen;Copetin;Encurtidos;N/A;Aceitunas verdes NUCETE premium rellena fra 360 grm;27.67
@@ -770,15 +770,15 @@ Almacen;Pastas;Fideos;Cortos;Fideos guiseros sem. TERRABUSI helices paq 500 grm;
 Almacen;Pastas;Fideos;Cortos;Fideos guiseros sem. TERRABUSI mostachol paq 500 grm;9.29
 Almacen;Pastas;Fideos;Cortos;Fideos guiseros sem. VIZZOLINI penne rigate paq 500 grm;13.79
 Almacen;Pastas;Fideos;Cortos;Fideos guiseros VIZZOLINI fusilli tricolores bsa 500 grm;14.97
-Almacen;Pastas;Fideos;Largos;Fideos huevo DON ITALO fettuccine nº 42 cja 500 grm;32.09
+Almacen;Pastas;Fideos;Largos;Fideos huevo DON ITALO fettuccine n. 42 cja 500 grm;32.09
 Almacen;Pastas;Fideos;Largos;Fideos largos huevo COTO tallarin espinaca paq 500 grm;11.77
 Almacen;Pastas;Fideos;Largos;Fideos largos huevo COTO tallarin paq 500 grm;11.77
 Almacen;Pastas;Fideos;Largos;Fideos largos huevo DON FELIPE bavettas paq 500 grm;16.23
 Almacen;Pastas;Fideos;Largos;Fideos largos huevo DON FELIPE paq 500 grm;17.13
-Almacen;Pastas;Fideos;Largos;Fideos largos huevo DON ITALO fettuccine nº 38 paq 500 grm;17.13
-Almacen;Pastas;Fideos;Largos;Fideos largos huevo DON ITALO fettuccinne nº42 cala cja 500 g;57.75
-Almacen;Pastas;Fideos;Largos;Fideos largos huevo DON ITALO lasagnette nº 64 cja 500 grm;32.09
-Almacen;Pastas;Fideos;Largos;Fideos largos huevo DON ITALO tagliatelle nº 14 paq 500 grm;17.13
+Almacen;Pastas;Fideos;Largos;Fideos largos huevo DON ITALO fettuccine n. 38 paq 500 grm;17.13
+Almacen;Pastas;Fideos;Largos;Fideos largos huevo DON ITALO fettuccinne n.42 cala cja 500 g;57.75
+Almacen;Pastas;Fideos;Largos;Fideos largos huevo DON ITALO lasagnette n. 64 cja 500 grm;32.09
+Almacen;Pastas;Fideos;Largos;Fideos largos huevo DON ITALO tagliatelle n. 14 paq 500 grm;17.13
 Almacen;Pastas;Fideos;Largos;Fideos largos huevo DON VICENTE caserito paq 500 grm;20.49
 Almacen;Pastas;Fideos;Largos;Fideos largos huevo DON VICENTE fettuccini paq 500 grm;21.99
 Almacen;Pastas;Fideos;Largos;Fideos largos huevo DON VICENTE fetu espinaca paq 500 grm;23.85
@@ -841,7 +841,7 @@ Almacen;Pastas;Fideos;Soperos;Fideos soperos sem. TERRABUSI municiones paq 500 g
 Almacen;Pastas;Fideos;Soperos;Fideos soperos sem. VITINA municiones paq 500 grm;10.37
 Almacen;Conservas;Pescados;Anchoas;Filetes de anchoitas MARBELLA en aceite fra 170 grm;38.53
 Almacen;Conservas;Pescados;Anchoas;Filetes de anchoitas MARBELLA en aceite fra 90 grm;25.67
-Almacen;Infusiones;Cafe;Cafe molido;Filtro papel LA VIRGINIA nº4 est 40 uni;17.6
+Almacen;Infusiones;Cafe;Cafe molido;Filtro papel LA VIRGINIA n.4 est 40 uni;17.6
 Almacen;Conservas;Frutas;Varios;Frutillas BAHIA enteras seleccionada lat 830 grm;41.73
 Almacen;Copetin;Snacks;N/A;Galleta salada CLUB SOCIAL pizza 8 uni paq 208 grm;20.13
 Almacen;Copetin;Snacks;N/A;Galletitas CLUB SOCIAL queso paq 252 grm;19.25
@@ -1749,7 +1749,7 @@ Almacen;Infusiones;Te;N/A;Te PATAGONIA F.TEA rosa mosqueta/manzanilla est 20 un;
 Almacen;Infusiones;Te;N/A;Te PATAGONIA F.TEA tilo, melisa, verde y nar est 20 saq;9.79
 Almacen;Infusiones;Te;N/A;Te PATAGONIA F.TEA vainilla est 20 un;13.27
 Almacen;Infusiones;Te;N/A;Te PATAGONIA F.TEA verde est 20 un;13.27
-Almacen;Infusiones;Te;N/A;Te PATAGONIA F.TEA verde y jazmìn cja 20 un;16.85
+Almacen;Infusiones;Te;N/A;Te PATAGONIA F.TEA verde y jazm.n cja 20 un;16.85
 Almacen;Infusiones;Te;N/A;Te patagonia rosa de petalos te rojo y manzanilla cja 20 un;16.85
 Almacen;Infusiones;Te;N/A;Te rojo SAINT GOTTARD cja 20 saq 1.5 grm;19.25
 Almacen;Infusiones;Te;N/A;Te SAINT GOTTARD arandano y frambuesa cja 20 un;28.73
