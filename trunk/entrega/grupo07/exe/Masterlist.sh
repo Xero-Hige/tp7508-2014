@@ -114,7 +114,11 @@ function validarCabecera() {
 	campo6=`echo "$header" | cut -d ";" -f6`
 	declare local usr=`echo "$1" | sed 's/^[^\.]*\.//'`
 
+
+	echo "$usr\n"
+	echo "$campo6\n"
 	email=`grep '^[^;]*\;[^;]*\;'"$usr"';[0-9]\;'"$campo6"'\$' "$asoc"`
+	echo "$email"
 	if [ -z "$email" ] || [ "$email" == "" ]
 	then
 		loguearAdvertencia "Se rechaza el archivo por Correo electrónico del colaborador inválido"
@@ -122,8 +126,10 @@ function validarCabecera() {
 		cabeceraValida="$FALSE"
 		return
 	fi
-
-	nombreYsuper=`grep -s '^[0-9]*\;'"$campo2"';'"$campo1"';[^;]*\;[^;]*\;[^;]*\$' "$super"`
+	echo "$campo2"
+	echo "$campo1"
+	nombreYsuper=`grep -s '^[0-9]*\;'"$campo2"';'"$campo1"';[^;]*\;[^;]*\;[^;]*' "$super"`
+	echo "$nombreYsuper"
 	if [ -z "$nombreYsuper" ] || [ "$nombreYsuper" == "" ]
 	then
 		loguearAdvertencia "Se rechaza el archivo por supermercado inexistente"
@@ -213,7 +219,8 @@ function validarCampo5() {
 # Post: superID contiene el id del supermercado si existen los campos recibidos en super.mae
 function encontrarSuperID() {
 
-	regSuper=`grep '^[^;]*\;'"$2"';'"$1"';[^;]*;[^;]*;[^;]\+$' "$super"`
+	#regSuper=`grep '^[^;]*\;'"$2"';'"$1"';[^;]*\;[^;]*\;.*\$' "$super"`
+	regSuper=`grep '^[^;]*\;'"Buenos Aires"';'"Coto"';[^;]*\;[^;]*\;.*' "$super"`
     superID=`echo "$regSuper" | cut -s -f1 -d';'`
 }
 
@@ -276,9 +283,12 @@ function procesarAltas() {
 	declare local producto
 	
 	flag=0
+	count=0
 
 	while read -r linea
 	do
+	
+		let count=count+1
 		if [ "$flag" -eq 0 ]
 		then
 			let flag=flag+1
@@ -287,11 +297,11 @@ function procesarAltas() {
 
 		if [ -z linea ]
 		then
+			let registroNOk=registroNOk+1
 			continue
 		fi
 
 		cantCampos=`echo "$linea" | sed 's/[^;]//g' | wc -m`
-
 
 		if [ ! "$cantCampos" == "$cantCamposPrecio" ]
 		then
@@ -302,13 +312,20 @@ function procesarAltas() {
 		precio=`echo "$linea" | cut -d ";" -f"$ubicacionPrecio"`
 		producto=`echo "$linea" | cut -d ";" -f"$ubicacionProducto"`
 	
-		if [ "$producto" == "" ] || [ "$precio" == "" ]
+		if [ "$producto" == "" ] || [ "$precio" == "" ] || [[ "$producto" =~ ^\ *$ ]] || [[ "$precio" =~ ^\ *$ ]]
 		then
 			let registroNOk=registroNOk+1
 			continue
 		fi
 
+
 		nuevoReg="$superID"';'"$usuarioPrecio"';'"$fecha"';'"$producto"';'"$precio"
+		if [ -z "$nuevoReg" ] || [ "$nuevoReg" == "" ]
+		then
+			let registroNOk=registroNOk+1
+			continue
+		fi
+		
 		let registroOk=registroOk+1
 		echo "$nuevoReg" >> "$preciosMae"
 
@@ -317,6 +334,7 @@ function procesarAltas() {
 
 	loguear "Registros OK: ""$registroOk"
 	loguear "Registros NOK: ""$registroNOk"
+	loguear "Cantidad de lineas leidas: ""$count"
 
 }
 
@@ -359,7 +377,7 @@ iniciarLog
 for archp in "$path_preciosdir"*.*		#TOQUE ESTO
 do    
 
-
+	
 	if [ "$archp" == "" ] || [ -z "$archp" ] || [ "$archp" == "$path_preciosdir*.*" ]
 	then
 		break
@@ -396,6 +414,10 @@ do
 		usuario=`echo "$archPreciodir" | sed 's/^[^\.]*\.//'`
 	
 		encontrarSuperID "$campo1" "$campo2"
+
+		echo "$campo1"
+		echo "$campo2"
+		echo "$superID"
 
 		#revisar la siguiente linea
 		reg=`grep -s '^'"$superID"'\;'"$usuario"';[0-9]\{8\};[^;]*\;[0-9]*\.[0-9]*\$' "$preciosMae" | head -n 1`
