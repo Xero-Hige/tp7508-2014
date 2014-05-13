@@ -5,6 +5,7 @@ source dirManager.sh
 
 
 
+
 INFON=0
 EXE="exe"
 DATOS="datos/maestros"
@@ -25,6 +26,7 @@ LOGDIR="log" #directorio de log
 LOGEXT="log" #extension de archivos de log
 LOGSIZE=400 #tamanio maximo para archivos de log
 INSTALLERVARIABLES=( BINDIR MAEDIR NOVEDIR DATASIZE ACEPDIR INFODIR RECHDIR LOGDIR LOGEXT LOGSIZE )
+CANT_ARCHIVOS=13
 
 #checkea que perl este instalado y su version sea igual o mayos a la v5
 checkPerl() {
@@ -200,6 +202,22 @@ endInstallation() {
 
 }
 
+
+
+#checkea que sea correcta la cantidad de archivos dentro de una carpeta($1 es el path a la carpeta y $2 la cantidad de archivos que debe haber)
+checkFileCount() {
+
+	COUNT=$( ls -l "$1" | grep -c "\.sh\|pl")
+	if [ "$COUNT" -ne "$2" ]
+	then
+		echo -e "Los archivos fuente no son correctos.\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+		log "$0" "WAR" "Los archivos fuente no son correctos.\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+		exit
+	fi
+	
+}
+
+
 #termina con las instalacion
 finish() {
 
@@ -214,19 +232,15 @@ finish() {
 			log "$0" "INFO" "El usuario acepta, se completa la instalacion"
 			createDirs
 			echo -e "Instalando archivos maestros y tablas..."			
-			mv "$ROOT/$DATOS"/* "$ROOT/$MAEDIR" 2>/dev/null #muevo los archivos maestros
+			cp "$ROOT/$DATOS"/* "$ROOT/$MAEDIR" 2>/dev/null #muevo los archivos maestros
 			if [ "$?" -ne "0" ] #no existen maestros
 			then
 				echo -e "NO EXISTEN ARCHIVOS MAESTROS"
 				log "$0" "WAR" "NO EXISTEN ARCHIVOS MAESTROS"
 			fi
 			echo -e "Instalando programas y funciones..."
-			mv "$ROOT/$EXE"/* "$ROOT/$BINDIR" 2>/dev/null  #muevo los archivos ejecutables
-			if [ "$?" -ne "0" ]  #no existen ejecutables
-			then
-				echo -e "NO EXISTEN ARCHIVOS EJECUTABLES"
-				log "$0" "WAR" "NO EXISTEN ARCHIVOS EJECUTABLES"
-			fi
+			cp "$ROOT/$EXE"/* "$ROOT/$BINDIR" 2>/dev/null  #muevo los archivos ejecutables
+			checkFileCount "$ROOT/$BINDIR" "$CANT_ARCHIVOS"
 			updateConfFile
 			log "$0" "INFO" "Instalacion COMPLETADA"
 			echo "$GRUPO" > "$ROOT/$BINDIR/initializer.conf"  
