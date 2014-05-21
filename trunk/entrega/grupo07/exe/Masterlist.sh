@@ -121,7 +121,7 @@ function validarCabecera() {
 	then
 		loguearAdvertencia "Se rechaza el archivo por Correo electrónico del colaborador inválido"
 		Mover "$1" "$rechdir"
-		cabeceraValida="$FALSE"
+		cabeceraValida=$FALSE
 		return
 	fi
 
@@ -130,7 +130,7 @@ function validarCabecera() {
 	then
 		loguearAdvertencia "Se rechaza el archivo por supermercado inexistente"
 		Mover "$1" "$rechdir"
-		cabeceraValida="$FALSE"
+		cabeceraValida=$FALSE
 		return
 	fi
 
@@ -138,29 +138,30 @@ function validarCabecera() {
 	validarCampo4 "$campo4" "$campo3"
 	validarCampo5 "$campo5" "$campo3" "$campo4"
 
-	if [ "$Campo3Valido" == $FALSE ] 
+
+	if [[ $campo3Valido -eq $FALSE ]] 
 	then
 		loguearAdvertencia "Se rechaza el archivo por Cantidad de campos invalida"
 		Mover "$1" "$rechdir"
-		cabeceraValida="$FALSE"
+		cabeceraValida=$FALSE
 		return
 	fi
-	if [ "$Campo4Valido" == $FALSE ]
+	if [[ $campo4Valido -eq $FALSE ]]
 	then
 		loguearAdvertencia "Se rechaza el archivo por Posición producto inválida"
 		Mover "$1" "$rechdir"
-		cabeceraValida="$FALSE"
+		cabeceraValida=$FALSE
 		return
 	fi
-	if [ "$Campo5Valido" == $FALSE ]
+	if [[ $campo5Valido -eq $FALSE ]]
 	then
 		loguearAdvertencia "Se rechaza el archivo por Posición precio inválida"
 		Mover "$1" "$rechdir"
-		cabeceraValida="$FALSE"
+		cabeceraValida=$FALSE
 		return
 	fi
 
-	cabeceraValida="$TRUE"
+	cabeceraValida=$TRUE
 }
 
 ###################################################################################################
@@ -215,9 +216,12 @@ function validarCampo5() {
 # Post: superID contiene el id del supermercado si existen los campos recibidos en super.mae
 function encontrarSuperID() {
 
-	#regSuper=`grep '^[^;]*\;'"$2"';'"$1"';[^;]*\;[^;]*\;.*\$' "$super"`
-	regSuper=`grep '^[^;]*\;'"Buenos Aires"';'"Coto"';[^;]*\;[^;]*\;.*' "$super"`
+	#loguear "Campos de busqueda de ID: $2 $1"
+	regSuper=`grep '^[^;]*\;'"$2"';'"$1"';[^;]*\;[^;]*\;.*' "$super"`
+	#loguear "Registro: $regSuper"
+	#regSuper=`grep '^[^;]*\;'"Buenos Aires"';'"Coto"';[^;]*\;[^;]*\;.*' "$super"`
     superID=`echo "$regSuper" | cut -s -f1 -d';'`
+	#loguar "ID del supermercado: $superID"
 }
 
 ###################################################################################################
