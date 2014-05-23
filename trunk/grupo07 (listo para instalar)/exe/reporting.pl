@@ -254,11 +254,12 @@ sub processList {
     open(LIST, "<$usr_file") || die "No se pudo abrir el archivo de lista presupuestada\n";
     while (<LIST>) {
         my($item_id, $item_name, $super_id, $item_info, $price) = split(/;/, $_ );
+	chomp($item_name); # If the information is incomplete, there's only two fields
         chomp($price);
         # Checks if data is missing, and stores it if required (-f) or next if it doens't
         if ($super_id eq "") {
             next unless (exists $options{"f"});
-            $items_result{$item_id} = [$item_name, $item_info, $price, $super_id];
+            $items_result{$item_id} = [$item_name, "", "", ""	];
             next; # If -f is present, no more data is neded
         }
         # Checks supermarkets filter, next if the super_id is filtered
@@ -463,6 +464,7 @@ foreach $file (readdir(PRES_H)) {
     push(@result_list, $NO_RESULT_MSG) if ($#result_list < 0);
     printResults(\%options, $usr_file, \@result_list, INFO_H);
 }
-print "\nPresione enter para continuar...\n\n";
+#print "\nPresione enter para continuar...\n";
+print "\n";
 closedir(PRES_H);
 close(INFO_H) if (exists $options{"w"});
