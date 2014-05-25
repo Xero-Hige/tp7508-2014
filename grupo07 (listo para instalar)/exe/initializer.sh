@@ -56,8 +56,10 @@ initializeEnvironment()
 	if [ "$ENVIRONMENT" == 1 ]
 	then
 		echo -e "Ambiente ya inicializado. Si quiere reiniciar, termine su sesión e ingrese nuevamente\n"
+		log "Ambiente ya inicializado. Si quiere reiniciar, termine su sesión e ingrese nuevamente\n" "ERR"
 	else
 		echo -e "Se inicializa ambiente\n"
+		PATH=$PATH:.
 		export ENVIRONMENT=1 #AMBIENTE INICIALIZADO
 		export GRUPO="$grupo"
 		#chmod -R 777 "$grupo"
@@ -176,6 +178,7 @@ showFiles()
 showContent()
 {
 	echo -e "TP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\n"
+	echo -e "PATH: $PATH"
 	echo -e "Direct. de Configuración: $path_confdir"
 	showFiles "$CONFDIR"
 	echo -e "\nDirectorio Ejecutables: $path_bindir"
