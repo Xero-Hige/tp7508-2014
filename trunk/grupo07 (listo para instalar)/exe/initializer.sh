@@ -143,7 +143,6 @@ checkCorrectLogExt()
 		echo -e "- Falta $1\n"
 		CORRECT_INSTALLATION=0
 		echo -e "No se ha pasado una $1"
-		log "No se ha pasado una $1. Será .log en su defecto" "ERR"
 		logext="log"
 	fi
 }
