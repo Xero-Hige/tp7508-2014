@@ -156,7 +156,7 @@ checkCorrectInstallation()
 	grupo=`grep '^GRUPO' "$CONFIG" | cut -f2 -d'='`
 	
 	logext=`grep '^LOGEXT' "$CONFIG" | cut -f2 -d'='`
-	checkCorrectPath "$logext" LOGEXT
+	checkCorrectLogExt "$logext" LOGEXT
 	export LOGEXT="$logext"
 
 	path_logdir=`grep '^LOGDIR' "$CONFIG" | cut -f2 -d'='`
