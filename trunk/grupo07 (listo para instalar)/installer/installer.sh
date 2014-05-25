@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
-source RWConfFile.sh
-source dirManager.sh
-
-
+if [ $# -eq 0 ]
+then
+	source RWConfFile.sh
+	source dirManager.sh
+else
+	source "$1/RWConfFile.sh"
+	source "$1/dirManager.sh"
+fi
 
 INFON=0
 EXE="exe"
