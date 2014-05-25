@@ -77,8 +77,6 @@ initializeEnvironment()
 		#changeModBin
 		export INFODIR="$grupo/$path_infodir"
 		#changeModRW "$INFODIR"
-		export LOGDIR="$grupo/$path_logdir"
-		#changeModRW "$LOGDIR"
 		export LOGEXT="$logext"
 		export DATASIZE="$datasize"
 		export LOGSIZE="$logsize"
@@ -95,6 +93,13 @@ checkCorrectPath()
 		CORRECT_INSTALLATION=0
 		echo -e "Path incorrecto para $1"
 		log "Path incorrecto para $1" "ERR"
+	else
+		if [ ! -d "$grupo/$1" ]
+		then
+			CORRECT_INSTALLATION=0
+			echo -e "No existe el path $1 que está especificado para $2\n"
+			log "No existe el path $1 que está especificado para $2\n" "ERR"
+		fi
 	fi
 }
 
@@ -122,8 +127,14 @@ findRootPath()
 checkCorrectInstallation()
 {
 	CONFIG="$CONFDIR/installer.conf"
-	#changeMod "$CONFIG"
 	CORRECT_INSTALLATION=1
+
+	grupo=`grep '^GRUPO' "$CONFIG" | cut -f2 -d'='`
+	
+	path_logdir=`grep '^LOGDIR' "$CONFIG" | cut -f2 -d'='`
+	checkCorrectPath "$path_logdir" LOGDIR
+
+	export LOGDIR="$grupo/$path_logdir"
 	
 	user=`grep '^BINDIR' "$CONFIG" | cut -f3 -d'='`
 
@@ -139,9 +150,6 @@ checkCorrectInstallation()
 	path_maedir=`grep '^MAEDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_maedir" MAEDIR
 
-	path_logdir=`grep '^LOGDIR' "$CONFIG" | cut -f2 -d'='`
-	checkCorrectPath "$path_logdir" LOGDIR
-
 	path_infodir=`grep '^INFODIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_infodir" INFODIR
 
@@ -150,8 +158,6 @@ checkCorrectInstallation()
 
 	logext=`grep '^LOGEXT' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$logext" LOGEXT
-
-	grupo=`grep '^GRUPO' "$CONFIG" | cut -f2 -d'='`
 
 	logsize=`grep '^LOGSIZE' "$CONFIG" | cut -f2 -d'='`
 	datasize=`grep '^DATASIZE' "$CONFIG" | cut -f2 -d'='`
