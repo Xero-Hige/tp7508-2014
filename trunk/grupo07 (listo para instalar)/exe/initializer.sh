@@ -132,8 +132,19 @@ checkCorrectLogPath()
 		path_logdir="log"		
 		mkdir "$grupo/$path_logdir"
 		export LOGDIR="$grupo/$path_logdir"
-		export LOGEXT="log"
 		log "No existe el path $path_logdir que está especificado para LOGDIR. Se usa este archivo log en su defecto.\n" "ERR"
+	fi
+}
+
+checkCorrectLogExt()
+{	
+	if [ "$#" -eq 1 ]
+	then
+		echo -e "- Falta $1\n"
+		CORRECT_INSTALLATION=0
+		echo -e "No se ha pasado una $1"
+		log "No se ha pasado una $1. Será .log en su defecto" "ERR"
+		logext="log"
 	fi
 }
 
@@ -145,6 +156,10 @@ checkCorrectInstallation()
 
 	grupo=`grep '^GRUPO' "$CONFIG" | cut -f2 -d'='`
 	
+	logext=`grep '^LOGEXT' "$CONFIG" | cut -f2 -d'='`
+	checkCorrectPath "$logext" LOGEXT
+	export LOGEXT="$logext"
+
 	path_logdir=`grep '^LOGDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectLogPath
 
@@ -170,15 +185,13 @@ checkCorrectInstallation()
 	path_novedir=`grep '^NOVEDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_novedir" NOVEDIR
 
-	logext=`grep '^LOGEXT' "$CONFIG" | cut -f2 -d'='`
-	checkCorrectPath "$logext" LOGEXT
-
 	logsize=`grep '^LOGSIZE' "$CONFIG" | cut -f2 -d'='`
 	datasize=`grep '^DATASIZE' "$CONFIG" | cut -f2 -d'='`
 	path_infon=`grep '^INFON' "$CONFIG" | cut -f2 -d'='`
 
 	if [ "$CORRECT_INSTALLATION" -eq 1 ]
 	then
+		chmod -R 777 "$grupo/$path_maedir"
 		checkFileExist super.mae
 		checkFileExist asociados.mae
 		checkFileExist um.tab
