@@ -256,9 +256,8 @@ finish()
 
 runInstaller()
 {
-	PATH_INSTALLER="$RUTA""installer/installer.sh"
-	#changeMod "$PATH_INSTALLER"	
-	"$PATH_INSTALLER"
+	PATH_INSTALLER="$RUTA""installer"
+	"$PATH_INSTALLER/installer.sh" "$PATH_INSTALLER"
 }
 
 
