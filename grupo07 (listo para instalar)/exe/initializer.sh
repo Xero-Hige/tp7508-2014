@@ -123,6 +123,20 @@ findRootPath()
 	RUTA="$header/"
 }
 
+checkCorrectLogPath()
+{	
+	if [ ! -d "$grupo/$path_logdir" ]
+	then
+		CORRECT_INSTALLATION=0
+		echo -e "No existe el path $path_logdir que está especificado para LOGDIR. Se crea un directorio de log auxiliar.\n"
+		path_logdir="log"		
+		mkdir "$grupo/$path_logdir"
+		export LOGDIR="$grupo/$path_logdir"
+		export LOGEXT="log"
+		log "No existe el path $path_logdir que está especificado para LOGDIR. Se usa este archivo log en su defecto.\n" "ERR"
+	fi
+}
+
 
 checkCorrectInstallation()
 {
@@ -132,7 +146,7 @@ checkCorrectInstallation()
 	grupo=`grep '^GRUPO' "$CONFIG" | cut -f2 -d'='`
 	
 	path_logdir=`grep '^LOGDIR' "$CONFIG" | cut -f2 -d'='`
-	checkCorrectPath "$path_logdir" LOGDIR
+	checkCorrectLogPath
 
 	export LOGDIR="$grupo/$path_logdir"
 	
