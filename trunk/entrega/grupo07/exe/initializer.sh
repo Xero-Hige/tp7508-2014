@@ -56,8 +56,10 @@ initializeEnvironment()
 	if [ "$ENVIRONMENT" == 1 ]
 	then
 		echo -e "Ambiente ya inicializado. Si quiere reiniciar, termine su sesión e ingrese nuevamente\n"
+		log "Ambiente ya inicializado. Si quiere reiniciar, termine su sesión e ingrese nuevamente\n" "ERR"
 	else
 		echo -e "Se inicializa ambiente\n"
+		PATH=$PATH:.
 		export ENVIRONMENT=1 #AMBIENTE INICIALIZADO
 		export GRUPO="$grupo"
 		#chmod -R 777 "$grupo"
@@ -75,8 +77,6 @@ initializeEnvironment()
 		#changeModBin
 		export INFODIR="$grupo/$path_infodir"
 		#changeModRW "$INFODIR"
-		export LOGDIR="$grupo/$path_logdir"
-		#changeModRW "$LOGDIR"
 		export LOGEXT="$logext"
 		export DATASIZE="$datasize"
 		export LOGSIZE="$logsize"
@@ -93,6 +93,13 @@ checkCorrectPath()
 		CORRECT_INSTALLATION=0
 		echo -e "Path incorrecto para $1"
 		log "Path incorrecto para $1" "ERR"
+	else
+		if [ ! -d "$grupo/$1" ]
+		then
+			CORRECT_INSTALLATION=0
+			echo -e "No existe el path $1 que está especificado para $2\n"
+			log "No existe el path $1 que está especificado para $2\n" "ERR"
+		fi
 	fi
 }
 
@@ -116,12 +123,46 @@ findRootPath()
 	RUTA="$header/"
 }
 
+checkCorrectLogPath()
+{	
+	if [ ! -d "$grupo/$path_logdir" ]
+	then
+		CORRECT_INSTALLATION=0
+		echo -e "No existe el path $path_logdir que está especificado para LOGDIR. Se crea un directorio de log auxiliar.\n"
+		path_logdir="log"		
+		mkdir "$grupo/$path_logdir"
+		export LOGDIR="$grupo/$path_logdir"
+		log "No existe el path $path_logdir que está especificado para LOGDIR. Se usa este archivo log en su defecto.\n" "ERR"
+	fi
+}
+
+checkCorrectLogExt()
+{	
+	if [ "$#" -eq 1 ]
+	then
+		echo -e "- Falta $1\n"
+		CORRECT_INSTALLATION=0
+		echo -e "No se ha pasado una $1"
+		logext="log"
+	fi
+}
+
 
 checkCorrectInstallation()
 {
 	CONFIG="$CONFDIR/installer.conf"
-	#changeMod "$CONFIG"
 	CORRECT_INSTALLATION=1
+
+	grupo=`grep '^GRUPO' "$CONFIG" | cut -f2 -d'='`
+	
+	logext=`grep '^LOGEXT' "$CONFIG" | cut -f2 -d'='`
+	checkCorrectLogExt "$logext" LOGEXT
+	export LOGEXT="$logext"
+
+	path_logdir=`grep '^LOGDIR' "$CONFIG" | cut -f2 -d'='`
+	checkCorrectLogPath
+
+	export LOGDIR="$grupo/$path_logdir"
 	
 	user=`grep '^BINDIR' "$CONFIG" | cut -f3 -d'='`
 
@@ -137,19 +178,11 @@ checkCorrectInstallation()
 	path_maedir=`grep '^MAEDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_maedir" MAEDIR
 
-	path_logdir=`grep '^LOGDIR' "$CONFIG" | cut -f2 -d'='`
-	checkCorrectPath "$path_logdir" LOGDIR
-
 	path_infodir=`grep '^INFODIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_infodir" INFODIR
 
 	path_novedir=`grep '^NOVEDIR' "$CONFIG" | cut -f2 -d'='`
 	checkCorrectPath "$path_novedir" NOVEDIR
-
-	logext=`grep '^LOGEXT' "$CONFIG" | cut -f2 -d'='`
-	checkCorrectPath "$logext" LOGEXT
-
-	grupo=`grep '^GRUPO' "$CONFIG" | cut -f2 -d'='`
 
 	logsize=`grep '^LOGSIZE' "$CONFIG" | cut -f2 -d'='`
 	datasize=`grep '^DATASIZE' "$CONFIG" | cut -f2 -d'='`
@@ -157,6 +190,7 @@ checkCorrectInstallation()
 
 	if [ "$CORRECT_INSTALLATION" -eq 1 ]
 	then
+		chmod -R 777 "$grupo/$path_maedir"
 		checkFileExist super.mae
 		checkFileExist asociados.mae
 		checkFileExist um.tab
@@ -176,6 +210,7 @@ showFiles()
 showContent()
 {
 	echo -e "TP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\n"
+	echo -e "PATH: $PATH"
 	echo -e "Direct. de Configuración: $path_confdir"
 	showFiles "$CONFDIR"
 	echo -e "\nDirectorio Ejecutables: $path_bindir"
@@ -221,9 +256,8 @@ finish()
 
 runInstaller()
 {
-	PATH_INSTALLER="$RUTA""installer/installer.sh"
-	#changeMod "$PATH_INSTALLER"	
-	"$PATH_INSTALLER"
+	PATH_INSTALLER="$RUTA""installer"
+	"$PATH_INSTALLER/installer.sh" "$PATH_INSTALLER"
 }
 
 
