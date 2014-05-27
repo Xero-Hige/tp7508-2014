@@ -260,6 +260,7 @@ finish() {
 				exit
 			fi
 			echo -e "Instalando programas y funciones..."
+			rm "$ROOT/$BINDIR"/* 2>/dev/null 
 			cp "$ROOT/$EXE"/* "$ROOT/$BINDIR" 2>/dev/null  #muevo los archivos ejecutables
 			checkFileCount "$ROOT/$BINDIR" "$CANT_ARCHIVOS"
 			updateConfFile

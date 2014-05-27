@@ -29,29 +29,38 @@ dir+="/"
 dir+=$1
  while read  linea   
   do
+
     id=$(echo $linea | sed 's-^\([1-9][0-9]*\);.*\ \+[^\ ]\+\ *$-\1-g') 
     descripcion=$(echo $linea | sed 's-^[1-9][0-9]*;\(.*\)\ \+[^\ ]\+\ *$-\1-g')
     unidad=$(echo $linea | sed 's-^[1-9][0-9]*;.*\ \+\([^\ ]\+\)\ *$-\1-g')
+        #quito el espacio al final
+    unidad=`echo "${unidad%?}"`
+    #loguear "$descripcion"
     busqueda=`cat "$MAEDIR/precios.mae"`
     local noMachea
     for palabra in $descripcion
       do
         busqueda=`echo "$busqueda" | grep -w -i $palabra`
     done
-    #echo $busqueda
+
     if [[ ${#busqueda} -eq 0 ]]; then
       echo "$id;$descripcion $unidad" >> "$INFODIR/pres/$archivo"
       continue      
     fi
-    #quito el espacio al final
-    unidad=`echo "${unidad%?}"`
 
+    #loguear "busqueda $busqueda"
   #Busca si la unidad coincide con la unidad del producto encontrado
     if [[ `echo "$busqueda" | grep -w -i "$unidad" | wc -l` -eq 0 ]]; then
        # Si no es la misma unidad que el producto encontrado, busca su equivalente en la tabla de equivalencias
-       if [[ `grep -w -i "$unidad $UNIDIR" | wc -l` -eq 0 ]]; then
+       #if [[ `grep -w -i "$unidad "$UNIDIR"" | wc -l` -eq 0 ]]; then
+       if [[ `cat "$UNIDIR" |grep -w -i "$unidad"  | wc -l` -eq 0 ]]; then
+         loguear "No encontrado unidad"
            noMachea=1
-        fi
+      else
+        noMachea=0
+      fi
+    else
+          noMachea=0
     fi
 
     if [[ $noMachea -eq 1 ]]; then
@@ -63,7 +72,7 @@ dir+=$1
         do
           superId=`echo "$descrp"|sed "s/;.*//"`
           producEncontrado=` echo $descrp | cut -d ";" -f4`
-          unidad=`echo "$unidad" | sed '$s/.$//'`
+          #unidad=`echo "$unidad" | sed '$s/.$//'`
           precio=`echo "$descrp" | grep -oE '[^;]+$' ` 
           echo "$id;$descripcion $unidad;$superId;$producEncontrado;$precio" >> "$INFODIR/pres/$archivo"  
       done <<< "$busqueda" 

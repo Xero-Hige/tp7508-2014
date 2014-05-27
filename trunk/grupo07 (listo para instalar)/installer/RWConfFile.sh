@@ -88,6 +88,24 @@ getVarInfo() {
 
 
 
+#checkBinFiles checkea los archivos ejecutables
+checkBinFiles() {
+	BINFILES=( initializer.conf logger-2.sh Masterlist.sh prueba.sh start.sh initializer.sh logger.sh move.pl Rating.sh stop.sh listener.sh logging.sh pruebalog.sh reporting.pl )
+
+	FILESNOTINSTALLED=""
+
+	for arch in "${BINFILES[@]}"
+	do
+		if [ ! -f "$ROOT/$BINDIR/$arch" ]
+		then
+			FILESNOTINSTALLED+="$BINDIR/$arch"
+			FILESNOTINSTALLED+="; "
+		fi
+	done
+
+	echo "$FILESNOTINSTALLED"
+			
+}
 
 #checkea los subdirectorios
 checkSubDirs() {	
@@ -188,6 +206,7 @@ checkCompleteInstallation() {
 	
 	NOTINSTALLED+=$(checkMaeFiles)
 
+	NOTINSTALLED+=$(checkBinFiles)
 
 
 	if [ "$NOTINSTALLED" == "\nCOMPONENTES FALTANTES: " ]

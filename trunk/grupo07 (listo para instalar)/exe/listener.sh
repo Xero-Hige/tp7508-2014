@@ -226,7 +226,7 @@ process_price_list()
 
 	if ! user_exist "$user"
 	then
-		reject_file "$file" "User invalido"
+		reject_file "$file" "User no existe"
 		return	
 	fi
 	
@@ -238,7 +238,7 @@ process_price_list()
 
 	if ! is_valid_date "$date"
 	then
-		reject_file "$file" "Invalid date"
+		reject_file "$file" "Fecha invalida"
 		return
 	fi
 
@@ -268,10 +268,10 @@ check_new_files ()
 			then
 				process_buy_list "$file"
 			else
-				reject_file "$file" "Formato invalido"			
+				reject_file "$file" "Formato invalido (No es pricelist ni buylist)"			
 			fi
 		else
-			reject_file "$file" "Es de tipo invalido"
+			reject_file "$file" "Es de tipo invalido (No es archivo de texto)"
 		fi
 
 	done
