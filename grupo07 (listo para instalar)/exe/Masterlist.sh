@@ -114,21 +114,23 @@ function validarCabecera() {
 	campo6=`echo "$header" | cut -d ";" -f6`
 	declare local usr=`echo "$1" | sed 's/^[^\.]*\.//'`
 
+
 	email=`grep '^[^;]*\;[^;]*\;'"$usr"';[0-9]\;'"$campo6"'\$' "$asoc"`
+
 	if [ -z "$email" ] || [ "$email" == "" ]
 	then
 		loguearAdvertencia "Se rechaza el archivo por Correo electrónico del colaborador inválido"
 		Mover "$1" "$rechdir"
-		cabeceraValida="$FALSE"
+		cabeceraValida=$FALSE
 		return
 	fi
 
-	nombreYsuper=`grep -s '^[0-9]*\;'"$campo2"';'"$campo1"';[^;]*\;[^;]*\;[^;]*\$' "$super"`
+	nombreYsuper=`grep -s '^[0-9]*\;'"$campo2"';'"$campo1"';[^;]*\;[^;]*\;[^;]*' "$super"`
 	if [ -z "$nombreYsuper" ] || [ "$nombreYsuper" == "" ]
 	then
 		loguearAdvertencia "Se rechaza el archivo por supermercado inexistente"
 		Mover "$1" "$rechdir"
-		cabeceraValida="$FALSE"
+		cabeceraValida=$FALSE
 		return
 	fi
 
@@ -136,29 +138,30 @@ function validarCabecera() {
 	validarCampo4 "$campo4" "$campo3"
 	validarCampo5 "$campo5" "$campo3" "$campo4"
 
-	if [ "$Campo3Valido" == $FALSE ] 
+
+	if [[ $campo3Valido -eq $FALSE ]] 
 	then
 		loguearAdvertencia "Se rechaza el archivo por Cantidad de campos invalida"
 		Mover "$1" "$rechdir"
-		cabeceraValida="$FALSE"
+		cabeceraValida=$FALSE
 		return
 	fi
-	if [ "$Campo4Valido" == $FALSE ]
+	if [[ $campo4Valido -eq $FALSE ]]
 	then
 		loguearAdvertencia "Se rechaza el archivo por Posición producto inválida"
 		Mover "$1" "$rechdir"
-		cabeceraValida="$FALSE"
+		cabeceraValida=$FALSE
 		return
 	fi
-	if [ "$Campo5Valido" == $FALSE ]
+	if [[ $campo5Valido -eq $FALSE ]]
 	then
 		loguearAdvertencia "Se rechaza el archivo por Posición precio inválida"
 		Mover "$1" "$rechdir"
-		cabeceraValida="$FALSE"
+		cabeceraValida=$FALSE
 		return
 	fi
 
-	cabeceraValida="$TRUE"
+	cabeceraValida=$TRUE
 }
 
 ###################################################################################################
@@ -213,8 +216,12 @@ function validarCampo5() {
 # Post: superID contiene el id del supermercado si existen los campos recibidos en super.mae
 function encontrarSuperID() {
 
-	regSuper=`grep '^[^;]*\;'"$2"';'"$1"';[^;]*;[^;]*;[^;]\+$' "$super"`
+	#loguear "Campos de busqueda de ID: $2 $1"
+	regSuper=`grep '^[^;]*\;'"$2"';'"$1"';[^;]*\;[^;]*\;.*' "$super"`
+	#loguear "Registro: $regSuper"
+	#regSuper=`grep '^[^;]*\;'"Buenos Aires"';'"Coto"';[^;]*\;[^;]*\;.*' "$super"`
     superID=`echo "$regSuper" | cut -s -f1 -d';'`
+	#loguar "ID del supermercado: $superID"
 }
 
 ###################################################################################################
@@ -276,9 +283,12 @@ function procesarAltas() {
 	declare local producto
 	
 	flag=0
+	count=0
 
 	while read -r linea
 	do
+	
+		let count=count+1
 		if [ "$flag" -eq 0 ]
 		then
 			let flag=flag+1
@@ -287,11 +297,11 @@ function procesarAltas() {
 
 		if [ -z linea ]
 		then
+			let registroNOk=registroNOk+1
 			continue
 		fi
 
 		cantCampos=`echo "$linea" | sed 's/[^;]//g' | wc -m`
-
 
 		if [ ! "$cantCampos" == "$cantCamposPrecio" ]
 		then
@@ -302,13 +312,19 @@ function procesarAltas() {
 		precio=`echo "$linea" | cut -d ";" -f"$ubicacionPrecio"`
 		producto=`echo "$linea" | cut -d ";" -f"$ubicacionProducto"`
 	
-		if [ "$producto" == "" ] || [ "$precio" == "" ]
+		if [ "$producto" == "" ] || [ "$precio" == "" ] || [[ "$producto" =~ ^\ *$ ]] || [[ "$precio" =~ ^\ *$ ]]
 		then
 			let registroNOk=registroNOk+1
 			continue
 		fi
 
 		nuevoReg="$superID"';'"$usuarioPrecio"';'"$fecha"';'"$producto"';'"$precio"
+		if [ -z "$nuevoReg" ] || [ "$nuevoReg" == "" ]
+		then
+			let registroNOk=registroNOk+1
+			continue
+		fi
+		
 		let registroOk=registroOk+1
 		echo "$nuevoReg" >> "$preciosMae"
 
@@ -359,7 +375,7 @@ iniciarLog
 for archp in "$path_preciosdir"*.*		#TOQUE ESTO
 do    
 
-
+	
 	if [ "$archp" == "" ] || [ -z "$archp" ] || [ "$archp" == "$path_preciosdir*.*" ]
 	then
 		break
@@ -421,6 +437,18 @@ do
 		mesMae=`echo "$fechaMae" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}\$//'`
 		diaMae=`echo "$fechaMae" | sed 's/[^.]\{4\}//' | sed 's/[^.]\{2\}//'`
 
+
+		# Valido que la fecha sea una fecha valida hasta el anio calendario actual
+		if [ "$anioPrecio" -gt 2014 ] || [ "$mesPrecio" -gt 12 ] || [ "$diaPrecio" -gt 31 ]
+		then
+			continue
+		fi
+
+		# Valido que el valor de mes y dia sean mayor a cero
+		if [ "$mesPrecio" -lt 1 ] || [ "$diaPrecio" -lt 1 ]
+		then
+			continue
+		fi
 
 		if [ "$anioPrecio" -gt "$anioMae" ]
 		then
