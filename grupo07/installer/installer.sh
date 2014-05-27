@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
-source RWConfFile.sh
-source dirManager.sh
+if [ $# -eq 0 ]
+then
+        source RWConfFile.sh
+        source dirManager.sh
+else
+        source "$1/RWConfFile.sh"
+        source "$1/dirManager.sh"
+fi
+
 
 
 
@@ -25,6 +32,7 @@ LOGDIR="log" #directorio de log
 LOGEXT="log" #extension de archivos de log
 LOGSIZE=400 #tamanio maximo para archivos de log
 INSTALLERVARIABLES=( BINDIR MAEDIR NOVEDIR DATASIZE ACEPDIR INFODIR RECHDIR LOGDIR LOGEXT LOGSIZE )
+CANT_ARCHIVOS=13
 
 #checkea que perl este instalado y su version sea igual o mayos a la v5
 checkPerl() {
@@ -34,8 +42,8 @@ checkPerl() {
 	MSG=$(perl -v)
 	if [ "$?" -ne "0" ]
 	then
-		echo -e "\nTP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\nPara instalar el TP es necesario contar con Perl 5 o superior. Efectúe su instalación e inténtelo nuevamente.\nProceso de Instalación Cancelado"
-		log "$0" "ERR" "\n     TP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\nPara instalar el TP es necesario contar con Perl 5 o superior. Efectúe su instalación e inténtelo nuevamente.\nProceso de Instalación Cancelado"
+		echo -e "\nTP SO7508 Primer Cuatrimestre 2014. Tema C Copyright Â© Grupo 07\nPara instalar el TP es necesario contar con Perl 5 o superior. EfectÃºe su instalaciÃ³n e intÃ©ntelo nuevamente.\nProceso de InstalaciÃ³n Cancelado"
+		log "$0" "ERR" "\n     TP SO7508 Primer Cuatrimestre 2014. Tema C Copyright Â© Grupo 07\nPara instalar el TP es necesario contar con Perl 5 o superior. EfectÃºe su instalaciÃ³n e intÃ©ntelo nuevamente.\nProceso de InstalaciÃ³n Cancelado"
 		return 1
 	else #perl existe se checkea la version
 		VERSION=$(echo "$MSG" | grep "v[0-9]*\.[0-9]*\.[0-9]*"  | sed "s/^.*v\([0-9]\)*\.[0-9]*\.[0-9]*.*$/\1/")
@@ -63,7 +71,7 @@ checkEnd() {
 #Le pregunta la usuario si acepta los terminos y condiciones para seguir con la instalacion
 checkTerminosYCondiciones() {
 
-	echo -e "\nTP SO7508 Primer Cuatrimestre 2014. Tema C Copyright © Grupo 07\n\nAl instalar TP SO7508 Primer Cuatrimestre 2014 UD. expresa aceptar los términos y condiciones del ACUERDO DE LICENCIA DE SOFTWARE incluido en este paquete.\nAcepta?(Y-N)"
+	echo -e "\nTP SO7508 Primer Cuatrimestre 2014. Tema C Copyright Â© Grupo 07\n\nAl instalar TP SO7508 Primer Cuatrimestre 2014 UD. expresa aceptar los tÃ©rminos y condiciones del ACUERDO DE LICENCIA DE SOFTWARE incluido en este paquete.\nAcepta?(Y-N)"
 	log "$0" "INFO" "Se muestran terminos y condiciones"
 	RESPONSE=0		
 	while [ "$RESPONSE" -eq "0" ]
@@ -200,6 +208,22 @@ endInstallation() {
 
 }
 
+
+
+#checkea que sea correcta la cantidad de archivos dentro de una carpeta($1 es el path a la carpeta y $2 la cantidad de archivos que debe haber)
+checkFileCount() {
+
+	COUNT=$( ls -l "$1" | grep -c "\.sh\|pl")
+	if [ "$COUNT" -ne "$2" ]
+	then
+		echo -e "Los archivos fuente no son correctos.\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+		log "$0" "WAR" "Los archivos fuente no son correctos.\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+		exit
+	fi
+	
+}
+
+
 #termina con las instalacion
 finish() {
 
@@ -214,19 +238,30 @@ finish() {
 			log "$0" "INFO" "El usuario acepta, se completa la instalacion"
 			createDirs
 			echo -e "Instalando archivos maestros y tablas..."			
-			mv "$ROOT/$DATOS"/* "$ROOT/$MAEDIR" 2>/dev/null #muevo los archivos maestros
+			cp "$ROOT/$DATOS"/asociados.mae "$ROOT/$MAEDIR" 2>/dev/null #muevo asociados.mae
 			if [ "$?" -ne "0" ] #no existen maestros
 			then
-				echo -e "NO EXISTEN ARCHIVOS MAESTROS"
-				log "$0" "WAR" "NO EXISTEN ARCHIVOS MAESTROS"
+				echo -e "NO EXISTE asociados.mae\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+				log "$0" "WAR" "NO EXISTE asociados.mae\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+				exit
+			fi
+			cp "$ROOT/$DATOS"/super.mae "$ROOT/$MAEDIR" 2>/dev/null #muevo super.mae
+			if [ "$?" -ne "0" ] #no existen maestros
+			then
+				echo -e "NO EXISTE super.mae\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+				log "$0" "WAR" "NO EXISTEN super.mae\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+				exit
+			fi
+			cp "$ROOT/$DATOS"/um.tab "$ROOT/$MAEDIR" 2>/dev/null #muevo la tabla
+			if [ "$?" -ne "0" ] #no existe tabla
+			then
+				echo -e "NO EXISTE archivo de tabla de unidades\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+				log "$0" "WAR" "NO EXISTE archivo de tabla de unidades\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+				exit
 			fi
 			echo -e "Instalando programas y funciones..."
-			mv "$ROOT/$EXE"/* "$ROOT/$BINDIR" 2>/dev/null  #muevo los archivos ejecutables
-			if [ "$?" -ne "0" ]  #no existen ejecutables
-			then
-				echo -e "NO EXISTEN ARCHIVOS EJECUTABLES"
-				log "$0" "WAR" "NO EXISTEN ARCHIVOS EJECUTABLES"
-			fi
+			cp "$ROOT/$EXE"/* "$ROOT/$BINDIR" 2>/dev/null  #muevo los archivos ejecutables
+			checkFileCount "$ROOT/$BINDIR" "$CANT_ARCHIVOS"
 			updateConfFile
 			log "$0" "INFO" "Instalacion COMPLETADA"
 			echo "$GRUPO" > "$ROOT/$BINDIR/initializer.conf"  
