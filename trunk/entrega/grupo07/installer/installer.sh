@@ -238,11 +238,26 @@ finish() {
 			log "$0" "INFO" "El usuario acepta, se completa la instalacion"
 			createDirs
 			echo -e "Instalando archivos maestros y tablas..."			
-			cp "$ROOT/$DATOS"/* "$ROOT/$MAEDIR" 2>/dev/null #muevo los archivos maestros
+			cp "$ROOT/$DATOS"/asociados.mae "$ROOT/$MAEDIR" 2>/dev/null #muevo asociados.mae
 			if [ "$?" -ne "0" ] #no existen maestros
 			then
-				echo -e "NO EXISTEN ARCHIVOS MAESTROS"
-				log "$0" "WAR" "NO EXISTEN ARCHIVOS MAESTROS"
+				echo -e "NO EXISTE asociados.mae\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+				log "$0" "WAR" "NO EXISTE asociados.mae\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+				exit
+			fi
+			cp "$ROOT/$DATOS"/super.mae "$ROOT/$MAEDIR" 2>/dev/null #muevo super.mae
+			if [ "$?" -ne "0" ] #no existen maestros
+			then
+				echo -e "NO EXISTE super.mae\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+				log "$0" "WAR" "NO EXISTEN super.mae\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+				exit
+			fi
+			cp "$ROOT/$DATOS"/um.tab "$ROOT/$MAEDIR" 2>/dev/null #muevo la tabla
+			if [ "$?" -ne "0" ] #no existe tabla
+			then
+				echo -e "NO EXISTE archivo de tabla de unidades\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+				log "$0" "WAR" "NO EXISTE archivo de tabla de unidades\nHay un problema con la instalacion, vuelva a descomprimir el paquete\nInstalacion CANCELADA"
+				exit
 			fi
 			echo -e "Instalando programas y funciones..."
 			cp "$ROOT/$EXE"/* "$ROOT/$BINDIR" 2>/dev/null  #muevo los archivos ejecutables

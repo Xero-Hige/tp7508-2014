@@ -84,6 +84,72 @@ getVarInfo() {
 
 }
 
+
+
+
+
+
+#checkea los subdirectorios
+checkSubDirs() {	
+	
+	SUBNOTINSTALLED=""
+
+	if [ ! -d "$ROOT/$MAEDIR/precios" ]
+	then
+		SUBNOTINSTALLED+="$MAEDIR/precios"
+		SUBNOTINSTALLED+="; "
+	fi
+	if [ ! -d "$ROOT/$MAEDIR/precios/proc" ]
+	then
+		SUBNOTINSTALLED+="$MAEDIR/precios/proc"
+		SUBNOTINSTALLED+="; "
+	fi
+	if [ ! -d "$ROOT/$ACEPDIR/proc" ]
+	then
+		SUBNOTINSTALLED+="$ACEPDIR/proc"
+		SUBNOTINSTALLED+="; "
+	fi
+	if [ ! -d "$ROOT/$INFODIR/pres" ]
+	then
+		SUBNOTINSTALLED+="$INFODIR/pres"
+		SUBNOTINSTALLED+="; "
+	fi
+
+	echo "$SUBNOTINSTALLED"
+}
+
+
+
+
+#checkea que esten los archivos instalados
+checkMaeFiles() {
+
+	MAEFILES=""
+	
+		
+	if [ ! -f "$ROOT/$MAEDIR/asociados.mae" ]
+	then
+		MAEFILES+="$MAEDIR/asociados.mae"
+		MAEFILES+="; "
+	fi
+	if [ ! -f "$ROOT/$MAEDIR/super.mae" ]
+	then
+		MAEFILES+="$MAEDIR/super.mae"
+		MAEFILES+="; "
+	fi
+	if [ ! -f "$ROOT/$MAEDIR/um.tab" ]
+	then
+		MAEFILES+="$MAEDIR/um.tab"
+		MAEFILES+="; "
+	fi
+	echo "$MAEFILES"
+
+}
+
+
+
+
+
 #Si el archivo installer.conf existe se debera checkear que la instalacion este completa. Si lo esta, se termina. Si no, se muestran los que ya estan definidos y los faltantes.Hay que logear todo 
 checkCompleteInstallation() {
 
@@ -118,6 +184,12 @@ checkCompleteInstallation() {
 		fi
 	done
 	
+	NOTINSTALLED+=$(checkSubDirs)
+	
+	NOTINSTALLED+=$(checkMaeFiles)
+
+
+
 	if [ "$NOTINSTALLED" == "\nCOMPONENTES FALTANTES: " ]
 	then
 		MESSAGE+="Estado de la instalacion: COMPLETA\n"
